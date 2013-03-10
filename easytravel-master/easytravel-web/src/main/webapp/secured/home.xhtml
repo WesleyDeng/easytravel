@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/templates/default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nav">
+		<p:tabMenu activeIndex="0">
+			<ui:include src="/resources/includes/menu.xhtml" />
+		</p:tabMenu>
+	</ui:define>
+
+	<ui:define name="content">
+		<h2>Welcome to Easy travel</h2>
+
+		<p:panel header="The best destinies for you">
+
+			<p:galleria value="#{galleryBean.images}" var="image"
+				panelWidth="500" panelHeight="313" showCaption="true">
+
+				<p:graphicImage value="../resources/images/#{image}"
+					alt="Image Description for #{image}" title="#{image}" />
+
+			</p:galleria>
+
+		</p:panel>
+
+	</ui:define>
+</ui:composition>

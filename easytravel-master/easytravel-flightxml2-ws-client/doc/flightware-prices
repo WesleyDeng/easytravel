@@ -1,0 +1,62 @@
+
+Price : [1- 9999 queries per month] 
+Class 1 = 0.0120$, Class2=0.0079, Class3=0.0020, Class 4 = 0.0008
+
+------------------------------Class 1----------------------------------------------
+
+AirlineFlightSchedules
+AirlineInsight
+MapFlight
+MapFlightEx
+SearchBirdseyeInFlight
+SearchBirdseyePositions
+
+
+------------------------------Class 2----------------------------------------------
+
+AirlineFlightInfo
+AllAirports
+Arrived
+CountAirportOperations
+DecodeFlightRoute
+DecodeRoute
+Departed
+Enroute
+FleetArrived
+FlightInfo
+GetHistoricalTrack
+GetLastTrack
+InFlightInfo
+InboundFlightInfo
+PushAlert
+RoutesBetweenAirports
+RoutesBetweenAirportsEx
+Scheduled
+Search
+SearchCount
+
+------------------------------Class 3----------------------------------------------
+
+AircraftType
+AirportInfo
+AllAirlines
+BlockIdentCheck
+CountAllEnrouteAirlineOperations
+DeleteAlert
+FleetScheduled
+FlightInfoEx
+GetAlerts
+Metar
+NTaf
+SetAlert
+Taf
+TailOwner
+
+------------------------------Class 4----------------------------------------------
+
+AirlineInfo
+GetFlightID
+LatLongsToDistance
+LatLongsToHeading
+MetarEx
+ZipcodeInfo

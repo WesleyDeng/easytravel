@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Easy Travel</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet name="screen.css" library="css" />
+</h:head>
+<h:body>
+	<div id="wrapper">
+
+		<div id="header">
+			<ui:include src="/resources/includes/header.xhtml" />
+		</div>
+
+		<div id="nav">
+			<p:tabMenu activeIndex="-1">
+				<ui:include src="/resources/includes/menu.xhtml" />
+			</p:tabMenu>
+		</div>
+
+		<div id="content">
+
+			<form action="login.do" method="post">
+
+				<p:panel header="Login">
+					<h:panelGrid columns="2">
+						<h:outputText value="Username" />
+						<input type="text" name="username"/>
+						<h:outputText value="Password" />
+						<input name="password" type="text"/>
+					</h:panelGrid>
+				</p:panel>
+				<input type="submit" value="Submit"/>
+			</form>
+
+		</div>
+
+		<div id="footer">
+			<ui:include src="/resources/includes/footer.xhtml" />
+		</div>
+	</div>
+</h:body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/templates/default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nav">
+		<p:tabMenu activeIndex="3">
+			<ui:include src="/resources/includes/menu.xhtml" />
+		</p:tabMenu>
+	</ui:define>
+
+	<ui:define name="aside" />
+
+	<ui:define name="content">
+		<h2>Support</h2>
+
+		<p:panel
+			header="Here you have lot of information about this application">
+			<p:media value="../resources/other/easy_travel_doc.pdf" width="890px" height="890px">  
+    Your browser can't display pdf, <h:outputLink
+					value="../resources/other/easy_travel_doc.pdf">click</h:outputLink> to download pdf instead.  
+</p:media>
+
+		</p:panel>
+
+	</ui:define>
+</ui:composition>

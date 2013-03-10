@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/templates/default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nav">
+		<p:tabMenu activeIndex="1">
+			<ui:include src="/resources/includes/menu.xhtml" />
+		</p:tabMenu>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:outputStylesheet name="app.css" library="css" />
+
+		<div id="article">
+			<h2>Welcome to Holidays Manager</h2>
+		</div>
+
+	</ui:define>
+</ui:composition>
