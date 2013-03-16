@@ -17,26 +17,42 @@
 		</div>
 
 		<div id="nav">
-			<p:tabMenu activeIndex="-1">
-				<ui:include src="/resources/includes/menu.xhtml" />
-			</p:tabMenu>
+			<h:form>
+				<p:tabMenu activeIndex="-1">
+					<ui:include src="/resources/includes/menu.xhtml" />
+				</p:tabMenu>
+			</h:form>
 		</div>
 
 		<div id="content">
 
-			<form action="login.do" method="post">
+				<form action="login.do" method="post">
+
+					<p:panel header="Login">
+						<h:panelGrid columns="2">
+
+							<h:outputText value="Username :" />
+							<input type="text" name="username" />
+
+							<h:outputText value="Password :" />
+							<input name="password" type="text" />
+						</h:panelGrid>
+					</p:panel>
+					<input type="submit" value="Submit" />
+				</form>
+			
+			<!-- 			<form action="j_spring_openid_security_check" id="googleOpenId" method="post" target="_top">
 
 				<p:panel header="Login">
-					<h:panelGrid columns="2">
-						<h:outputText value="Username" />
-						<p:inputText name="username" label="Username" />
-						<h:outputText value="Password" />
-						<p:password name="password" label="Password" />
+					<h:panelGrid columns="1">
+						<input id="openid_identifier" name="openid_identifier"
+							type="hidden" value="https://www.google.com/accounts/o8/id" />
+						<p:button value="Submit" onclick="submitForm('googleOpenId')"/>	
 					</h:panelGrid>
 				</p:panel>
-				<p:button value="Submit"  href="/login.do"/>
-				<input type="submit" value="Submit"/>
-			</form>
+			
+			</form> -->
+
 
 		</div>
 

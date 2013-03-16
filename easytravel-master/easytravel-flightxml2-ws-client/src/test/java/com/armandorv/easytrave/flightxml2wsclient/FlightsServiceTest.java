@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.armandorv.easytravel.flightxml2wsclient.FlightsServiceImpl;
 import com.armandorv.easytravel.flightxml2wsclient.exception.FlightsException;
-import com.flightaware.flightxml.soap.flightxml2.AirlineFlightScheduleStruct;
 import com.flightaware.flightxml.soap.flightxml2.ScheduledFlightStruct;
 
 @RunWith(SpringJUnit4ClassRunner.class)

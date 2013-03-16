@@ -1,8 +1,6 @@
 package com.armandorv.easytravel.googlegeocodewclient;
 
-import static org.junit.Assert.*;
-
-import java.lang.invoke.MethodHandles;
+import static org.junit.Assert.fail;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -15,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.armandorv.easytravel.googlegeocodewsclient.GeocodingService;
 import com.armandorv.easytravel.googlegeocodewsclient.exception.GoogleGeocodingException;
+import com.armandorv.easytravel.googlegeocodewsclient.model.Address;
 import com.armandorv.easytravel.googlegeocodewsclient.model.Geometry;
 
 
@@ -22,7 +21,11 @@ import com.armandorv.easytravel.googlegeocodewsclient.model.Geometry;
 @ContextConfiguration("classpath:easytravel-googlegeocode-ws-client.xml")
 public class GeocodignRestClientTest {
 
-	private static Logger log = Logger.getLogger(MethodHandles.lookup().getClass());
+	private static final String COUNTRY_CODE_ES = "ES";
+
+	private static final String POSTAL_CODE_33010 = "33010";
+
+	private static Logger log = Logger.getLogger(GeocodignRestClientTest.class);
 
 	@Autowired
 	private GeocodingService geocodingService;
@@ -34,12 +37,27 @@ public class GeocodignRestClientTest {
 	}
 
 	@Test
-	public void testGetGeometryNorena() {
+	public void testGetGeometry() {
 
 		try {
-			Geometry geometry = geocodingService.getGeometry("33010", "ES");
+			Geometry geometry = geocodingService.getGeometry(POSTAL_CODE_33010, COUNTRY_CODE_ES);
 			Assert.assertNotNull(geometry);
 			log.info(geometry);
+			
+		} catch (GoogleGeocodingException e) {
+			log.error(e);
+			fail(e.getMessage());
+			
+		}
+	}
+	
+	@Test
+	public void testGetAddress() {
+
+		try {
+			Address address= geocodingService.getAddress(40.714224F, -73.961452F);
+			Assert.assertNotNull(address);
+			log.info(address);
 			
 		} catch (GoogleGeocodingException e) {
 			log.error(e);

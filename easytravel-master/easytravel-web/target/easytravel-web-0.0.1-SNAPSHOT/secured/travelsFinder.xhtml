@@ -7,14 +7,24 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="nav">
+	<h:form>
 		<p:tabMenu activeIndex="2">
 			<ui:include src="/resources/includes/menu.xhtml" />
 		</p:tabMenu>
+	</h:form>
 	</ui:define>
 
-	<ui:define name="content">
+	<ui:define name="aside"></ui:define>
 
-		<div id="article">
+	<ui:define name="content">
+	
+	<style> 
+	    /*Sorry ...*/
+		#content { padding: 6%; float: none;}
+	</style>
+
+			<h2>Travels Finder</h2>
+
 			<p:carousel id="tabsCarousel" numVisible="1"
 				itemStyle="height:200px;width:600px;" effect="easeInStrong">
 				<p:tab title="Godfather Part I">
@@ -45,7 +55,6 @@
 					</h:panelGrid>
 				</p:tab>
 			</p:carousel>
-		</div>
 
 	</ui:define>
 </ui:composition>

@@ -10,5 +10,13 @@
 		<validator-class>com.armandorv.easytravel.web.validator.MailValidator</validator-class>
 	</validator>
 
+	<navigation-rule>
+		<from-view-id>/secured/myTravels.xhtml</from-view-id>
+		<navigation-case id="startNewTravel">
+			<from-outcome>startNewTravel</from-outcome>
+			<to-view-id>/secured/newTravel.xhtml</to-view-id>
+		 	<redirect/>	
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/templates/default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nav">
+		<h:form>
+			<p:tabMenu activeIndex="-1">
+				<ui:include src="/resources/includes/menu.xhtml" />
+			</p:tabMenu>
+		</h:form>
+	</ui:define>
+
+	<ui:define name="aside" />
+
+	<ui:define name="content">
+
+		<style>
+#content {
+	float: none;
+	padding: 8%;
+}
+</style>
+		<p:growl id="messages" showDetail="true" />  
+		<h2>New Travel</h2>
+
+		<h:form id="form">
+			<p:wizard widgetVar="wiz"
+				flowListener="#{newTravelViewModel.onFlowProcess}" style="width:100%;">
+
+
+				<p:tab id="information" title="Travel Information">
+					<ui:include src="/secured/wizzard/travelInformation.xhtml" />
+				</p:tab>
+
+				<p:tab id="flights" title="Flights">
+					<ui:include src="/secured/wizzard/travelFlights.xhtml" />
+				</p:tab>
+
+				<p:tab id="contact" title="Hotels">
+					<ui:include src="/secured/wizzard/travelHotels.xhtml" />
+				</p:tab>
+
+				<p:tab id="confirm" title="Confirmation">
+					<ui:include src="/secured/wizzard/travelConfirmation.xhtml" />
+				</p:tab>
+
+			</p:wizard>
+		</h:form>
+		
+		<ui:include src="/secured/wizzard/googleMaps.xhtml" />
+		
+	</ui:define>
+
+
+</ui:composition>

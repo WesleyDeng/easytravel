@@ -7,25 +7,27 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<ui:define name="nav">
-		<p:tabMenu activeIndex="0">
-			<ui:include src="/resources/includes/menu.xhtml" />
-		</p:tabMenu>
+		<h:form>
+			<p:tabMenu activeIndex="0">
+				<ui:include src="/resources/includes/menu.xhtml" />
+			</p:tabMenu>
+		</h:form>
 	</ui:define>
 
 	<ui:define name="content">
 		<h2>Welcome to Easy travel</h2>
+		<h:form>
+			<p:panel header="The best destinies for you">
 
-		<p:panel header="The best destinies for you">
+				<p:galleria value="#{galleryBean.images}" var="image"
+					panelWidth="500" panelHeight="313" showCaption="true">
 
-			<p:galleria value="#{galleryBean.images}" var="image"
-				panelWidth="500" panelHeight="313" showCaption="true">
+					<p:graphicImage value="../resources/images/#{image}"
+						alt="Image Description for #{image}" title="#{image}" />
 
-				<p:graphicImage value="../resources/images/#{image}"
-					alt="Image Description for #{image}" title="#{image}" />
+				</p:galleria>
 
-			</p:galleria>
-
-		</p:panel>
-
+			</p:panel>
+		</h:form>
 	</ui:define>
 </ui:composition>

@@ -14,8 +14,6 @@ import com.armandorv.easytravel.flightxml2wsclient.exception.FlightsException;
 import com.flightaware.flightxml.soap.flightxml2.AirlineFlightScheduleStruct;
 import com.flightaware.flightxml.soap.flightxml2.AirlineFlightSchedulesRequest;
 import com.flightaware.flightxml.soap.flightxml2.AirlineFlightSchedulesResults;
-import com.flightaware.flightxml.soap.flightxml2.AllAirportsRequest;
-import com.flightaware.flightxml.soap.flightxml2.AllAirportsResults;
 import com.flightaware.flightxml.soap.flightxml2.FlightXML2Soap;
 import com.flightaware.flightxml.soap.flightxml2.ScheduledFlightStruct;
 import com.flightaware.flightxml.soap.flightxml2.ScheduledRequest;
@@ -39,9 +37,6 @@ public class FlightsServiceImpl implements FlightsService {
 			request.setFilter("");
 			request.setHowMany(10);
 			request.setOffset(0);
-			
-			AllAirportsResults res = port.allAirports(new AllAirportsRequest());
-			log.info(res.getAllAirportsResult().getData());
 			
 			ScheduledResults results = port.scheduled(request);
 

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<!-- It 's included inside another h:form -->
+<ui:composition>
+
+	<p:panel header="Travel Information">
+
+		<h:messages errorClass="error" />
+
+		<h:panelGrid columns="1" columnClasses="label, value"
+			styleClass="grid">
+			<h:outputText value="Name *" />
+			 <p:inputText required="true" label="Name"
+				value="#{newTravelViewModel.travel.name}" />
+
+			<h:outputText value="Description *" />
+
+			<p:inputText required="true" label="Description"
+				value="#{newTravelViewModel.travel.description}" />
+
+			<h:outputText value="Add Destiny :" />
+			<p:commandButton type="button" value="Add"
+				onclick="mapDialog.show();" />
+
+		</h:panelGrid>
+
+		<p:separator />
+		<h3>Destinies</h3>
+		<h:outputText id="test" value="#{newTravelViewModel.title}"/>
+
+		<p:dataTable id="destinies" var="destiny" emptyMessage="No destinies"
+			value="#{newTravelViewModel.destinies}" paginator="true" rows="10"
+			selection="#{newTravelViewModel.selectedDestiny}" >
+
+			<p:column headerText="Name">  
+            	#{destiny.name}  
+        		</p:column>
+
+			<p:column headerText="Date">  
+            	#{destiny.estimatedDate}  
+        		</p:column>
+
+			<p:column headerText="Time Zone">  
+          		 #{destiny.timeZone}
+        		</p:column>
+
+			<p:column headerText="Actions">
+				<p:commandButton value="Remove" />
+			</p:column>
+
+		</p:dataTable>
+
+	</p:panel>
+
+</ui:composition>
+
+</html>

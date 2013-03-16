@@ -1,6 +1,7 @@
 package com.armandorv.easytravel.googlegeocodewsclient;
 
 import com.armandorv.easytravel.googlegeocodewsclient.exception.GoogleGeocodingException;
+import com.armandorv.easytravel.googlegeocodewsclient.model.Address;
 import com.armandorv.easytravel.googlegeocodewsclient.model.Geometry;
 
 /**
@@ -21,5 +22,16 @@ public interface GeocodingService {
 	 * 
 	 * @return a cuple of lattitude and longitude wrapped on a Geometry object.
 	 */
-	Geometry getGeometry(String zipCode, String country) throws GoogleGeocodingException;
+	Geometry getGeometry(String zipCode, String country)
+			throws GoogleGeocodingException;
+
+	/**
+	 * 
+	 * @param lattitude
+	 * @param longitude
+	 * @return
+	 * @throws GoogleGeocodingException
+	 */
+	Address getAddress(float lattitude, float longitude)
+			throws GoogleGeocodingException;
 }

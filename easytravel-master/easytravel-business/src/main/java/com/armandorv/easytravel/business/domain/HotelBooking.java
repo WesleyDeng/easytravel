@@ -1,22 +1,37 @@
 package com.armandorv.easytravel.business.domain;
 
-import java.util.Date;
-import java.util.Set;
 
 public class HotelBooking {
 	
 	private Long id;
 	
-	private int persons;
+	private Integer persons;
 	
-	private Date checkInDate;
+	private Destiny destiny;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getPersons() {
+		return persons;
+	}
+
+	public void setPersons(Integer persons) {
+		this.persons = persons;
+	}
+
+	public Destiny getDestiny() {
+		return destiny;
+	}
+
+	public void setDestiny(Destiny destiny) {
+		this.destiny = destiny;
+	}
 	
-	private Date checkOutDate;
 	
-	private User booker;
-	
-	//@Min(1)
-	private Set<HotelRoom> rooms;
-	
-	private BookingState state;
 }
