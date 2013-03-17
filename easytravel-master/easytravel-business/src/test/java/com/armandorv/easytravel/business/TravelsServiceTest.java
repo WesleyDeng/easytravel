@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.armandorv.easytravel.business.exception.BusinessException;
 import com.armandorv.easytravel.business.service.TravelsService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,8 +28,10 @@ public class TravelsServiceTest {
 	}
 	
 	@Test
-	public void testNewTravel(){
-		
+	public void testGetAddress() throws BusinessException{
+		String address = travelsService.getAddress(41.383366, 41.383366);
+		Assert.assertNotNull(address);
+		log.info(address);
 	}
 	
 	@Test

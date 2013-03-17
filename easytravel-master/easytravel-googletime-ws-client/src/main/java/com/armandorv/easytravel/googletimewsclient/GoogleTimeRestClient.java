@@ -1,10 +1,10 @@
 package com.armandorv.easytravel.googletimewsclient;
 
-import java.lang.invoke.MethodHandles;
 import java.util.Date;
 
-import org.apache.cxf.jaxrs.client.WebClient;
 import org.apache.log4j.Logger;
+import org.jboss.resteasy.client.ClientRequest;
+import org.jboss.resteasy.client.ClientResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -13,10 +13,9 @@ import com.armandorv.easytravel.googletimewsclient.exception.GoogleTimeException
 import com.armandorv.easytravel.googletimewsclient.model.TimeZone;
 
 @Component
-class GoogleTimeRestClient implements GoogleTimeService {
+public class GoogleTimeRestClient implements GoogleTimeService {
 
-	private static Logger log = Logger.getLogger(MethodHandles.lookup()
-			.getClass());
+	private static Logger log = Logger.getLogger(GoogleTimeRestClient.class);
 
 	@Value("$gtime{googletime.rest.uri}")
 	private String uri;
@@ -30,12 +29,10 @@ class GoogleTimeRestClient implements GoogleTimeService {
 	@Value("$gtime{googletime.rest.timestamp_name}")
 	private String timeStampName;
 
-	@Value("$gtime{googletime.rest.encoding}")
-	private String urlEncoding;
-
 	@Autowired
 	private GoogleTimeJaxbParser parser;
 
+	@Override
 	public TimeZone getTimeZone(float lattitude, float longitude)
 			throws GoogleTimeException {
 
@@ -44,18 +41,36 @@ class GoogleTimeRestClient implements GoogleTimeService {
 		return parser.parse(xml);
 	}
 
-	private String invokeRest(float lattitude, float longitude) {
-		WebClient client = WebClient.create(uri);
+	private String invokeRest(float lattitude, float longitude)
+			throws GoogleTimeException {
+		try {
+			ClientRequest request = new ClientRequest(uri);
 
-		String location = lattitude + "," + longitude;
-		client.encoding(urlEncoding);
-		client.query(locationName, location);
-		client.query(timeStampName, (int)new Date().getTime());
-		client.query(sensorName, false);
+			 String location = lattitude + "," + longitude;
+			 request.queryParameter(locationName, location);
+			 request.queryParameter(timeStampName, (int) new
+			 Date().getTime());
+			 request.queryParameter(sensorName, false);
+			
+			 request.accept("application/xml");
+			
+			 log.debug("Invoking  " + request.getUri());
+			 ClientResponse<String> response = request.get(String.class);
+			 return response.getEntity();
 
-		log.info("Executing rest invocation to :" + client.getCurrentURI());
+//			HttpClient client = new HttpClient();
+//			HttpGet get = new HttpGet(
+//					new URI(
+//							"https://maps.googleapis.com/maps/api/timezone/xml?sensor=false&timestamp=2034390582&location=43.372417%2C-5.811652"));
+//			HttpMethod method = get; 
+//			HttpResponse response = client.executeMethod(method);
+//			HttpEntity entity = response.getEntity();
 
-		return client.get().readEntity(String.class);
+		} catch (Exception e) {
+			String message = "Error invoking google time service for uri = "
+					+ uri + " location = " + lattitude + "," + longitude;
+			log.error(message, e);
+			throw new GoogleTimeException(message, e);
+		}
 	}
-
 }

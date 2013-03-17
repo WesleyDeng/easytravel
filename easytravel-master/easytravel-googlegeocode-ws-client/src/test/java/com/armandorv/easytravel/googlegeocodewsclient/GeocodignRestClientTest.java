@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.googlegeocodewclient;
+package com.armandorv.easytravel.googlegeocodewsclient;
 
 import static org.junit.Assert.fail;
 
@@ -53,9 +53,10 @@ public class GeocodignRestClientTest {
 	
 	@Test
 	public void testGetAddress() {
-
+		//2018430933,41.383366
+		//40.714224F, -73.961452F
 		try {
-			Address address= geocodingService.getAddress(40.714224F, -73.961452F);
+			Address address= geocodingService.getAddress(41.383366F, 41.383366F);
 			Assert.assertNotNull(address);
 			log.info(address);
 			

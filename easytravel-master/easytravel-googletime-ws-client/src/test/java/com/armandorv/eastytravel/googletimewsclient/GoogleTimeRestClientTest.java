@@ -2,8 +2,6 @@ package com.armandorv.eastytravel.googletimewsclient;
 
 import static org.junit.Assert.fail;
 
-import java.lang.invoke.MethodHandles;
-
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,8 +18,7 @@ import com.armandorv.easytravel.googletimewsclient.model.TimeZone;
 @ContextConfiguration("classpath:easytravel-googletime-ws-client.xml")
 public class GoogleTimeRestClientTest {
 
-	private static Logger log = Logger.getLogger(MethodHandles.lookup()
-			.getClass());
+	private static Logger log = Logger.getLogger(GoogleTimeRestClientTest.class);
 
 	private final float lattitude = 43.3724177F;
 

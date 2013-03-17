@@ -22,12 +22,12 @@
 		<h:form prependId="false">
 			<h:panelGrid columns="2">
 				
-				<h:outputLabel for="title" value="Title:" />
+				<h:outputLabel for="title" value="Name:" />
 				<p:inputText id="title" value="#{newTravelBean.title}" />
 
 				<f:facet name="footer">
 					<p:commandButton value="Add"
-						action="#{newTravelBean.addMarker}"
+						action="#{newTravelBean.addDestiny}"
 						oncomplete="markerAddComplete()" update=":form:destinies" />
 					<p:commandButton value="Cancel" onclick="return cancel()" />
 				</f:facet>

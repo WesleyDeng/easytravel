@@ -29,6 +29,7 @@
 		<module>easytravel-googlegeocode-ws-client</module>
 		<module>easytravel-flightxml2-ws-client</module>
 		<module>easytravel-expedia-ws-client</module>
+		<module>easytravel-airport-ws-client</module>
 	</modules>
 
 	<dependencies>

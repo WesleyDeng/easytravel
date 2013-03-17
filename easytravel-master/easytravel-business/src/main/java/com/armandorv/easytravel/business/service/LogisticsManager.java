@@ -35,8 +35,8 @@ class LogisticsManager {
 			return googleTimeService.getTimeZone(lattitude, longitude)
 					.getName();
 		} catch (GoogleTimeException e) {
-			log.error("Error invoking  googleTimeService :" + e.getMessage());
-			throw new LogisticsException("Error invoking hotels service.", e);
+			log.error("Error invoking  googleTimeService :" + e.getMessage() , e);
+			throw new LogisticsException("Error invoking google time service.", e);
 		}
 	}
 
@@ -48,7 +48,7 @@ class LogisticsManager {
 		} catch (GoogleGeocodingException e) {
 			log.error("Error invoking geocodingService service :"
 					+ e.getMessage());
-			throw new LogisticsException("Error invoking hotels service.", e);
+			throw new LogisticsException("Error invoking google geocoding service.", e);
 		}
 	}
 

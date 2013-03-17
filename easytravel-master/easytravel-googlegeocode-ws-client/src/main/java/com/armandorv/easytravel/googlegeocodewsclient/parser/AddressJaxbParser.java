@@ -1,5 +1,6 @@
 package com.armandorv.easytravel.googlegeocodewsclient.parser;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.xml.bind.JAXBException;
@@ -31,14 +32,15 @@ class AddressJaxbParser extends ParserTemplate<GeocodeResponse> implements
 	@Override
 	public Address parse(String xml) throws GoogleGeocodingException {
 		assertNotNullOrEmpty(xml);
-
+		
 		try {
+			xml = new String(xml.getBytes(), "UTF-8");
 			GeocodeResponse response = (GeocodeResponse) unmarshaller(
 					GeocodeResponse.class).unmarshal(asIs(xml));
 
 			return address(response);
 
-		} catch (JAXBException | IllegalArgumentException e) {
+		} catch (JAXBException | IllegalArgumentException | UnsupportedEncodingException e) {
 			log.error("Error parsing xml content :" + e.getMessage(), e);
 			throw new GoogleGeocodingException("Error parsing xml content :"
 					+ e.getMessage(), e);

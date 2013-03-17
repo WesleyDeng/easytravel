@@ -2,10 +2,8 @@ package com.armandorv.easytravel.googletimewsclient;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.lang.invoke.MethodHandles;
-import java.net.URL;
+import java.io.UnsupportedEncodingException;
 
-import javax.annotation.PostConstruct;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -22,23 +20,14 @@ public class GoogleTimeJaxbParser {
 
 	private static final String OK = "OK";
 
-	private static Logger log = Logger.getLogger(MethodHandles.lookup()
-			.getClass());
-
-	private URL xsd;
-
-	@PostConstruct
-	public void postConstruct() {
-		xsd = this.getClass().getClassLoader()
-				.getResource("googletime.xsd");
-	}
+	private static Logger log = Logger.getLogger(GoogleTimeJaxbParser.class);
 
 	public TimeZone parse(String xml) throws GoogleTimeException {
 
 		assertNotNullOrEmpty(xml , "XML");
-		assertNotNull(xsd , "XSD");
 
 		try {
+			xml = new String(xml.getBytes(), "UTF-8");
 			InputStream xmlIn = new ByteArrayInputStream(xml.getBytes());
 
 			JAXBContext context = JAXBContext
@@ -50,7 +39,7 @@ public class GoogleTimeJaxbParser {
 
 			return timeZone(response);
 
-		} catch (JAXBException | IllegalArgumentException e) {
+		} catch (JAXBException | IllegalArgumentException | UnsupportedEncodingException e) {
 			log.error("Error parsing xml content :" + e.getMessage(), e);
 			throw new GoogleTimeException("Error parsing xml content :"
 					+ e.getMessage(), e);
@@ -74,12 +63,6 @@ public class GoogleTimeJaxbParser {
 
 	private void assertNotNullOrEmpty(String param,String name) {
 		if (param == null || "".equals(param)) {
-			throw new IllegalArgumentException(name + " must not be empty.");
-		}
-	}
-
-	private void assertNotNull(URL url , String name) {
-		if (url == null) {
 			throw new IllegalArgumentException(name + " must not be empty.");
 		}
 	}

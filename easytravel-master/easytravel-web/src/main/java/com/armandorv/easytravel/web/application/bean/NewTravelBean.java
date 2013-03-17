@@ -40,7 +40,7 @@ public class NewTravelBean implements Serializable {
 
 	private List<Destiny> destinies = new ArrayList<>();
 
-	private Destiny selectedDestiny;
+	private Destiny selected;
 
 	@Autowired
 	private TravelsBusinessDelegate travelsBD;
@@ -50,18 +50,27 @@ public class NewTravelBean implements Serializable {
 		return "success";
 	}
 
-	public void addMarker() {
-
+	public void addDestiny() {
 		try {
+			Destiny destiny = travelsBD.setUpDestiny(title, lat, lng);
+
+			destinies.add(destiny);
 			emptyModel.addOverlay(new Marker(new LatLng(lat, lng), title));
-			destinies.add(travelsBD.prepareDestiny(title, lat, lng));
+
+			FacesContextUtils.addMessageInfo("Destiny added :",
+					destinies.size() + " destinies");
+
 		} catch (PresentationException e) {
 			FacesContextUtils.addMessageError("Error", e.getMessage());
 		}
-
-		FacesContextUtils.addMessageInfo("Destiny added :", destinies.size()
-				+ " destinies");
 	}
+
+	public void removeDestiny() {
+		destinies.remove(selected);
+		selected = null;
+	}
+
+	/* Getters and setters of the managed bean. */
 
 	public String onFlowProcess(FlowEvent event) {
 		return event.getNewStep();
@@ -75,12 +84,12 @@ public class NewTravelBean implements Serializable {
 		this.travel = travel;
 	}
 
-	public Destiny getSelectedDestiny() {
-		return selectedDestiny;
+	public Destiny getSelected() {
+		return selected;
 	}
 
-	public void setSelectedDestiny(Destiny selectedDestiny) {
-		this.selectedDestiny = selectedDestiny;
+	public void setSelected(Destiny selected) {
+		this.selected = selected;
 	}
 
 	public List<Destiny> getDestinies() {

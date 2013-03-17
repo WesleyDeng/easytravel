@@ -24,10 +24,13 @@
 	padding: 8%;
 }
 </style>
-		<p:growl id="messages" showDetail="true" />  
+		
 		<h2>New Travel</h2>
 
 		<h:form id="form">
+			
+			<p:growl id="messages" showDetail="true" autoUpdate="true"/>  
+		
 			<p:wizard widgetVar="wiz"
 				flowListener="#{newTravelBean.onFlowProcess}" style="width:100%;">
 

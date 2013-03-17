@@ -35,25 +35,25 @@ class TravelsServiceImpl implements TravelsService {
 	@Override
 	public String getTimeZone(float lattiude, float longitude)
 			throws BusinessException {
-		return logisticsManager.getTimeZone(lattiude, lattiude);
+		return logisticsManager.getTimeZone(lattiude, longitude);
 	}
 
 	@Override
 	public String getTimeZone(double lattiude, double longitude)
 			throws BusinessException {
-		return logisticsManager.getTimeZone((float) lattiude, (float) lattiude);
+		return logisticsManager.getTimeZone((float) lattiude, (float) longitude);
 	}
 
 	@Override
 	public String getAddress(float lattiude, float longitude)
 			throws BusinessException {
-		return logisticsManager.getAddress(lattiude, lattiude);
+		return logisticsManager.getAddress(lattiude, longitude);
 	}
 
 	@Override
 	public String getAddress(double lattiude, double longitude)
 			throws BusinessException {
-		return logisticsManager.getAddress((float) lattiude, (float) lattiude);
+		return logisticsManager.getAddress((float) lattiude, (float) longitude);
 	}
 
 }
