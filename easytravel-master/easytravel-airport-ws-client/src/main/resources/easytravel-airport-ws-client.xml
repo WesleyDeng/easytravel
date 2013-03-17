@@ -18,7 +18,7 @@
 		<property name="placeholderPrefix" value="$airport{" />
 	</bean>
 
-	<jaxws:client id="AirportsWsClient" serviceClass="com.ean.wsapi.hotel.v3.HotelServices"
+	<jaxws:client id="AirportService" serviceClass="net.restfulwebservices.servicecontracts._2008._01.IAirportService"
 		address="$expedia{port.soap.address}">
 	</jaxws:client>
 
