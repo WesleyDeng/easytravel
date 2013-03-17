@@ -1,6 +1,6 @@
 package com.armandorv.easytravel.business.exception;
 
-public class BrokenDomainRuleException extends Exception {
+public class BrokenDomainRuleException extends BusinessException {
 
 	private static final long serialVersionUID = -1878295139355361301L;
 

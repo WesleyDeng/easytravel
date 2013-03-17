@@ -20,7 +20,7 @@ import com.flightaware.flightxml.soap.flightxml2.ScheduledRequest;
 import com.flightaware.flightxml.soap.flightxml2.ScheduledResults;
 
 @Component
-public class FlightsServiceImpl implements FlightsService {
+class FlightsServiceImpl implements FlightsService {
 
 	private Logger log = Logger.getLogger(FlightsServiceImpl.class);
 

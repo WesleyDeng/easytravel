@@ -13,7 +13,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.armandorv.easytravel.flightxml2wsclient.FlightsServiceImpl;
+import com.armandorv.easytravel.flightxml2wsclient.FlightsService;
 import com.armandorv.easytravel.flightxml2wsclient.exception.FlightsException;
 import com.flightaware.flightxml.soap.flightxml2.ScheduledFlightStruct;
 
@@ -25,7 +25,7 @@ public class FlightsServiceTest {
 			.getClass());
 
 	@Autowired
-	private FlightsServiceImpl flightsService;
+	private FlightsService flightsService;
 
 	@Autowired
 	private ApplicationContext applicationContext;

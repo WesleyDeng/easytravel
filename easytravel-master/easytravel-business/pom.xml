@@ -9,7 +9,7 @@
 	<artifactId>easytravel-business</artifactId>
 
 	<dependencies>
- 		<dependency>
+		<dependency>
 			<groupId>org.dbunit</groupId>
 			<artifactId>dbunit</artifactId>
 			<version>2.4.7</version>
@@ -36,7 +36,15 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
-	 	<dependency>
+		<dependency>
+			<groupId>com.armandorv.easytravel</groupId>
+			<artifactId>easytravel-flightxml2-ws-client</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- ************* Spring ************* -->
+
+		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 			<version>1.2.0.RELEASE</version>
@@ -142,6 +150,12 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>compile</scope>
+		</dependency>
 
 	</dependencies>
 

@@ -20,23 +20,23 @@ import com.armandorv.easytravel.googlegeocodewsclient.model.Geometry;
  * 
  */
 @Component
-public class GeocodingRestClient implements GeocodingService {
+class GeocodingRestClient implements GeocodingService {
 
 	private static Logger log = Logger.getLogger(MethodHandles.lookup().getClass());
 
-	@Value("${googlegeocode.rest.uri}")
+	@Value("$geo{googlegeocode.rest.uri}")
 	private String uri;
 
-	@Value("${googlegeocode.rest.sensor_name}")
+	@Value("$geo{googlegeocode.rest.sensor_name}")
 	private String sensorName;
 
-	@Value("${googlegeocode.rest.components_name}")
+	@Value("$geo{googlegeocode.rest.components_name}")
 	private String componentsName;
 
-	@Value("${googlegeocode.rest.country_name}")
+	@Value("$geo{googlegeocode.rest.country_name}")
 	private String countryName;
 
-	@Value("${googlegeocode.rest.zip_code_name}")
+	@Value("$geo{googlegeocode.rest.zip_code_name}")
 	private String zipCodeName;
 
 	@Autowired

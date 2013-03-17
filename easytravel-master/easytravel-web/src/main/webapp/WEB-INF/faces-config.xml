@@ -5,9 +5,16 @@
         http://java.sun.com/xml/ns/javaee
         http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
 
+
+	<application>
+		<el-resolver>
+    		    org.springframework.web.jsf.el.SpringBeanFacesELResolver
+		</el-resolver>
+  	</application>
+
 	<validator>
 		<validator-id>mailValidator</validator-id>
-		<validator-class>com.armandorv.easytravel.web.validator.MailValidator</validator-class>
+		<validator-class>com.armandorv.easytravel.web.application.validator.MailValidator</validator-class>
 	</validator>
 
 	<navigation-rule>

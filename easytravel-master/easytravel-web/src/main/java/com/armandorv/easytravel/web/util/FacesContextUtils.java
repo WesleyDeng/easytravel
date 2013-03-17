@@ -14,4 +14,12 @@ public class FacesContextUtils {
 		FacesMessage message = new FacesMessage(summary, detail);
 		FacesContext.getCurrentInstance().addMessage("messages", message);
 	}
+
+	public static void addMessageInfo(String summary, String detail) {
+		addMessage(summary, detail, FacesMessage.SEVERITY_INFO);
+	}
+
+	public static void addMessageError(String summary, String detail) {
+		addMessage(summary, detail, FacesMessage.SEVERITY_ERROR);
+	}
 }

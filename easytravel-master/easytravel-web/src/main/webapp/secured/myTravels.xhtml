@@ -42,8 +42,8 @@
 
 		<h:form id="form">
 			<p:dataTable id="travels" var="travel"
-				value="#{travelsTablelViewModel.travels}" paginator="true" rows="10"
-				selection="#{travelsTablelViewModel.selected}">
+				value="#{travelsBean.travels}" paginator="true" rows="10"
+				selection="#{travelsBean.selected}">
 
 				<p:column headerText="Name">  
             	#{travel.name}  
@@ -64,14 +64,14 @@
 						oncomplete="flightsDialog.show()" icon="ui-icon-search"
 						title="Show Flights" value="Show Flights">
 						<f:setPropertyActionListener value="#{travel}"
-							target="#{travelsTablelViewModel.selected}" />
+							target="#{travelsBean.selected}" />
 					</p:commandButton>
 
 					<p:commandButton id="showHotelsButton" update=":form:display2"
 						oncomplete="hotelsDialog.show()" icon="ui-icon-search"
 						title="Show" value="Show Hotels">
 						<f:setPropertyActionListener value="#{travel}"
-							target="#{travelsTablelViewModel.selected}" />
+							target="#{travelsBean.selected}" />
 					</p:commandButton>
 
 					<p:commandButton id="selectButton" title="Show"
@@ -94,7 +94,7 @@
             </f:facet>
 
 					<h:outputText value="Travel:" />
-					<h:outputText value="#{travelsTablelViewModel.selected.name}"
+					<h:outputText value="#{travelsBean.selected.name}"
 						style="font-weight:bold" />
 
 					<h:outputText value="Flights:" />
@@ -116,7 +116,7 @@
             </f:facet>
 
 					<h:outputText value="Travel:" />
-					<h:outputText value="#{travelsTablelViewModel.selected.name}"
+					<h:outputText value="#{travelsBean.selected.name}"
 						style="font-weight:bold" />
 
 					<h:outputText value="Hotels:" />

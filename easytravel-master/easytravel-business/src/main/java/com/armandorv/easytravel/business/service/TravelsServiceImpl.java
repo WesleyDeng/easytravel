@@ -1,36 +1,59 @@
 package com.armandorv.easytravel.business.service;
 
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.armandorv.easytravel.business.domain.Travel;
+import com.armandorv.easytravel.business.exception.BusinessException;
 
 @Service
 @Transactional
-public class TravelsServiceImpl implements TravelsService { 
-	
+class TravelsServiceImpl implements TravelsService {
+
+	private static Logger log = Logger.getLogger(TravelsServiceImpl.class);
+
+	@Autowired
+	private TravelsManager travelsManager;
+
+	@Autowired
+	private LogisticsManager logisticsManager;
+
 	@Override
-	public void createTravel(Travel travel) {
-		// TODO Auto-generated method stub
+	public void createTravel(Travel travel) throws BusinessException {
+		log.debug("Creating a new travel " + travel);
+		travelsManager.createTravel(travel);
 
 	}
 
 	@Override
-	public Iterable<Travel> getTravels(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterable<Travel> getTravels(String userId) throws BusinessException {
+		return travelsManager.getTravels(userId);
 	}
 
 	@Override
-	public String getTimeZone(long lattiude, long longitude) {
-		// TODO Auto-generated method stub
-		return "time";
+	public String getTimeZone(float lattiude, float longitude)
+			throws BusinessException {
+		return logisticsManager.getTimeZone(lattiude, lattiude);
 	}
 
 	@Override
-	public String getAddress(long lattiude, long longitude) {
-		// TODO Auto-generated method stub
-		return "address";
+	public String getTimeZone(double lattiude, double longitude)
+			throws BusinessException {
+		return logisticsManager.getTimeZone((float) lattiude, (float) lattiude);
+	}
+
+	@Override
+	public String getAddress(float lattiude, float longitude)
+			throws BusinessException {
+		return logisticsManager.getAddress(lattiude, lattiude);
+	}
+
+	@Override
+	public String getAddress(double lattiude, double longitude)
+			throws BusinessException {
+		return logisticsManager.getAddress((float) lattiude, (float) lattiude);
 	}
 
 }

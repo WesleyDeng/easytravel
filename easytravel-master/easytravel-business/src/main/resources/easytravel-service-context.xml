@@ -12,6 +12,8 @@
 	<context:annotation-config/>
 
 	<import resource="easytravel-persistence-context.xml" />
-	<context:component-scan base-package="com.armandorv.easytravel.service" />
+	<import resource="easytravel-ws-infrastructure-context.xml" />
+	
+	<context:component-scan base-package="com.armandorv.easytravel.business.service" />
 
 </beans>

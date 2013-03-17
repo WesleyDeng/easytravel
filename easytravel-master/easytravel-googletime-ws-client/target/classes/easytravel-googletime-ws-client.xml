@@ -8,7 +8,16 @@
 
 	<import resource="classpath*:META-INF/cfx/cxf.xml"/>
 	
-	<context:property-placeholder location="classpath:googletime.properties" />
+	<bean id="googleTimeConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:googletime.properties</value>
+			</list>
+		</property>
+		<property name="placeholderPrefix" value="$gtime{"/>
+	</bean>
+	
 	<context:annotation-config/>
 	<context:component-scan base-package="com.armandorv.easytravel.googletimewsclient"/>
 

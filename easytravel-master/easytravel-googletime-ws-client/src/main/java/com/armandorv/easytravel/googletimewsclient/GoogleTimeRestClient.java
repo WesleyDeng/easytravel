@@ -13,24 +13,24 @@ import com.armandorv.easytravel.googletimewsclient.exception.GoogleTimeException
 import com.armandorv.easytravel.googletimewsclient.model.TimeZone;
 
 @Component
-public class GoogleTimeRestClient implements GoogleTimeService {
+class GoogleTimeRestClient implements GoogleTimeService {
 
 	private static Logger log = Logger.getLogger(MethodHandles.lookup()
 			.getClass());
 
-	@Value("${googletime.rest.uri}")
+	@Value("$gtime{googletime.rest.uri}")
 	private String uri;
 
-	@Value("${googletime.rest.sensor_name}")
+	@Value("$gtime{googletime.rest.sensor_name}")
 	private String sensorName;
 
-	@Value("${googletime.rest.location_name}")
+	@Value("$gtime{googletime.rest.location_name}")
 	private String locationName;
 
-	@Value("${googletime.rest.timestamp_name}")
+	@Value("$gtime{googletime.rest.timestamp_name}")
 	private String timeStampName;
 
-	@Value("${googletime.rest.encoding}")
+	@Value("$gtime{googletime.rest.encoding}")
 	private String urlEncoding;
 
 	@Autowired

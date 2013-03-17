@@ -17,12 +17,12 @@
 			styleClass="grid">
 			<h:outputText value="Name *" />
 			 <p:inputText required="true" label="Name"
-				value="#{newTravelViewModel.travel.name}" />
+				value="#{newTravelBean.travel.name}" />
 
 			<h:outputText value="Description *" />
 
 			<p:inputText required="true" label="Description"
-				value="#{newTravelViewModel.travel.description}" />
+				value="#{newTravelBean.travel.description}" />
 
 			<h:outputText value="Add Destiny :" />
 			<p:commandButton type="button" value="Add"
@@ -32,11 +32,11 @@
 
 		<p:separator />
 		<h3>Destinies</h3>
-		<h:outputText id="test" value="#{newTravelViewModel.title}"/>
+		<h:outputText id="test" value="#{newTravelBean.title}"/>
 
 		<p:dataTable id="destinies" var="destiny" emptyMessage="No destinies"
-			value="#{newTravelViewModel.destinies}" paginator="true" rows="10"
-			selection="#{newTravelViewModel.selectedDestiny}" >
+			value="#{newTravelBean.destinies}" paginator="true" rows="10"
+			selection="#{newTravelBean.selectedDestiny}" >
 
 			<p:column headerText="Name">  
             	#{destiny.name}  

@@ -14,14 +14,14 @@ import com.ean.wsapi.hotel.v3.HotelListResponse;
 import com.ean.wsapi.hotel.v3.HotelServices;
 
 @Component
-public class HotelsServiceImpl implements HotelsService {
+class HotelsServiceImpl implements HotelsService {
 
 	private Logger log = Logger.getLogger(HotelsServiceImpl.class);
 
-	@Value("${ws.username}")
+	@Value("$expedia{ws.username}")
 	private String username;
 
-	@Value("${ws.password}")
+	@Value("$expedia{ws.password}")
 	private String password;
 
 	@Autowired

@@ -9,12 +9,21 @@
 		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
 	<!-- Server use basic authentication so WSS4 is not required. -->
-	<context:property-placeholder location="classpath:flightxml2.properties" />
+	
+	<bean id="flightxmlConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:flightxml2.properties</value>
+			</list>
+		</property>
+		<property name="placeholderPrefix" value="$fli{"/>
+	</bean>
 
 	<jaxws:client id="flightXMLClient"
 		serviceClass="com.flightaware.flightxml.soap.flightxml2.FlightXML2Soap"
-		address="${flightaware.port.soap.address}" username="${flightaware.username}"
-		password="${flightaware.password}">
+		address="$fli{flightaware.port.soap.address}" username="$fli{flightaware.username}"
+		password="$fli{flightaware.password}">
 	</jaxws:client>
 
 	<context:annotation-config />
