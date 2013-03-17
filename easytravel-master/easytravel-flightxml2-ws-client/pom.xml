@@ -89,8 +89,8 @@
 									<sourceRoot>${basedir}/src/generated/java</sourceRoot>
 									<wsdlOptions>
 										<wsdlOption>
-											<wsdl>http://api.ean.com/ean-services/ws/hotel/v3?wsdl&amp;apiKey=ss47997prvcm58rtyrc9que4</wsdl>
-											<serviceName>HotelServicesImplService</serviceName>
+											<wsdl>http://flightxml.flightaware.com/soap/FlightXML2/wsdl</wsdl>
+											<serviceName>FlightXML2</serviceName>
 										</wsdlOption>
 									</wsdlOptions>
 								</configuration>

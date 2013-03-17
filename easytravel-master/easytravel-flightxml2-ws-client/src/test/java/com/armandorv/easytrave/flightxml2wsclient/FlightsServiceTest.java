@@ -1,6 +1,5 @@
 package com.armandorv.easytrave.flightxml2wsclient;
 
-import java.lang.invoke.MethodHandles;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -21,8 +20,7 @@ import com.flightaware.flightxml.soap.flightxml2.ScheduledFlightStruct;
 @ContextConfiguration("classpath:easytravel-flightaware-ws-client.xml")
 public class FlightsServiceTest {
 
-	private static Logger log = Logger.getLogger(MethodHandles.lookup()
-			.getClass());
+	private static Logger log = Logger.getLogger(FlightsServiceTest.class);
 
 	@Autowired
 	private FlightsService flightsService;
@@ -42,7 +40,16 @@ public class FlightsServiceTest {
 		
 		for (ScheduledFlightStruct scheduledFlightStruct : flights) {
 			log.info("Destination " + scheduledFlightStruct.getDestination());
+			log.info("Destination " + scheduledFlightStruct.getAircrafttype());
+			log.info("Destination " + scheduledFlightStruct.getDestinationCity());
+			log.info("Destination " + scheduledFlightStruct.getIdent());
+			log.info("Destination " + scheduledFlightStruct.getOriginCity());
+			log.info("Destination " + scheduledFlightStruct.getOrigin());
+			log.info("Destination " + scheduledFlightStruct.getDestinationName());
+			log.info("Destination " + scheduledFlightStruct.getOriginName());
+			log.info("Destination " + scheduledFlightStruct.getEstimatedarrivaltime());
+			log.info("Destination " + scheduledFlightStruct.getFiledDeparturetime());
 		}
 	}
-
+	
 }

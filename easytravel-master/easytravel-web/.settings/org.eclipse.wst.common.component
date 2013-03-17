@@ -16,6 +16,9 @@
         <dependent-module archiveName="easytravel-googletime-ws-client-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/easytravel-googletime-ws-client/easytravel-googletime-ws-client">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="easytravel-airport-ws-client-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/easytravel-airport-ws-client/easytravel-airport-ws-client">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="easytravel-flightxml2-ws-client-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/easytravel-flightxml2-ws-client/easytravel-flightxml2-ws-client">
             <dependency-type>uses</dependency-type>
         </dependent-module>

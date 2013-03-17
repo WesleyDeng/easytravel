@@ -56,7 +56,7 @@ public class NewTravelBean implements Serializable {
 
 			destinies.add(destiny);
 			emptyModel.addOverlay(new Marker(new LatLng(lat, lng), title));
-
+			
 			FacesContextUtils.addMessageInfo("Destiny added :",
 					destinies.size() + " destinies");
 

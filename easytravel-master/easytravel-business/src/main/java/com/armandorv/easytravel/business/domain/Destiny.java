@@ -32,11 +32,6 @@ public class Destiny {
 		// Forbidden
 	}
 
-	public Destiny(Destiny previous, Destiny next) {
-		this.previous = previous;
-		this.next = next;
-	}
-
 	public boolean isEnd() {
 		return next == null;
 	}
@@ -111,8 +106,16 @@ public class Destiny {
 		return previous;
 	}
 
+	public void setPrevious(Destiny previous) {
+		this.previous = previous;
+	}
+
 	public Destiny getNext() {
 		return next;
+	}
+
+	public void setNext(Destiny next) {
+		this.next = next;
 	}
 
 	public FlightBooking getFlight() {
@@ -185,7 +188,5 @@ public class Destiny {
 				+ ", previous=" + previous + ", next=" + next + ", flight="
 				+ flight + ", hotels=" + hotels + "]";
 	}
-	
-	
 
 }

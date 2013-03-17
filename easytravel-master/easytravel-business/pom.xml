@@ -38,6 +38,12 @@
 
 		<dependency>
 			<groupId>com.armandorv.easytravel</groupId>
+			<artifactId>easytravel-airport-ws-client</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.armandorv.easytravel</groupId>
 			<artifactId>easytravel-flightxml2-ws-client</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

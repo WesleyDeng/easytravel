@@ -16,8 +16,7 @@ import com.flightaware.flightxml.soap.flightxml2.AirlineFlightSchedulesRequest;
 import com.flightaware.flightxml.soap.flightxml2.AirlineFlightSchedulesResults;
 import com.flightaware.flightxml.soap.flightxml2.FlightXML2Soap;
 import com.flightaware.flightxml.soap.flightxml2.ScheduledFlightStruct;
-import com.flightaware.flightxml.soap.flightxml2.ScheduledRequest;
-import com.flightaware.flightxml.soap.flightxml2.ScheduledResults;
+import com.flightaware.flightxml.soap.flightxml2.ZipcodeInfoRequest;
 
 @Component
 class FlightsServiceImpl implements FlightsService {
@@ -30,23 +29,30 @@ class FlightsServiceImpl implements FlightsService {
 	@Autowired
 	private FlightXML2Soap port;
 
-	public List<ScheduledFlightStruct>  findFlights(String airportCode) throws FlightsException {
+	public List<ScheduledFlightStruct>  findFlights(String ICAO) throws FlightsException {
 		try {
-			ScheduledRequest request = new ScheduledRequest();
-			request.setAirport(airportCode);
-			request.setFilter("");
-			request.setHowMany(10);
-			request.setOffset(0);
+//			ScheduledRequest request = new ScheduledRequest();
+//			request.setAirport(ICAO);
+//			request.setFilter("");
+//			request.setHowMany(1);
+//			request.setOffset(0);
 			
-			ScheduledResults results = port.scheduled(request);
+//			FleetScheduledRequest request2 = new FleetScheduledRequest();
+//			request2.setFleet(ICAO.substring(0,2));
+//			log.info("icao prefix " + ICAO.substring(0,2));
+//			FleetScheduledResults results = port.fleetScheduled(request2);
 
-			if (results == null || results.getScheduledResult() == null) {
-				throw new FlightsException();
-			}
+//			if (results == null || results.getScheduledResult() == null) {
+//				throw new FlightsException("There was not results.");
+//			}
+			ZipcodeInfoRequest r = new ZipcodeInfoRequest();
+			r.setZipcode("33010");
 			
-			List<ScheduledFlightStruct> flights =  results.getScheduledResult().getScheduled();
+			log.info(port.zipcodeInfo(r).getZipcodeInfoResult().getCounty());
 			
-			return flights;
+			//List<ScheduledFlightStruct> flights =  results.getFleetScheduledResult().getScheduled();
+			
+			return null;
 
 		} catch (SOAPFaultException e) {
 			log.error(e);
