@@ -12,14 +12,14 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>classpath:airport.properties</value>
+				<value>classpath:airports.properties</value>
 			</list>
 		</property>
-		<property name="placeholderPrefix" value="$airport{" />
+		<property name="placeholderPrefix" value="$airports{" />
 	</bean>
 
-	<jaxws:client id="AirportService" serviceClass="net.restfulwebservices.servicecontracts._2008._01.IAirportService"
-		address="$expedia{port.soap.address}">
+	<jaxws:client id="airportsClient" serviceClass="net.restfulwebservices.servicecontracts._2008._01.IAirportService"
+		address="$airports{port.soap.address}">
 	</jaxws:client>
 
 	<context:annotation-config />
