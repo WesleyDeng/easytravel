@@ -76,7 +76,7 @@
 						<version>${cxf.version}</version>
 						<executions>
 							<execution>
-								<id>FlightXML2-service</id>
+								<id>airport-service</id>
 								<phase>generate-sources</phase>
 								<configuration>
 									<sourceRoot>${basedir}/src/generated/java</sourceRoot>
