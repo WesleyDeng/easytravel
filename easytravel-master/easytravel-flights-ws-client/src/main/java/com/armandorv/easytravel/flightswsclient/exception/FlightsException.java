@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.flightxml2wsclient.exception;
+package com.armandorv.easytravel.flightswsclient.exception;
 
 public class FlightsException extends Exception{
 

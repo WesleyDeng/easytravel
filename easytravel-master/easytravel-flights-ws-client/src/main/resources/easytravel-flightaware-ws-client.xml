@@ -10,11 +10,11 @@
 
 	<!-- Server use basic authentication so WSS4 is not required. -->
 
-	<bean id="flightxmlConfigurer"
+	<bean id="flightawareConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>classpath:flightxml2.properties</value>
+				<value>classpath:flightaware.properties</value>
 			</list>
 		</property>
 		<property name="placeholderPrefix" value="$fli{" />
@@ -27,6 +27,7 @@
 	</jaxws:client>
 
 	<context:annotation-config />
-	<context:component-scan base-package="com.armandorv.easytravel.flightxml2wsclient" />
+	<context:component-scan
+		base-package="com.armandorv.easytravel.flightswsclient.fligthaware" />
 
 </beans>

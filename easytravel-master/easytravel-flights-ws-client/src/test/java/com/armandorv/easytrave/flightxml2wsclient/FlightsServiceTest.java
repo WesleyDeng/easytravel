@@ -12,9 +12,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.armandorv.easytravel.flightxml2wsclient.FlightsService;
-import com.armandorv.easytravel.flightxml2wsclient.exception.FlightsException;
-import com.armandorv.easytravel.flightxml2wsclient.model.Flight;
+import com.armandorv.easytravel.flightswsclient.FlightsService;
+import com.armandorv.easytravel.flightswsclient.exception.FlightsException;
+import com.armandorv.easytravel.flightswsclient.model.Flight;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:easytravel-flightaware-ws-client.xml")

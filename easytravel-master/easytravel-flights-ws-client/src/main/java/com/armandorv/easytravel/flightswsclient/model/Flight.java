@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.flightxml2wsclient.model;
+package com.armandorv.easytravel.flightswsclient.model;
 
 import java.util.Date;
 

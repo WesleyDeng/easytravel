@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.flightxml2wsclient;
+package com.armandorv.easytravel.flightswsclient.fligthaware;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,27 +8,28 @@ import javax.xml.ws.soap.SOAPFaultException;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import com.armandorv.easytravel.flightxml2wsclient.exception.FlightsException;
-import com.armandorv.easytravel.flightxml2wsclient.model.Flight;
+import com.armandorv.easytravel.flightswsclient.FlightsService;
+import com.armandorv.easytravel.flightswsclient.exception.FlightsException;
+import com.armandorv.easytravel.flightswsclient.model.Flight;
 import com.flightaware.flightxml.soap.flightxml2.FlightXML2Soap;
 import com.flightaware.flightxml.soap.flightxml2.ScheduledFlightStruct;
 import com.flightaware.flightxml.soap.flightxml2.ScheduledRequest;
 import com.flightaware.flightxml.soap.flightxml2.ScheduledResults;
 
 @Component
-class FlightsServiceImpl implements FlightsService {
+class FlightsAwareFlightsService implements FlightsService {
 
-	private static Logger log = Logger.getLogger(FlightsServiceImpl.class);
-
-	@Autowired
-	private ApplicationContext applicationContext;
+	private static Logger log = Logger.getLogger(FlightsAwareFlightsService.class);
 
 	@Autowired
 	private FlightXML2Soap port;
 
+	/**
+	 * @price 0.0120$
+	 * @operation AirlineFlightSchedules
+	 */
 	public List<Flight> findFlights(String ICAO) throws FlightsException {
 		try {
 			ScheduledResults results = port.scheduled(request(ICAO));
