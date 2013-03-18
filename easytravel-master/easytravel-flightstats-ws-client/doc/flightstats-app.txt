@@ -1,2 +1,0 @@
-appId=7f591da9
-appKey=57c50c38dd86de718a6057854c50318a
