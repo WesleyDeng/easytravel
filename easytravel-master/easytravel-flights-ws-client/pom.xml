@@ -60,7 +60,6 @@
 						<configuration>
 							<sources>
 								<source>${basedir}/src/generated/java</source>
-								<source>${basedir}/src/generated/resources</source>
 							</sources>
 						</configuration>
 					</execution>

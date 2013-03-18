@@ -4,11 +4,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- This file imports context files of the web services clients. -->
-	
+
 	<import resource="classpath:easytravel-expedia-ws-client.xml" />
 	<import resource="classpath:easytravel-airports-ws-client.xml" />
-	<import resource="classpath:easytravel-flightaware-ws-client.xml" />
 	<import resource="easytravel-googletime-ws-client.xml" />
 	<import resource="easytravel-googlegeocode-ws-client.xml" />
-	
+
+	<!-- Set the correct file to use flight aware or flight stats. -->
+	<import resource="classpath:easytravel-flightaware-ws-client.xml" />
+	<!-- <import resource="classpath:easytravel-flightstats-ws-client.xml" /> -->
+
 </beans>

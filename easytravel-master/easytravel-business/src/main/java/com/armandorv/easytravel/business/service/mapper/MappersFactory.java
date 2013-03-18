@@ -6,7 +6,7 @@ import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.business.service.Mapper;
 import com.armandorv.easytravel.expediawsclient.model.Hotel;
-import com.armandorv.easytravel.flightxml2wsclient.model.Flight;
+import com.armandorv.easytravel.flightswsclient.model.Flight;
 
 public class MappersFactory {
 

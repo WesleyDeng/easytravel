@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.armandorv.easytravel.business.domain.Destiny;
+import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.business.exception.BusinessException;
 import com.armandorv.easytravel.business.service.TravelsService;
@@ -39,7 +40,7 @@ public class TravelsBusinessDelegate {
 
 	}
 
-	public Collection<String> loadTravels(Destiny destiny)
+	public Collection<FlightInfo> loadTravels(Destiny destiny)
 			throws PresentationException {
 
 		try {

@@ -21,19 +21,6 @@
 			<version>${cxf.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-ws-security</artifactId>
-			<version>${cxf.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk16</artifactId>
-			<version>1.45</version>
-		</dependency>
-
-
 	</dependencies>
 
 	<build>
@@ -53,7 +40,6 @@
 						<configuration>
 							<sources>
 								<source>${basedir}/src/generated/java</source>
-								<source>${basedir}/src/generated/resources</source>
 							</sources>
 						</configuration>
 					</execution>

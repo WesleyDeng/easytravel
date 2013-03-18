@@ -2,7 +2,7 @@ package com.armandorv.easytravel.business.service.mapper;
 
 import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.business.service.Mapper;
-import com.armandorv.easytravel.flightxml2wsclient.model.Flight;
+import com.armandorv.easytravel.flightswsclient.model.Flight;
 
 class FlightMapper implements Mapper<Flight, FlightInfo> {
 

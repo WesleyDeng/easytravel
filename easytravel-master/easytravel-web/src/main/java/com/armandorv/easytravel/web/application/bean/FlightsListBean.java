@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.armandorv.easytravel.business.domain.Destiny;
+import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.web.application.TravelsBusinessDelegate;
 import com.armandorv.easytravel.web.exception.PresentationException;
 import com.armandorv.easytravel.web.util.FacesContextUtils;
@@ -20,7 +21,7 @@ public class FlightsListBean {
 
 	private String selected;
 
-	private Collection<String> flights = new ArrayList<>();;
+	private Collection<FlightInfo> flights = new ArrayList<>();;
 
 	@Autowired
 	private TravelsBusinessDelegate travelsBD;
@@ -49,11 +50,11 @@ public class FlightsListBean {
 		this.selected = selected;
 	}
 
-	public Collection<String> getFlights() {
+	public Collection<FlightInfo> getFlights() {
 		return flights;
 	}
 
-	public void setFlights(Collection<String> flights) {
+	public void setFlights(Collection<FlightInfo> flights) {
 		this.flights = flights;
 	}
 
