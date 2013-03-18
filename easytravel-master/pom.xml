@@ -30,6 +30,7 @@
 		<module>easytravel-flightxml2-ws-client</module>
 		<module>easytravel-expedia-ws-client</module>
 		<module>easytravel-airport-ws-client</module>
+		<module>easytravel-flightstats-ws-client</module>
 	</modules>
 
 	<dependencies>
