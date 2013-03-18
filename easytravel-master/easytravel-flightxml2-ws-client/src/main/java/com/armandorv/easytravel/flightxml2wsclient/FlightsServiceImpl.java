@@ -1,27 +1,27 @@
 package com.armandorv.easytravel.flightxml2wsclient;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.xml.ws.soap.SOAPFaultException;
 
 import org.apache.log4j.Logger;
-import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.armandorv.easytravel.flightxml2wsclient.exception.FlightsException;
-import com.flightaware.flightxml.soap.flightxml2.AirlineFlightScheduleStruct;
-import com.flightaware.flightxml.soap.flightxml2.AirlineFlightSchedulesRequest;
-import com.flightaware.flightxml.soap.flightxml2.AirlineFlightSchedulesResults;
+import com.armandorv.easytravel.flightxml2wsclient.model.Flight;
 import com.flightaware.flightxml.soap.flightxml2.FlightXML2Soap;
 import com.flightaware.flightxml.soap.flightxml2.ScheduledFlightStruct;
-import com.flightaware.flightxml.soap.flightxml2.ZipcodeInfoRequest;
+import com.flightaware.flightxml.soap.flightxml2.ScheduledRequest;
+import com.flightaware.flightxml.soap.flightxml2.ScheduledResults;
 
 @Component
 class FlightsServiceImpl implements FlightsService {
 
-	private Logger log = Logger.getLogger(FlightsServiceImpl.class);
+	private static Logger log = Logger.getLogger(FlightsServiceImpl.class);
 
 	@Autowired
 	private ApplicationContext applicationContext;
@@ -29,72 +29,57 @@ class FlightsServiceImpl implements FlightsService {
 	@Autowired
 	private FlightXML2Soap port;
 
-	public List<ScheduledFlightStruct>  findFlights(String ICAO) throws FlightsException {
+	public List<Flight> findFlights(String ICAO) throws FlightsException {
 		try {
-//			ScheduledRequest request = new ScheduledRequest();
-//			request.setAirport(ICAO);
-//			request.setFilter("");
-//			request.setHowMany(1);
-//			request.setOffset(0);
-			
-//			FleetScheduledRequest request2 = new FleetScheduledRequest();
-//			request2.setFleet(ICAO.substring(0,2));
-//			log.info("icao prefix " + ICAO.substring(0,2));
-//			FleetScheduledResults results = port.fleetScheduled(request2);
+			ScheduledResults results = port.scheduled(request(ICAO));
 
-//			if (results == null || results.getScheduledResult() == null) {
-//				throw new FlightsException("There was not results.");
-//			}
-			ZipcodeInfoRequest r = new ZipcodeInfoRequest();
-			r.setZipcode("33010");
-			
-			log.info(port.zipcodeInfo(r).getZipcodeInfoResult().getCounty());
-			
-			//List<ScheduledFlightStruct> flights =  results.getFleetScheduledResult().getScheduled();
-			
-			return null;
+			if (results == null || results.getScheduledResult() == null) {
+				throw new FlightsException("There was not results.");
+			}
+
+			return flights(results.getScheduledResult().getScheduled());
 
 		} catch (SOAPFaultException e) {
-			log.error(e);
-			throw new FlightsException(e);
+			log.error("Error invoking flight xml ws :" + e.getMessage(), e);
+			throw new FlightsException("Error invoking flight xml ws :"
+					+ e.getMessage(), e);
 		}
 	}
 
-	public List<AirlineFlightScheduleStruct> findFlightss()
-			throws FlightsException {
+	private ScheduledRequest request(String ICAO) {
+		ScheduledRequest request = new ScheduledRequest();
+		request.setAirport(ICAO);
+		request.setFilter("");
+		request.setHowMany(15);
+		request.setOffset(0);
+		return request;
+	}
 
-		AirlineFlightSchedulesRequest request = new AirlineFlightSchedulesRequest();
-
-		DateTime startD = new DateTime("2013-03-09");
-		DateTime endD = new DateTime("2013-03-14");
-
-		long start = startD.getMillis() / 1000;
-		long end = endD.getMillis() / 1000;
-
-		Integer endInt = (int) end;
-		Integer startInt = (int) start;
-
-		log.info("end " + endInt + " start" + startInt);
-
-		request.setEndDate(endInt);
-		request.setStartDate(startInt);
-		request.setHowMany(10);
-
-		try {
-			AirlineFlightSchedulesResults results = port
-					.airlineFlightSchedules(request);
-
-			if (results == null
-					|| results.getAirlineFlightSchedulesResult() == null) {
-				throw new FlightsException();
-			}
-
-			return results.getAirlineFlightSchedulesResult().getData();
-
-		} catch (SOAPFaultException e) {
-			log.error(e);
-			throw new FlightsException(e);
+	private List<Flight> flights(List<ScheduledFlightStruct> wsFlights) {
+		List<Flight> flights = new ArrayList<>();
+		for (ScheduledFlightStruct flightStruct : wsFlights) {
+			flights.add(flight(flightStruct));
 		}
+		return flights;
+	}
+
+	private Flight flight(ScheduledFlightStruct flightStruct) {
+		Flight flight = new Flight();
+
+		flight.setId(flightStruct.getIdent());
+
+		flight.setDestinationAirportICAO(flightStruct.getDestination());
+		flight.setDestinationCity(flightStruct.getDestinationCity());
+		flight.setDestinationAirportName(flightStruct.getDestinationName());
+
+		flight.setOriginAirportICAO(flightStruct.getOrigin());
+		flight.setOriginAirportName(flightStruct.getOriginName());
+		flight.setOriginCity(flightStruct.getOriginCity());
+
+		flight.setDepartureTime(new Date(flightStruct.getEstimatedarrivaltime()));
+		flight.setArrivalTime(new Date(flightStruct.getEstimatedarrivaltime()));
+
+		return flight;
 	}
 
 }

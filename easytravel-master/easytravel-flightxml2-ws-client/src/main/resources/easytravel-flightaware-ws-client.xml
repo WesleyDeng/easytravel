@@ -9,7 +9,7 @@
 		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
 	<!-- Server use basic authentication so WSS4 is not required. -->
-	
+
 	<bean id="flightxmlConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
@@ -17,7 +17,7 @@
 				<value>classpath:flightxml2.properties</value>
 			</list>
 		</property>
-		<property name="placeholderPrefix" value="$fli{"/>
+		<property name="placeholderPrefix" value="$fli{" />
 	</bean>
 
 	<jaxws:client id="flightXMLClient"

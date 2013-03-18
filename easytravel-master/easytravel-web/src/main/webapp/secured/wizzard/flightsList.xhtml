@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+
+	<p:dialog widgetVar="flightsDialog" effect="FADE" effectDuration="0.5"
+		close="false" fixedCenter="true">
+
+		<f:facet name="header">
+			<h:outputText value="Flights" />
+		</f:facet>
+
+		<p:dataTable id="flightsList" var="flight"
+			value="#{flightsListBean.flights}"
+			selection="#{flightsListBean.selected}">
+
+			<f:facet name="header">
+				<h:outputText value="Flights found near of this destiny." />
+			</f:facet>
+
+			<p:column headerText="Airport Name">
+				<h:outputText value="#{flight}" />
+			</p:column>
+
+		</p:dataTable>
+
+		<f:facet name="footer">
+			<p:commandButton value="Done" oncomplete="flightsDialog.hide()"
+				update=":form:flightsTable" />
+			<p:commandButton value="Cancel" onclick="flightsDialog.hide()" />
+		</f:facet>
+
+	</p:dialog>
+
+
+</ui:composition>
+
+</html>

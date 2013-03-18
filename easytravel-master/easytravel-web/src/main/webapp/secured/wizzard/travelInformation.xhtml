@@ -9,7 +9,7 @@
 <!-- It 's included inside another h:form -->
 <ui:composition>
 
-	<p:panel header="Travel Information">
+	<p:panel header="Travel Details">
 
 		<h:messages errorClass="error" />
 
@@ -36,7 +36,7 @@
 
 		<p:dataTable id="destinies" var="destiny" emptyMessage="No destinies"
 			value="#{newTravelBean.destinies}" paginator="true" rows="10"
-			selection="#{newTravelBean.selectedDestiny}" resizableColumns="true">
+			selection="#{newTravelBean.selected}" resizableColumns="true">
 
 			<p:column headerText="Name" width="20">
 				<h:outputText value="#{destiny.name} " />

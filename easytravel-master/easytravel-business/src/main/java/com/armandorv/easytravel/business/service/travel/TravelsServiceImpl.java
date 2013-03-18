@@ -1,5 +1,6 @@
-package com.armandorv.easytravel.business.service;
+package com.armandorv.easytravel.business.service.travel;
 
+import java.util.Collection;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -8,9 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.armandorv.easytravel.business.domain.Destiny;
+import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.business.domain.Travel;
 import com.armandorv.easytravel.business.exception.BusinessException;
 import com.armandorv.easytravel.business.exception.LogisticsException;
+import com.armandorv.easytravel.business.service.TravelsService;
 
 @Service
 @Transactional
@@ -45,7 +48,8 @@ class TravelsServiceImpl implements TravelsService {
 	@Override
 	public String getTimeZone(double lattiude, double longitude)
 			throws BusinessException {
-		return logisticsManager.getTimeZone((float) lattiude, (float) longitude);
+		return logisticsManager
+				.getTimeZone((float) lattiude, (float) longitude);
 	}
 
 	@Override
@@ -63,6 +67,12 @@ class TravelsServiceImpl implements TravelsService {
 	@Override
 	public Set<String> getFlights(Destiny destiny) throws LogisticsException {
 		return logisticsManager.getFlights(destiny);
+	}
+
+	@Override
+	public Collection<HotelInfo> getHotels(Destiny destiny)
+			throws BusinessException {
+		return logisticsManager.getHotels(destiny);
 	}
 
 }

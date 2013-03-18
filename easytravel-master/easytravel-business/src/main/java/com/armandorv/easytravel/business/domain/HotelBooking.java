@@ -5,6 +5,8 @@ public class HotelBooking {
 	
 	private Long id;
 	
+	private HotelInfo hotelInfo;
+	
 	private Integer persons;
 	
 	private Destiny destiny;
@@ -31,6 +33,14 @@ public class HotelBooking {
 
 	public void setDestiny(Destiny destiny) {
 		this.destiny = destiny;
+	}
+
+	public HotelInfo getHotelInfo() {
+		return hotelInfo;
+	}
+
+	public void setHotelInfo(HotelInfo hotelInfo) {
+		this.hotelInfo = hotelInfo;
 	}
 	
 	

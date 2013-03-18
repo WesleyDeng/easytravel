@@ -37,7 +37,7 @@ class HotelsMapper {
 		hotel.setCity(hotelSummary.getCity());
 		hotel.setPostalCode(hotelSummary.getPostalCode());
 		hotel.setPhoneNumber(hotelSummary.getPhoneNumber());
-		hotel.setRating(hotelSummary.getHotelRating());
+		hotel.setHotelRating(hotelSummary.getHotelRating());
 		hotel.setLowRate(hotelSummary.getLowRate());
 		hotel.setHighRate(hotelSummary.getHighRate());
 		hotel.setLocationDescription(hotelSummary.getLocationDescription());

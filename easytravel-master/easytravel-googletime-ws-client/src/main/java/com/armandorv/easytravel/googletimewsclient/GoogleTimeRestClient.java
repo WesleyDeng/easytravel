@@ -44,27 +44,30 @@ public class GoogleTimeRestClient implements GoogleTimeService {
 	private String invokeRest(float lattitude, float longitude)
 			throws GoogleTimeException {
 		try {
+			ClientRequest
+					.setDefaultExecutorClass("org.jboss.resteasy.client.core.executors.URLConnectionClientExecutor");
 			ClientRequest request = new ClientRequest(uri);
 
-			 String location = lattitude + "," + longitude;
-			 request.queryParameter(locationName, location);
-			 request.queryParameter(timeStampName, (int) new
-			 Date().getTime());
-			 request.queryParameter(sensorName, false);
-			
-			 request.accept("application/xml");
-			
-			 log.debug("Invoking  " + request.getUri());
-			 ClientResponse<String> response = request.get(String.class);
-			 return response.getEntity();
+			String location = lattitude + "," + longitude;
+			request.queryParameter(locationName, location);
+			request.queryParameter(timeStampName, (int) new Date().getTime());
+			request.queryParameter(sensorName, false);
 
-//			HttpClient client = new HttpClient();
-//			HttpGet get = new HttpGet(
-//					new URI(
-//							"https://maps.googleapis.com/maps/api/timezone/xml?sensor=false&timestamp=2034390582&location=43.372417%2C-5.811652"));
-//			HttpMethod method = get; 
-//			HttpResponse response = client.executeMethod(method);
-//			HttpEntity entity = response.getEntity();
+			request.accept("application/xml");
+
+			log.debug("Invoking  " + request.getUri());
+			ClientResponse<String> response = request.get(String.class);
+
+			String xml = response.getEntity();
+			return xml;
+
+			// HttpClient client = new HttpClient();
+			// HttpGet get = new HttpGet(
+			// new URI(
+			// "https://maps.googleapis.com/maps/api/timezone/xml?sensor=false&timestamp=2034390582&location=43.372417%2C-5.811652"));
+			// HttpMethod method = get;
+			// HttpResponse response = client.executeMethod(method);
+			// HttpEntity entity = response.getEntity();
 
 		} catch (Exception e) {
 			String message = "Error invoking google time service for uri = "

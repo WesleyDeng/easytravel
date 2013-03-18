@@ -8,22 +8,35 @@
 
 <ui:composition>
 
-		<p:panel header="Travel Information">
+	<p:panel header="Travel Flights">
 
-			<h:messages errorClass="error" />
+		<h:messages errorClass="error" />
 
-			<h:panelGrid columns="2" columnClasses="label, value"
-				styleClass="grid">
-				<h:outputText value="Name *" />
-				<p:inputText required="true" label="Name"
-					value="#{newTravelBean.travel.name}" />
+		<p:dataTable id="hotelsTable" var="destiny"
+			emptyMessage="No destinies" value="#{newTravelBean.destinies}"
+			paginator="true" rows="10" selection="#{newTravelBean.selected}"
+			resizableColumns="true">
 
-				<h:outputText value="Description *" />
-				<p:inputText required="true" label="Description"
-					value="#{newTravelBean.travel.description}" />
+			<p:column headerText="Destiny" width="20">
+				<h:outputText value="#{destiny.name} " />
+			</p:column>
 
-			</h:panelGrid>
-		</p:panel>
+			<p:column headerText="Hotel" width="8">
+				
+			</p:column>
+
+			<p:column headerText="Actions" width="10">
+				<p:commandButton value="Select Hotel"
+					action="#{hotelsListBean.loadHotels}"
+					oncomplete="hotelsDialog.show();" update=":form:hotelsList">
+					<f:setPropertyActionListener target="#{hotelsListBean.destiny}"
+						value="#{destiny}" />
+				</p:commandButton>
+			</p:column>
+
+		</p:dataTable>
+	</p:panel>
+	<ui:include src="/secured/wizzard/hotelsList.xhtml" />
 
 </ui:composition>
 

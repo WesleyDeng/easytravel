@@ -1,6 +1,7 @@
-package com.armandorv.easytravel.expediawsclient.model;
+package com.armandorv.easytravel.business.domain;
 
-public class Hotel {
+
+public class HotelInfo {
 
 	private Long hotelId;
 	private String name;
@@ -107,7 +108,7 @@ public class Hotel {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Hotel other = (Hotel) obj;
+		HotelInfo other = (HotelInfo) obj;
 		if (city == null) {
 			if (other.city != null)
 				return false;

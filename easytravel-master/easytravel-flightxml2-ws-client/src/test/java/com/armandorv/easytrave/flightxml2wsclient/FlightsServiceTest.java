@@ -14,11 +14,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.armandorv.easytravel.flightxml2wsclient.FlightsService;
 import com.armandorv.easytravel.flightxml2wsclient.exception.FlightsException;
-import com.flightaware.flightxml.soap.flightxml2.ScheduledFlightStruct;
+import com.armandorv.easytravel.flightxml2wsclient.model.Flight;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:easytravel-flightaware-ws-client.xml")
 public class FlightsServiceTest {
+
+	private static final String BARCELONA_ICAO = "LEBL";
 
 	private static Logger log = Logger.getLogger(FlightsServiceTest.class);
 
@@ -36,20 +38,10 @@ public class FlightsServiceTest {
 
 	@Test
 	public void testFindFlights() throws FlightsException {
-		List<ScheduledFlightStruct> flights = flightsService.findFlights("KAUS");
-		
-		for (ScheduledFlightStruct scheduledFlightStruct : flights) {
-			log.info("Destination " + scheduledFlightStruct.getDestination());
-			log.info("Destination " + scheduledFlightStruct.getAircrafttype());
-			log.info("Destination " + scheduledFlightStruct.getDestinationCity());
-			log.info("Destination " + scheduledFlightStruct.getIdent());
-			log.info("Destination " + scheduledFlightStruct.getOriginCity());
-			log.info("Destination " + scheduledFlightStruct.getOrigin());
-			log.info("Destination " + scheduledFlightStruct.getDestinationName());
-			log.info("Destination " + scheduledFlightStruct.getOriginName());
-			log.info("Destination " + scheduledFlightStruct.getEstimatedarrivaltime());
-			log.info("Destination " + scheduledFlightStruct.getFiledDeparturetime());
-		}
+		List<Flight> flights = flightsService.findFlights(BARCELONA_ICAO);
+		Assert.assertNotNull(flights);
+		Assert.assertFalse(flights.isEmpty());
+		log.info(flights);
 	}
-	
+
 }

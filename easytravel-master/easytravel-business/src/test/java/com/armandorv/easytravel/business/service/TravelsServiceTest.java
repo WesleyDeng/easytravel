@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.business;
+package com.armandorv.easytravel.business.service;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;

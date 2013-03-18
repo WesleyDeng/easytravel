@@ -1,0 +1,150 @@
+16:39:26,286 INFO  [FlightsServiceTest:42] Destination EGNM
+16:39:26,286 INFO  [FlightsServiceTest:43] getAircrafttype 
+16:39:26,286 INFO  [FlightsServiceTest:44] getDestinationCity West Yorkshire, England
+16:39:26,287 INFO  [FlightsServiceTest:45] getIdent EXS232
+16:39:26,287 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,287 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,288 INFO  [FlightsServiceTest:48] getDestinationName Leeds Bradford Int'l
+16:39:26,288 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,288 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363631340
+16:39:26,289 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363616700
+16:39:26,289 INFO  [FlightsServiceTest:42] Destination EDDF
+16:39:26,289 INFO  [FlightsServiceTest:43] Destination A321
+16:39:26,290 INFO  [FlightsServiceTest:44] getDestinationCity Frankfurt am Main
+16:39:26,290 INFO  [FlightsServiceTest:45] getIdent DLH1129
+16:39:26,290 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,291 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,291 INFO  [FlightsServiceTest:48] getDestinationName Frankfurt Int'l
+16:39:26,292 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,292 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363626000
+16:39:26,292 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363618200
+16:39:26,293 INFO  [FlightsServiceTest:42] Destination LEMD
+16:39:26,293 INFO  [FlightsServiceTest:43] Destination A320
+16:39:26,293 INFO  [FlightsServiceTest:44] getDestinationCity Madrid
+16:39:26,294 INFO  [FlightsServiceTest:45] getIdent IBE2705
+16:39:26,294 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,294 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,295 INFO  [FlightsServiceTest:48] getDestinationName Barajas Int'l
+16:39:26,295 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,295 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363626300
+16:39:26,296 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363621500
+16:39:26,296 INFO  [FlightsServiceTest:42] Destination LEMD
+16:39:26,296 INFO  [FlightsServiceTest:43] Destination A320
+16:39:26,297 INFO  [FlightsServiceTest:44] getDestinationCity Madrid
+16:39:26,297 INFO  [FlightsServiceTest:45] getIdent IBE1645
+16:39:26,297 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,298 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,298 INFO  [FlightsServiceTest:48] getDestinationName Barajas Int'l
+16:39:26,298 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,299 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363626300
+16:39:26,299 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363621500
+16:39:26,299 INFO  [FlightsServiceTest:42] Destination LIMC
+16:39:26,300 INFO  [FlightsServiceTest:43] Destination 
+16:39:26,300 INFO  [FlightsServiceTest:44] getDestinationCity Milan
+16:39:26,300 INFO  [FlightsServiceTest:45] getIdent EZY2766
+16:39:26,301 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,302 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,302 INFO  [FlightsServiceTest:48] getDestinationName Malpensa Int'l
+16:39:26,302 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,308 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363627260
+16:39:26,309 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363621800
+16:39:26,309 INFO  [FlightsServiceTest:42] Destination LSGG
+16:39:26,312 INFO  [FlightsServiceTest:43] Destination 
+16:39:26,313 INFO  [FlightsServiceTest:44] getDestinationCity Geneva
+16:39:26,313 INFO  [FlightsServiceTest:45] getIdent EZS1408
+16:39:26,313 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,314 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,314 INFO  [FlightsServiceTest:48] getDestinationName Geneva Cointrin Int'l
+16:39:26,315 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,315 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363628100
+16:39:26,315 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363622400
+16:39:26,316 INFO  [FlightsServiceTest:42] Destination EGKK
+16:39:26,316 INFO  [FlightsServiceTest:43] Destination 
+16:39:26,316 INFO  [FlightsServiceTest:44] getDestinationCity London, England
+16:39:26,317 INFO  [FlightsServiceTest:45] getIdent EZY8576
+16:39:26,317 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,317 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,317 INFO  [FlightsServiceTest:48] getDestinationName London Gatwick
+16:39:26,318 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,318 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363630500
+16:39:26,319 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363622700
+16:39:26,319 INFO  [FlightsServiceTest:42] Destination EHAM
+16:39:26,319 INFO  [FlightsServiceTest:43] Destination B739
+16:39:26,320 INFO  [FlightsServiceTest:44] getDestinationCity Amsterdam
+16:39:26,320 INFO  [FlightsServiceTest:45] getIdent KLM1674
+16:39:26,320 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,321 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,321 INFO  [FlightsServiceTest:48] getDestinationName Amsterdam Schiphol
+16:39:26,321 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,321 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363631700
+16:39:26,321 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363622700
+16:39:26,322 INFO  [FlightsServiceTest:42] Destination EGAA
+16:39:26,322 INFO  [FlightsServiceTest:43] Destination 
+16:39:26,322 INFO  [FlightsServiceTest:44] getDestinationCity Belfast, Northern Ireland
+16:39:26,322 INFO  [FlightsServiceTest:45] getIdent EZY6672
+16:39:26,322 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,322 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,323 INFO  [FlightsServiceTest:48] getDestinationName Belfast Int'l
+16:39:26,323 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,323 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363633500
+16:39:26,323 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363623900
+16:39:26,323 INFO  [FlightsServiceTest:42] Destination LFBD
+16:39:26,323 INFO  [FlightsServiceTest:43] Destination E170
+16:39:26,323 INFO  [FlightsServiceTest:44] getDestinationCity Bordeaux/Merignac
+16:39:26,324 INFO  [FlightsServiceTest:45] getIdent RAE3127
+16:39:26,324 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,324 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,324 INFO  [FlightsServiceTest:48] getDestinationName Bordeaux-Merignac
+16:39:26,324 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,324 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363628400
+16:39:26,324 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363623900
+16:39:26,324 INFO  [FlightsServiceTest:42] Destination LTBA
+16:39:26,325 INFO  [FlightsServiceTest:43] Destination A321
+16:39:26,325 INFO  [FlightsServiceTest:44] getDestinationCity Istanbul
+16:39:26,325 INFO  [FlightsServiceTest:45] getIdent THY1856
+16:39:26,325 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,325 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,325 INFO  [FlightsServiceTest:48] getDestinationName Istanbul Ataturk Int'l
+16:39:26,325 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,326 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363636500
+16:39:26,326 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363624500
+16:39:26,326 INFO  [FlightsServiceTest:42] Destination LFLL
+16:39:26,326 INFO  [FlightsServiceTest:43] Destination CRJ
+16:39:26,326 INFO  [FlightsServiceTest:44] getDestinationCity Saint Exupery
+16:39:26,326 INFO  [FlightsServiceTest:45] getIdent BZH5907
+16:39:26,326 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,326 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,327 INFO  [FlightsServiceTest:48] getDestinationName Lyon
+16:39:26,327 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,327 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363629000
+16:39:26,327 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363624800
+16:39:26,327 INFO  [FlightsServiceTest:42] Destination LEMD
+16:39:26,327 INFO  [FlightsServiceTest:43] Destination A320
+16:39:26,327 INFO  [FlightsServiceTest:44] getDestinationCity Madrid
+16:39:26,327 INFO  [FlightsServiceTest:45] getIdent IBE2789
+16:39:26,327 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,328 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,328 INFO  [FlightsServiceTest:48] getDestinationName Barajas Int'l
+16:39:26,328 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,328 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363629900
+16:39:26,328 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363625100
+16:39:26,328 INFO  [FlightsServiceTest:42] Destination LEMD
+16:39:26,328 INFO  [FlightsServiceTest:43] Destination A320
+16:39:26,328 INFO  [FlightsServiceTest:44] getDestinationCity Madrid
+16:39:26,328 INFO  [FlightsServiceTest:45] getIdent IBE1745
+16:39:26,329 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,329 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,329 INFO  [FlightsServiceTest:48] getDestinationName Barajas Int'l
+16:39:26,329 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,329 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363629900
+16:39:26,329 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363625100
+16:39:26,329 INFO  [FlightsServiceTest:42] Destination LEPA
+16:39:26,329 INFO  [FlightsServiceTest:43] Destination A320
+16:39:26,329 INFO  [FlightsServiceTest:44] getDestinationCity Palma de Mallorca
+16:39:26,329 INFO  [FlightsServiceTest:45] getIdent BER7527
+16:39:26,330 INFO  [FlightsServiceTest:46] getOriginCity Barcelona
+16:39:26,330 INFO  [FlightsServiceTest:47] getOrigin LEBL
+16:39:26,330 INFO  [FlightsServiceTest:48] getDestinationName Palma de Mallorca (or Son Sant Joan)
+16:39:26,330 INFO  [FlightsServiceTest:49] getOriginName Barcelona Int'l
+16:39:26,330 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363627800
+16:39:26,330 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363625400

@@ -1,0 +1,142 @@
+16:35:30,048 INFO  [FlightsServiceTest:34] Test context loaded
+16:35:33,821 INFO  [FlightsServiceImpl:50] MIAMI-DADE
+16:35:33,821 INFO  [FlightsServiceTest:42] Destination KMFE
+16:35:33,822 INFO  [FlightsServiceTest:43] Destination C414
+16:35:33,822 INFO  [FlightsServiceTest:44] getDestinationCity Mc Allen, TX
+16:35:33,823 INFO  [FlightsServiceTest:45] getIdent N569PA
+16:35:33,824 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,824 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,824 INFO  [FlightsServiceTest:48] getDestinationName Mc Allen Miller Intl
+16:35:33,824 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,825 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363626360
+16:35:33,825 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363618800
+16:35:33,825 INFO  [FlightsServiceTest:42] Destination KBWI
+16:35:33,825 INFO  [FlightsServiceTest:43] Destination B733
+16:35:33,826 INFO  [FlightsServiceTest:44] getDestinationCity Baltimore, MD
+16:35:33,826 INFO  [FlightsServiceTest:45] getIdent SWA423
+16:35:33,826 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,826 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,827 INFO  [FlightsServiceTest:48] getDestinationName Baltimore/Washington Intl
+16:35:33,827 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,827 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363630260
+16:35:33,827 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363619400
+16:35:33,828 INFO  [FlightsServiceTest:42] Destination KEWR
+16:35:33,828 INFO  [FlightsServiceTest:43] Destination B737
+16:35:33,828 INFO  [FlightsServiceTest:44] getDestinationCity Newark, NJ
+16:35:33,829 INFO  [FlightsServiceTest:45] getIdent SWA142
+16:35:33,829 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,829 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,829 INFO  [FlightsServiceTest:48] getDestinationName Newark Liberty Intl
+16:35:33,841 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,842 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363631040
+16:35:33,842 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363619700
+16:35:33,843 INFO  [FlightsServiceTest:42] Destination KATL
+16:35:33,844 INFO  [FlightsServiceTest:43] Destination B737
+16:35:33,844 INFO  [FlightsServiceTest:44] getDestinationCity Atlanta, GA
+16:35:33,844 INFO  [FlightsServiceTest:45] getIdent SWA657
+16:35:33,844 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,844 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,845 INFO  [FlightsServiceTest:48] getDestinationName Hartsfield-Jackson Intl
+16:35:33,845 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,845 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363626780
+16:35:33,845 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363620300
+16:35:33,846 INFO  [FlightsServiceTest:42] Destination KCRP
+16:35:33,846 INFO  [FlightsServiceTest:43] Destination P28A
+16:35:33,846 INFO  [FlightsServiceTest:44] getDestinationCity Corpus Christi, TX
+16:35:33,846 INFO  [FlightsServiceTest:45] getIdent N47907
+16:35:33,847 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,847 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,847 INFO  [FlightsServiceTest:48] getDestinationName Corpus Christi Intl
+16:35:33,847 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,848 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363627500
+16:35:33,848 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363620600
+16:35:33,848 INFO  [FlightsServiceTest:42] Destination KEWR
+16:35:33,848 INFO  [FlightsServiceTest:43] Destination B737
+16:35:33,849 INFO  [FlightsServiceTest:44] getDestinationCity Newark, NJ
+16:35:33,849 INFO  [FlightsServiceTest:45] getIdent UAL1276
+16:35:33,849 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,849 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,850 INFO  [FlightsServiceTest:48] getDestinationName Newark Liberty Intl
+16:35:33,850 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,850 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363632060
+16:35:33,850 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363620720
+16:35:33,851 INFO  [FlightsServiceTest:42] Destination KBPT
+16:35:33,851 INFO  [FlightsServiceTest:43] Destination BE20
+16:35:33,851 INFO  [FlightsServiceTest:44] getDestinationCity Beaumont/Port Arthur, TX
+16:35:33,851 INFO  [FlightsServiceTest:45] getIdent TEXDOT2
+16:35:33,851 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,851 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,852 INFO  [FlightsServiceTest:48] getDestinationName Jack Brooks Rgnl
+16:35:33,852 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,852 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363625460
+16:35:33,852 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363621500
+16:35:33,852 INFO  [FlightsServiceTest:42] Destination KATL
+16:35:33,852 INFO  [FlightsServiceTest:43] Destination MD88
+16:35:33,852 INFO  [FlightsServiceTest:44] getDestinationCity Atlanta, GA
+16:35:33,853 INFO  [FlightsServiceTest:45] getIdent DAL1868
+16:35:33,853 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,853 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,853 INFO  [FlightsServiceTest:48] getDestinationName Hartsfield-Jackson Intl
+16:35:33,853 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,854 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363629420
+16:35:33,854 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363621980
+16:35:33,854 INFO  [FlightsServiceTest:42] Destination KDFW
+16:35:33,854 INFO  [FlightsServiceTest:43] Destination MD82
+16:35:33,854 INFO  [FlightsServiceTest:44] getDestinationCity Dallas-Fort Worth, TX
+16:35:33,854 INFO  [FlightsServiceTest:45] getIdent AAL864
+16:35:33,855 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,855 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,855 INFO  [FlightsServiceTest:48] getDestinationName Dallas/Fort Worth Intl
+16:35:33,855 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,856 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363625520
+16:35:33,856 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363622400
+16:35:33,856 INFO  [FlightsServiceTest:42] Destination KMEM
+16:35:33,857 INFO  [FlightsServiceTest:43] Destination CRJ2
+16:35:33,857 INFO  [FlightsServiceTest:44] getDestinationCity Memphis, TN
+16:35:33,857 INFO  [FlightsServiceTest:45] getIdent ASQ5106
+16:35:33,857 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,857 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,857 INFO  [FlightsServiceTest:48] getDestinationName Memphis Intl
+16:35:33,857 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,857 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363629120
+16:35:33,857 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363622640
+16:35:33,857 INFO  [FlightsServiceTest:42] Destination KIAH
+16:35:33,857 INFO  [FlightsServiceTest:43] Destination CRJ7
+16:35:33,858 INFO  [FlightsServiceTest:44] getDestinationCity Houston, TX
+16:35:33,858 INFO  [FlightsServiceTest:45] getIdent SKW4967
+16:35:33,858 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,858 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,858 INFO  [FlightsServiceTest:48] getDestinationName Houston Bush Int'ctl
+16:35:33,858 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,858 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363625640
+16:35:33,858 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363622700
+16:35:33,858 INFO  [FlightsServiceTest:42] Destination KDAL
+16:35:33,858 INFO  [FlightsServiceTest:43] Destination B733
+16:35:33,858 INFO  [FlightsServiceTest:44] getDestinationCity Dallas, TX
+16:35:33,859 INFO  [FlightsServiceTest:45] getIdent SWA337
+16:35:33,859 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,859 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,859 INFO  [FlightsServiceTest:48] getDestinationName Dallas Love Field
+16:35:33,859 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,859 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363631100
+16:35:33,859 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363623000
+16:35:33,859 INFO  [FlightsServiceTest:42] Destination KPHX
+16:35:33,859 INFO  [FlightsServiceTest:43] Destination B737
+16:35:33,859 INFO  [FlightsServiceTest:44] getDestinationCity Phoenix, AZ
+16:35:33,859 INFO  [FlightsServiceTest:45] getIdent SWA513
+16:35:33,860 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,860 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,860 INFO  [FlightsServiceTest:48] getDestinationName Phoenix Sky Harbor Intl
+16:35:33,860 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,860 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363633260
+16:35:33,860 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363623300
+16:35:33,861 INFO  [FlightsServiceTest:42] Destination KADS
+16:35:33,861 INFO  [FlightsServiceTest:43] Destination SR22
+16:35:33,861 INFO  [FlightsServiceTest:44] getDestinationCity Dallas, TX
+16:35:33,861 INFO  [FlightsServiceTest:45] getIdent N226TX
+16:35:33,861 INFO  [FlightsServiceTest:46] getOriginCity Austin, TX
+16:35:33,861 INFO  [FlightsServiceTest:47] getOrigin KAUS
+16:35:33,861 INFO  [FlightsServiceTest:48] getDestinationName Addison
+16:35:33,861 INFO  [FlightsServiceTest:49] getOriginName Austin-Bergstrom Intl
+16:35:33,861 INFO  [FlightsServiceTest:50] getEstimatedarrivaltime 1363629780
+16:35:33,862 INFO  [FlightsServiceTest:51] getFiledDeparturetime 1363623900

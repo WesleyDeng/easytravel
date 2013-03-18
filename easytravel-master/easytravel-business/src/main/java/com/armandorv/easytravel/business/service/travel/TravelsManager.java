@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.business.service;
+package com.armandorv.easytravel.business.service.travel;
 
 import org.springframework.stereotype.Component;
 
