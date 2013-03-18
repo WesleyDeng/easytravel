@@ -6,7 +6,7 @@
 		<artifactId>easytravel-master</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>easytravel-flightxml2-ws-client</artifactId>
+	<artifactId>easytravel-flights-ws-client</artifactId>
 
 	<dependencies>
 

@@ -27,10 +27,9 @@
 		<module>easytravel-web</module>
 		<module>easytravel-googletime-ws-client</module>
 		<module>easytravel-googlegeocode-ws-client</module>
-		<module>easytravel-flightxml2-ws-client</module>
+		<module>easytravel-flights-ws-client</module>
 		<module>easytravel-expedia-ws-client</module>
 		<module>easytravel-airport-ws-client</module>
-		<module>easytravel-flightstats-ws-client</module>
 	</modules>
 
 	<dependencies>
