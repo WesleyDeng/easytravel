@@ -1,4 +1,4 @@
-package com.armandorv.easytrave.flightxml2wsclient;
+package com.armandorv.easytrave.flightswsclient;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.armandorv.easytrave.flightxml2wsclient;
+package com.armandorv.easytrave.flightswsclient.flightware;
 
 import java.util.List;
 
