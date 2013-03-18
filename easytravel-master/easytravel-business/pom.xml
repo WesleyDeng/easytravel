@@ -44,7 +44,7 @@
 
 		<dependency>
 			<groupId>com.armandorv.easytravel</groupId>
-			<artifactId>easytravel-flightxml2-ws-client</artifactId>
+			<artifactId>easytravel-flights-ws-client</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 

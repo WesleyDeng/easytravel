@@ -1,9 +1,9 @@
 package com.armandorv.easytravel.business.service;
 
 import java.util.Collection;
-import java.util.Set;
 
 import com.armandorv.easytravel.business.domain.Destiny;
+import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.business.domain.Travel;
 import com.armandorv.easytravel.business.exception.BusinessException;
@@ -14,7 +14,7 @@ public interface TravelsService {
 
 	Iterable<Travel> getTravels(String userId) throws BusinessException;
 
-	Set<String> getFlights(Destiny destiny) throws BusinessException;
+	Collection<FlightInfo> getFlights(Destiny destiny) throws BusinessException;
 
 	Collection<HotelInfo> getHotels(Destiny destiny) throws BusinessException;
 

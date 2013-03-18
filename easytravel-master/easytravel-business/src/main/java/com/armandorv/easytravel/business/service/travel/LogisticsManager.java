@@ -2,7 +2,7 @@ package com.armandorv.easytravel.business.service.travel;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -13,6 +13,7 @@ import com.armandorv.easytravel.airportwsclient.AirportsService;
 import com.armandorv.easytravel.airportwsclient.exception.AirportsException;
 import com.armandorv.easytravel.airportwsclient.model.Airport;
 import com.armandorv.easytravel.business.domain.Destiny;
+import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.business.exception.LogisticsException;
 import com.armandorv.easytravel.business.service.mapper.MappersFactory;
@@ -20,6 +21,8 @@ import com.armandorv.easytravel.expediawsclient.HotelsService;
 import com.armandorv.easytravel.expediawsclient.exception.HotelsException;
 import com.armandorv.easytravel.expediawsclient.model.Hotel;
 import com.armandorv.easytravel.flightxml2wsclient.FlightsService;
+import com.armandorv.easytravel.flightxml2wsclient.exception.FlightsException;
+import com.armandorv.easytravel.flightxml2wsclient.model.Flight;
 import com.armandorv.easytravel.googlegeocodewsclient.GeocodingService;
 import com.armandorv.easytravel.googlegeocodewsclient.exception.GoogleGeocodingException;
 import com.armandorv.easytravel.googlegeocodewsclient.model.Address;
@@ -82,7 +85,7 @@ class LogisticsManager {
 			}
 
 			Set<Hotel> hotels = hotelsService.findHotels(address.getLocality());
-			return MappersFactory.hotelsCollectionMaper().map(hotels);
+			return MappersFactory.hotelsMaper().map(hotels);
 
 		} catch (HotelsException | GoogleGeocodingException e) {
 			log.error("Error invoking service :" + e.getMessage(), e);
@@ -91,7 +94,8 @@ class LogisticsManager {
 		}
 	}
 
-	public Set<String> getFlights(Destiny destiny) throws LogisticsException {
+	public Collection<FlightInfo> getFlights(Destiny destiny)
+			throws LogisticsException {
 
 		try {
 			Address address = geocodingService.getAddress(
@@ -108,12 +112,12 @@ class LogisticsManager {
 				return Collections.emptySet();
 			}
 
-			Set<String> flights = new HashSet<>();
-			flights.add(airport.getName());
+			List<Flight> flights = flightsService
+					.findFlights(airport.getICAO());
+			return MappersFactory.flightsMapper().map(flights);
 
-			return flights;
-
-		} catch (GoogleGeocodingException | AirportsException e) {
+		} catch (GoogleGeocodingException | AirportsException
+				| FlightsException e) {
 			log.error("Error invoking  service :" + e.getMessage(), e);
 			throw new LogisticsException("Error invoking service : "
 					+ e.getMessage(), e);

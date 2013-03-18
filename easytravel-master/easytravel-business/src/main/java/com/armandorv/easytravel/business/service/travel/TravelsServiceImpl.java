@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.armandorv.easytravel.business.domain.Destiny;
+import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.business.domain.Travel;
 import com.armandorv.easytravel.business.exception.BusinessException;
@@ -65,7 +66,7 @@ class TravelsServiceImpl implements TravelsService {
 	}
 
 	@Override
-	public Set<String> getFlights(Destiny destiny) throws LogisticsException {
+	public Collection<FlightInfo> getFlights(Destiny destiny) throws LogisticsException {
 		return logisticsManager.getFlights(destiny);
 	}
 

@@ -21,15 +21,15 @@
 	</properties>
 
 	<modules>
-		<module>easytravel-business</module>
-		<module>easytravel-ws</module>
-		<module>easytravel-ws-client</module>
-		<module>easytravel-web</module>
 		<module>easytravel-googletime-ws-client</module>
 		<module>easytravel-googlegeocode-ws-client</module>
 		<module>easytravel-flights-ws-client</module>
 		<module>easytravel-expedia-ws-client</module>
 		<module>easytravel-airport-ws-client</module>
+		<module>easytravel-business</module>
+		<module>easytravel-ws</module>
+		<module>easytravel-ws-client</module>
+		<module>easytravel-web</module>
 	</modules>
 
 	<dependencies>

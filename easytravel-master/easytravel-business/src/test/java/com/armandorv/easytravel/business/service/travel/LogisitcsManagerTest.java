@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.armandorv.easytravel.business.domain.Destiny;
+import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.business.exception.LogisticsException;
 
@@ -32,7 +33,7 @@ public class LogisitcsManagerTest {
 		log.info("Spring Context loaded");
 
 		// Barcelona locality
-		
+
 		target.setLattitude(41.3825F);
 		target.setLongitude(2.17694F);
 	}
@@ -45,7 +46,7 @@ public class LogisitcsManagerTest {
 		Assert.assertNotNull(address);
 		log.info(address);
 	}
-	
+
 	@Test
 	public void testGetTimeZone() throws LogisticsException {
 		String timeZone = logisticsManager.getTimeZone(target.getLattitude(),
@@ -61,10 +62,10 @@ public class LogisitcsManagerTest {
 		Assert.assertFalse(hotels.isEmpty());
 		log.info(hotels);
 	}
-	
+
 	@Test
 	public void testGetFlights() throws LogisticsException {
-		Collection<String> flights =  logisticsManager.getFlights(target);
+		Collection<FlightInfo> flights = logisticsManager.getFlights(target);
 		Assert.assertNotNull(flights);
 		Assert.assertFalse(flights.isEmpty());
 		log.info(flights);

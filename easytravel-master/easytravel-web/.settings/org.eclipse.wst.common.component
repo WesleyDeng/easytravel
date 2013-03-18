@@ -19,6 +19,9 @@
         <dependent-module archiveName="easytravel-airport-ws-client-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/easytravel-airport-ws-client/easytravel-airport-ws-client">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="easytravel-flights-ws-client-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/easytravel-flights-ws-client/easytravel-flights-ws-client">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/travelsmanager-web/target/classes"/>
         <property name="context-root" value="easytravel-web"/>
     </wb-module>
