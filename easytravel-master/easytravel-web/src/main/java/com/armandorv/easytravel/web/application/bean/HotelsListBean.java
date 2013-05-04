@@ -1,5 +1,6 @@
 package com.armandorv.easytravel.web.application.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -10,12 +11,22 @@ import org.springframework.stereotype.Component;
 import com.armandorv.easytravel.business.domain.Destiny;
 import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.web.application.TravelsBusinessDelegate;
+import com.armandorv.easytravel.web.application.bean.datamodel.HotelDataModel;
 import com.armandorv.easytravel.web.exception.PresentationException;
 import com.armandorv.easytravel.web.util.FacesContextUtils;
 
+/**
+ * Backing bean for the List of hotels which is shown inside a dialog to add
+ * hotels to any destiny.
+ * 
+ * @author armandorv
+ * 
+ */
 @Component
 @Scope("view")
-public class HotelsListBean {
+public class HotelsListBean implements Serializable {
+
+	private static final long serialVersionUID = 5538869896003431321L;
 
 	private Destiny destiny;
 
@@ -23,12 +34,15 @@ public class HotelsListBean {
 
 	private Collection<HotelInfo> hotels = new ArrayList<>();
 
+	private HotelDataModel hotelDataModel = new HotelDataModel(hotels);
+
 	@Autowired
 	private TravelsBusinessDelegate travelsBD;
 
 	public void loadHotels() {
 		try {
 			hotels = travelsBD.loadHotels(destiny);
+			hotelDataModel = new HotelDataModel(hotels);
 		} catch (PresentationException e) {
 			FacesContextUtils.addMessageError("Error", e.getMessage());
 		}
@@ -56,6 +70,14 @@ public class HotelsListBean {
 
 	public void setHotels(Collection<HotelInfo> hotels) {
 		this.hotels = hotels;
+	}
+
+	public HotelDataModel getHotelDataModel() {
+		return hotelDataModel;
+	}
+
+	public void setHotelDataModel(HotelDataModel hotelDataModel) {
+		this.hotelDataModel = hotelDataModel;
 	}
 
 }

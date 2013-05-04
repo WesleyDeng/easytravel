@@ -1,5 +1,6 @@
 package com.armandorv.easytravel.web.application.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope("request")
-public class GalleryBean {
+public class GalleryBean implements Serializable {
+
+	private static final long serialVersionUID = -7665946188058441320L;
 
 	private List<String> images = new ArrayList<>();
 
