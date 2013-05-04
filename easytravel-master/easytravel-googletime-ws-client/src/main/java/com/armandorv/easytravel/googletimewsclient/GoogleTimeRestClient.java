@@ -29,6 +29,9 @@ public class GoogleTimeRestClient implements GoogleTimeService {
 	@Value("$gtime{googletime.rest.timestamp_name}")
 	private String timeStampName;
 
+	@Value("$gtime{resteasy.executor}")
+	private String restEasyExecutor;
+
 	@Autowired
 	private GoogleTimeJaxbParser parser;
 
@@ -44,8 +47,7 @@ public class GoogleTimeRestClient implements GoogleTimeService {
 	private String invokeRest(float lattitude, float longitude)
 			throws GoogleTimeException {
 		try {
-			ClientRequest
-					.setDefaultExecutorClass("org.jboss.resteasy.client.core.executors.URLConnectionClientExecutor");
+			ClientRequest.setDefaultExecutorClass("org.jboss.resteasy.client.core.executors.URLConnectionClientExecutor");
 			ClientRequest request = new ClientRequest(uri);
 
 			String location = lattitude + "," + longitude;
@@ -60,14 +62,6 @@ public class GoogleTimeRestClient implements GoogleTimeService {
 
 			String xml = response.getEntity();
 			return xml;
-
-			// HttpClient client = new HttpClient();
-			// HttpGet get = new HttpGet(
-			// new URI(
-			// "https://maps.googleapis.com/maps/api/timezone/xml?sensor=false&timestamp=2034390582&location=43.372417%2C-5.811652"));
-			// HttpMethod method = get;
-			// HttpResponse response = client.executeMethod(method);
-			// HttpEntity entity = response.getEntity();
 
 		} catch (Exception e) {
 			String message = "Error invoking google time service for uri = "
