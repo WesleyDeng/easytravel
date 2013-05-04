@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+
+	<p:panel header="Travel Flights">
+
+		<h:messages errorClass="error" />
+
+		<p:dataTable id="flightsTable" var="destiny"
+			emptyMessage="No destinies" value="#{newTravelBean.destinies}"
+			paginator="true" rows="10" selection="#{newTravelBean.selected}"
+			resizableColumns="true">
+
+			<p:column>
+				<h:outputText value="#{destiny.name}" />
+			</p:column>
+
+			<p:column>
+				<p:commandLink value="Add Flight"
+					action="#{flightsListBean.loadFlights}"
+					oncomplete="flightsDialog.show();" update=":form:flightsList">
+					<f:setPropertyActionListener target="#{flightsListBean.destiny}"
+						value="#{destiny}" />
+					<f:setPropertyActionListener target="#{newTravelBean.selected}"
+						value="#{destiny}" />
+				</p:commandLink>
+			</p:column>
+
+			<p:column>
+				<p:commandLink value="Flights (#{destiny.flightsNumber})"
+					oncomplete="destinyFlightsDialog.show()"
+					update=":form:destinyFlights">
+					<f:setPropertyActionListener target="#{newTravelBean.selected}"
+						value="#{destiny}" />
+				</p:commandLink>
+			</p:column>
+
+		</p:dataTable>
+	</p:panel>
+
+	<ui:include
+		src="/WEB-INF/facelets/includes/dialogs/travelFlightsDialog.xhtml" />
+	<ui:include
+		src="/WEB-INF/facelets/includes/dialogs/destinyFlightsDialog.xhtml" />
+
+</ui:composition>
+
+</html>

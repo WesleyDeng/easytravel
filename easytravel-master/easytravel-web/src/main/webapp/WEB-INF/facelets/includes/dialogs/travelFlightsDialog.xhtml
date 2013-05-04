@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+
+	<p:dialog widgetVar="flightsDialog" effect="FADE" effectDuration="0.5"
+		close="false" fixedCenter="true" width="40%" height="80%">
+
+		<f:facet name="header">
+			<h:outputText value="Flights near of #{flightsListBean.destiny}" />
+		</f:facet>
+
+		<p:dataTable id="flightsList" var="flight" scrollable="true" rows="10"
+			paginator="true" resizableColumns="true" paginatorPosition="bottom"
+			value="#{flightsListBean.flightsDataModel}"
+			selection="#{flightsListBean.selected}" selectionMode="single"
+			emptyMessage="There is no flights for this destiny.">
+
+				<p:ajax event="rowSelect" listener="#{newTravelBean.addFlight}"
+				update=":form:flightsTable :form:messages"
+				oncomplete="flightsDialog.hide()" />
+
+			<f:facet name="header">
+				<h:outputText value="Flights found close to this destiny." />
+			</f:facet>
+
+			<p:column filterBy="#{flight.originCity}" headerText="Origin City"
+				width="12">
+				<h:outputText value="#{flight.originCity}" />
+			</p:column>
+
+			<p:column filterBy="#{flight.originAirportName}"
+				headerText="Origin Airport" width="12">
+				<h:outputText value="#{flight.originAirportName}" />
+			</p:column>
+
+			<p:column filterBy="#{flight.destinationCity}"
+				headerText="Destination City" width="12">
+				<h:outputText value="#{flight.destinationCity}" />
+			</p:column>
+
+			<p:column filterBy="#{flight.destinationAirportName}"
+				headerText="Destination Airport" width="12">
+				<h:outputText value="#{flight.destinationAirportName}" />
+			</p:column>
+
+		</p:dataTable>
+
+	</p:dialog>
+
+
+</ui:composition>
+
+</html>

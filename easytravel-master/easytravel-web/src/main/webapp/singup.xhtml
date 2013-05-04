@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Easy Travel</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet name="screen.css" library="css" />
+</h:head>
+<h:body>
+	<div id="wrapper">
+
+		<div id="header">
+			<ui:include src="/WEB-INF/facelets/includes/header.xhtml" />
+		</div>
+
+		<div id="nav">
+			<h:form>
+				<p:tabMenu activeIndex="-1">
+					<ui:include src="/WEB-INF/facelets/includes/menu.xhtml" />
+				</p:tabMenu>
+			</h:form>
+		</div>
+
+		<div id="aside">
+			<ui:insert name="aside">
+				<ui:include src="/WEB-INF/facelets/includes/aside.xhtml" />
+			</ui:insert>
+		</div>
+
+		<div id="content">
+
+			<h2>Sing up</h2>
+
+			<h:form>
+
+				<p:growl autoUpdate="true" showDetail="true" showSummary="true" />
+
+
+				<p:panel header="Login">
+					<h:panelGrid columns="2">
+
+						<h:outputText value="Name :" />
+						<p:inputText id="name" value="#{singupBean.name}" required="true"
+							requiredMessage="The name is mandatory." />
+
+
+						<h:outputText value="Lastname :" />
+						<p:inputText id="lastname" value="#{singupBean.lastname}"
+							required="true" requiredMessage="The lastname is mandatory." />
+
+						<h:outputText value="E-mail :" />
+						<p:inputText id="email" value="#{singupBean.email}"
+							required="true" requiredMessage="The mail is mandatory.">
+							<f:validator binding="#{mailValidator}" />
+						</p:inputText>
+
+						<h:outputText value="Username :" />
+						<p:inputText id="username" value="#{singupBean.username}"
+							required="true" requiredMessage="The username is mandatory.">
+							<f:validator binding="#{usernameValidator}" />
+						</p:inputText>
+
+						<h:outputText value="Password :" />
+						<p:password id="password" value="#{singupBean.password}"
+							required="true" requiredMessage="The password is mandatory.">
+							<f:converter converterId="md5PasswordConverter" />
+						</p:password>
+				
+						<h:outputText value="Confirm Password :" />
+						<p:password id="passwordConfirmation" required="true"
+							requiredMessage="The confirm password is mandatory."
+							value="#{singupBean.confirmPassword}">
+							<f:converter converterId="md5PasswordConverter" />
+						</p:password>
+
+					</h:panelGrid>
+
+					<f:facet name="footer">
+						<p:commandButton value="Sing up" action="#{singupBean.singup}" />
+					</f:facet>
+
+				</p:panel>
+
+			</h:form>
+
+		</div>
+
+		<div id="footer">
+			<ui:include src="/WEB-INF/facelets/includes/footer.xhtml" />
+		</div>
+	</div>
+</h:body>
+</html>

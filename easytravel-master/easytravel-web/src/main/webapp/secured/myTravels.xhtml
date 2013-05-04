@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition template="/WEB-INF/templates/default.xhtml"
+<ui:composition template="/WEB-INF/facelets/templates/default.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -9,13 +9,11 @@
 	<ui:define name="nav">
 		<h:form>
 			<p:tabMenu activeIndex="1">
-				<ui:include src="/resources/includes/menu.xhtml" />
+				<ui:include src="/WEB-INF/facelets/includes/menu.xhtml" />
 			</p:tabMenu>
 		</h:form>
 	</ui:define>
-
 	<ui:define name="aside" />
-
 	<ui:define name="content">
 
 		<style>
@@ -26,104 +24,166 @@
 </style>
 
 		<h2>My Travels</h2>
-
 		<h3>New Travels</h3>
-		<h:form>
-		<p:panel header="Create a new Travel">
-			<h:panelGrid columns="4">
-				<h:outputText value="Start a new travel schedule" />
-				<p:commandLink value="Start" action="startNewTravel" />
-			</h:panelGrid>
-		</p:panel>
-		</h:form>	
-		<p:separator />
 
-		<h3>Travels History</h3>
+		<h:form>
+			<p:commandLink value="Start Planning a travel"
+				action="startNewTravel" />
+		</h:form>
+		<h:outputText value="  " />
+
+		<h3 style="margin-top: 30px;">Travels History</h3>
 
 		<h:form id="form">
-			<p:dataTable id="travels" var="travel"
-				value="#{travelsBean.travels}" paginator="true" rows="10"
-				selection="#{travelsBean.selected}">
+			<p:growl id="messages" />
+
+			<p:dataTable id="travelsHistory" var="travel"
+				paginatorPosition="bottom" value="#{travelsHistoryBean.travels}"
+				paginator="true" rows="10"
+				selection="#{travelsHistoryBean.selected}">
 
 				<p:column headerText="Name">  
             	#{travel.name}  
         		</p:column>
 
-				<p:column headerText="Done">  
-            	#{travel.done}  
-        		</p:column>
-
-				<p:column headerText="Summary">  
-          		 #{travel.summary}
-        		</p:column>
-
-
-				<p:column headerText="Actions">
-
-					<p:commandButton id="showFlightsButton" update=":form:display1"
-						oncomplete="flightsDialog.show()" icon="ui-icon-search"
-						title="Show Flights" value="Show Flights">
-						<f:setPropertyActionListener value="#{travel}"
-							target="#{travelsBean.selected}" />
-					</p:commandButton>
-
-					<p:commandButton id="showHotelsButton" update=":form:display2"
-						oncomplete="hotelsDialog.show()" icon="ui-icon-search"
-						title="Show" value="Show Hotels">
-						<f:setPropertyActionListener value="#{travel}"
-							target="#{travelsBean.selected}" />
-					</p:commandButton>
-
-					<p:commandButton id="selectButton" title="Show"
-						value="Mark as done">
-					</p:commandButton>
+				<p:column headerText="Destinies">
+					<p:commandLink id="dests" value="Destinies" process="@this"
+						action="#{travelsHistoryBean.loadDestinies}"
+						oncomplete="destiniesDialog.show()">
+						<f:setPropertyActionListener
+							target="#{travelsHistoryBean.selected}" value="#{travel}" />
+					</p:commandLink>
 				</p:column>
 
+				<p:column headerText="Summary">
+					<p:commandLink id="summary" value="Summary" process="@this"
+						rendered="#{travel.done}" onclick="summarizeDialog.show()" />
+					<p:commandLink id="done" value="Mark as done" process="@this"
+						rendered="#{not travel.done}" onclick="summarizeDialog.show()" />
+				</p:column>
+
+				<p:column headerText="Actions">
+					<p:commandLink value="Remove" onclick="confirmDialog.show()" />
+				</p:column>
 
 			</p:dataTable>
 
-			<p:dialog header="Flight Detail" widgetVar="flightsDialog"
-				resizable="false" id="flightsDialog" showEffect="fade"
-				hideEffect="explode" modal="true">
+			<!-- *************Confirm dialog to travels remove action. *************-->
+			<p:confirmDialog id="confirmDialog"
+				message="Are you sure about remove this travel?"
+				header="Initiating travel removing" severity="alert"
+				widgetVar="confirmDialog">
 
-				<h:panelGrid id="display1" columns="2" cellpadding="4"
-					style="margin:0 auto;">
+				<!--  This button makes the removing action  -->
+				<p:commandButton id="confirm" value="Yes Sure" process="@this"
+					update="messages travelsHistory" oncomplete="confirmDialog.hide()"
+					action="#{travelsHistoryBean.removeTravel}">
+					<f:setPropertyActionListener
+						target="#{travelsHistoryBean.selected}" value="#{travel}" />
+				</p:commandButton>
 
-					<f:facet name="header">  
-               Travel Flights
-            </f:facet>
+				<p:commandButton id="decline" value="Not Yet"
+					onclick="confirmDialog.hide()" type="button" />
+			</p:confirmDialog>
 
-					<h:outputText value="Travel:" />
-					<h:outputText value="#{travelsBean.selected.name}"
-						style="font-weight:bold" />
+			<!-- ****************** Summarize Dialog ******************-->
+			<p:dialog id="summarizeDialog" header="Summarizing travel"
+				widgetVar="summarizeDialog" resizable="true">
 
-					<h:outputText value="Flights:" />
-					<h:outputText value="None" />
+				<h:panelGrid columns="2" cellpadding="5">
+
+					<p:editor id="summary" value="#{travel.summary}" required="true"
+						disabled="#{travel.done}" />
+
+					<f:facet name="footer">
+						<p:commandButton id="summarize" value="Summarize"
+							update="travelsHistory" action="#{travelsHistoryBean.summarize}"
+							oncomplete="summarizeDialog.hide()" rendered="#{not travel.done}">
+							<f:setPropertyActionListener
+								target="#{travelsHistoryBean.selected}" value="#{travel}" />
+						</p:commandButton>
+						<p:commandButton id="close" value="Close"
+							oncomplete="summarizeDialog.hide()">
+						</p:commandButton>
+					</f:facet>
 
 				</h:panelGrid>
 
 			</p:dialog>
 
-			<p:dialog header="Travel Hotels" widgetVar="hotelsDialog"
-				resizable="false" id="hotelsDialog" showEffect="fade"
-				hideEffect="explode" modal="true">
+			<!-- ****************** Destinations Dialog ******************-->
 
-				<h:panelGrid id="display2" columns="2" cellpadding="4"
-					style="margin:0 auto;">
+			<p:dialog id="destiniesDialog" widgetVar="destiniesDialog"
+				resizable="true" header="Travel destinies">
 
-					<f:facet name="header">  
-               Hotels
-            </f:facet>
+				<p:dataList value="#{travelsHistoryBean.selectedDestinies}"
+					var="destiny">
+					<h3>#{destiny.name}</h3>
+		<!-- 			<h:panelGrid columns="1" columnClasses="label, value"
+						styleClass="grid">
+						<h3>#{destiny.name}</h3>
 
-					<h:outputText value="Travel:" />
-					<h:outputText value="#{travelsBean.selected.name}"
-						style="font-weight:bold" />
+						<p:commandLink value="Flights (#{destiny.flightsNumber})"
+							oncomplete="myTravelsFlightsDialog.show()"
+							update="travelDestinyFlights">
+							<f:setPropertyActionListener target="#{travelsHistoryBean.selectedDestiny}"
+								value="#{destiny}" />
+						</p:commandLink>
 
-					<h:outputText value="Hotels:" />
-					<h:outputText value="None" />
+						<p:separator />
 
-				</h:panelGrid>
+						<p:commandLink value="Hotels (#{destiny.hotelsNumber})"
+							oncomplete="myTravelsHotelsDialog.show()"
+							update="travelDestinyHotel">
+							<f:setPropertyActionListener target="#{travelsHistoryBean.selectedDestiny}"
+								value="#{destiny}" />
+						</p:commandLink>
 
+
+						<p:separator />
+					</h:panelGrid> -->
+				</p:dataList>
+			</p:dialog>
+
+			<p:dialog id="myTravelsFlightsDialog"
+				widgetVar="myTravelsFlightsDialog">
+
+				<p:dataTable id="travelDestinyFlights" var="flight"
+					value="#{travelsHistoryBean.selectedFlights}"
+					emptyMessage="There is no flights for this destiny.">
+					<p:column headerText="Origin airport">  
+              			   	#{flight.flightInfo.originAirportName}  
+                		   </p:column>
+					<p:column headerText="Destination airport">  
+                			  #{flight.flightInfo.destinationAirportName}  
+            			   </p:column>
+					<p:column headerText="Origin city">
+						   	#{flight.flightInfo.originCity}  
+							</p:column>
+					<p:column headerText="Destination city">
+   								#{flight.flightInfo.destinationCity}  
+							</p:column>
+				</p:dataTable>
+			</p:dialog>
+
+			<p:dialog id="myTravelsHotelsDialog"
+				widgetVar="myTravelsHotelsDialog">
+				<p:dataTable id="travelDestinyHotel" var="hotel"
+					value="#{travelsHistoryBean.selectedHotels}"
+					emptyMessage="There is no hotels for this destiny.">
+					<p:column headerText="Name">  
+                			#{hotel.hotelInfo.name}
+                 			</p:column>
+					<p:column headerText="City">  
+                 			#{hotel.hotelInfo.city}
+               				</p:column>
+					<p:column headerText="Rating">
+			 				#{hotel.hotelInfo.hotelRating}
+							</p:column>
+					<p:column headerText="Price Rate">
+							#{hotel.hotelInfo.lowRate} - #{hotel.hotelInfo.highRate}
+							</p:column>
+				</p:dataTable>
 			</p:dialog>
 
 		</h:form>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+
+	<p:panel header="Travel Confirmation">
+
+		<h:messages errorClass="error" />
+
+		<p:panel header="Travel Details">
+			<h:panelGrid columns="1" columnClasses="label, value"
+				styleClass="grid">
+				<h:outputText value="Name : #{newTravelBean.travel.name}" />
+
+				<p:separator />
+
+				<h:outputText
+					value="Description : #{newTravelBean.travel.description}" />
+
+				<p:separator />
+
+			</h:panelGrid>
+		</p:panel>
+
+		<p:panel header="Destinies">
+
+
+			<p:dataList value="#{newTravelBean.destinies}" var="destiny">
+				<h:panelGrid columns="1" columnClasses="label, value"
+					styleClass="grid">
+					<h3>#{destiny.name}</h3>
+
+					<p:commandLink value="Flights (#{destiny.flightsNumber})"
+						oncomplete="confirmFlightsDialog.show()"
+						update=":form:confirmFlights">
+						<f:setPropertyActionListener target="#{newTravelBean.selected}"
+							value="#{destiny}" />
+					</p:commandLink>
+
+					<p:separator />
+
+					<p:commandLink value="Hotels (#{destiny.hotelsNumber})"
+						oncomplete="confirmHotelsDialog.show()"
+						update=":form:confirmHotels">
+						<f:setPropertyActionListener target="#{newTravelBean.selected}"
+							value="#{destiny}" />
+					</p:commandLink>
+
+					<p:separator />
+
+				</h:panelGrid>
+
+			</p:dataList>
+		</p:panel>
+
+		<p:commandButton value="Confirm"
+			action="#{newTravelBean.confirmTravel}" />
+
+	</p:panel>
+
+	<ui:include src="/WEB-INF/facelets/includes/dialogs/confirmFlightsDialog.xhtml" />
+	<ui:include src="/WEB-INF/facelets/includes/dialogs/confirmHotelsDialog.xhtml" />
+
+</ui:composition>
+
+</html>

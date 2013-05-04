@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/facelets/templates/default.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="nav">
+		<h:form>
+			<p:tabMenu activeIndex="2">
+				<ui:include src="/WEB-INF/facelets/includes/menu.xhtml" />
+			</p:tabMenu>
+		</h:form>
+	</ui:define>
+
+	<ui:define name="aside"></ui:define>
+
+	<ui:define name="content">
+
+		<style>
+/*Sorry ...*/
+#content {
+	padding: 6%;
+	float: none;
+}
+</style>
+
+		<h2>Find Travels</h2>
+		<p>Find travels palnned by other users, and take their ideas and
+			palces to plan your owns travels around the world.</p>
+			
+		<h:form id="form">
+			<p:dataTable id="travelsFinder" var="travel" paginatorPosition="bottom"
+				value="#{travelsHistoryBean.travels}" paginator="true" rows="10"
+				selection="#{travelsHistoryBean.selected}">
+
+				<p:column headerText="Name" filterBy="#{travel.name}">  
+            	#{travel.name}  
+        		</p:column>
+
+				<p:column headerText="Destinies" filterBy="#{travel.name}">
+					
+				</p:column>
+
+				<p:column headerText="Summary" filterBy="#{travel.name}">
+					
+				</p:column>
+
+			</p:dataTable>
+
+		</h:form>
+			
+
+	</ui:define>
+</ui:composition>

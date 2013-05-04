@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:cxf="http://cxf.apache.org/core" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+                           http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+                           http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_5.xsd
+                           http://www.w3.org/2001/XMLSchema http://www.w3.org/2001/XMLSchema
+                           http://cxf.apache.org/jaxws 
+                           http://cxf.apache.org/schemas/jaxws.xsd
+                           http://www.springframework.org/schema/context
+           				   http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<import resource="classpath:easytravel-service-context.xml" />
+
+	<context:component-scan base-package="com.armandorv.easytravel.usersws" />
+	<context:annotation-config />
+
+	<bean id="usersWsConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:usersws.properties" />
+		<property name="placeholderPrefix" value="$usersws{" />
+	</bean>
+
+	<jaxws:endpoint id="usersWsEndpoint"
+		implementor="com.armandorv.easytravel.usersws.UsersWebServiceImpl"
+		address="$usersws{easytravel.usersws.address}">
+		<jaxws:properties>
+			<entry key="mtom-enabled" value="true" />
+		</jaxws:properties>
+
+<!-- 		<jaxws:inInterceptors>
+			<bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+				<constructor-arg>
+					<map>
+						<entry key="action" value="UsernameToken" />
+						<entry key="passwordType" value="PasswordText" />
+						<entry key="passwordCallbackRef">
+							<ref bean="altaExpC1NnPasswordCallback" />
+						</entry>
+					</map>
+				</constructor-arg>
+			</bean>
+		</jaxws:inInterceptors> -->
+	</jaxws:endpoint>
+
+</beans>

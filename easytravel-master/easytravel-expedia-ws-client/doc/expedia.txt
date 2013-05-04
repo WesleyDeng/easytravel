@@ -1,3 +1,6 @@
-
+username expedia=armandorv
+password=master2013
+API Key: ss47997prvcm58rtyrc9que4
+Shared Secret: 6jwU757W
 
 wsdl: http://api.ean.com/ean-services/ws/hotel/v3?wsdl&apiKey=ss47997prvcm58rtyrc9que4

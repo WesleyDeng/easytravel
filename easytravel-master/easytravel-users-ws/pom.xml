@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.armandorv.easytravel</groupId>
+		<artifactId>easytravel-master</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>easytravel-users-ws</artifactId>
+	<packaging>war</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.armandorv.easytravel</groupId>
+			<artifactId>easytravel-business</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<!-- CXF -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-policy</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>bcprov-jdk15</artifactId>
+					<groupId>org.bouncycastle</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>xmlsec</artifactId>
+					<groupId>org.apache.santuario</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>easytravel-users-ws</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${basedir}/src/generated/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.10</version>
+				<configuration>
+					<contextPath>/</contextPath>
+					<war>${basedir}/target/easytravel-web-0.0.1-SNAPSHOT.war</war>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>90</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+				</configuration>
+
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+	<profiles>
+		<profile>
+			<id>wsdl</id>
+			<build>
+				<finalName>easytravel-users-ws</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.cxf</groupId>
+						<artifactId>cxf-java2ws-plugin</artifactId>
+						<version>${cxf.version}</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.cxf</groupId>
+								<artifactId>cxf-rt-frontend-jaxws</artifactId>
+								<version>${cxf.version}</version>
+							</dependency>
+							<dependency>
+								<groupId>org.apache.cxf</groupId>
+								<artifactId>cxf-rt-frontend-simple</artifactId>
+								<version>${cxf.version}</version>
+							</dependency>
+						</dependencies>
+
+						<executions>
+							<execution>
+								<id>generate-wsdl-service</id>
+								<phase>process-classes</phase>
+								<configuration>
+									<className>com.armandorv.easytravel.usersws.UsersWebServiceImpl</className>
+									<genWsdl>true</genWsdl>
+									<verbose>true</verbose>
+									<outputFile>${basedir}/src/generated/UsersWebService.wsdl</outputFile>
+								</configuration>
+								<goals>
+									<goal>java2ws</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+
+
+		</profile>
+	</profiles>
+
+</project>

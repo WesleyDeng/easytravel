@@ -350,9 +350,7 @@ dl.table-display {
 
 .linkButton {
 	padding: 8px 16px 8px 16px;
-	margin-left: 80%;
-	margin-top: 20%;
-	background: #fff;
+    background: #fff;
 	width: 200%;
 	font-size: 14px;
 	color: #555;
@@ -367,4 +365,20 @@ dl.table-display {
 	vertical-align: baseline;
 	*vertical-align: middle;
 	text-decoration: none;
+	color: #0A67A2;
+
+}
+
+.linkButton:HOVER {
+		background:-moz-linear-gradient(center top , rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)) repeat scroll 0% 0% rgb(133, 178, 203);
+	box-shadow:0px 0px 8px rgb(133, 178, 203);
+}
+
+button,input
+[type="button"],input
+[type="reset"],[type="submit"] {
+	cursor: pointer;
+	-webkit-appearance: button;
+	width: 40%;
+	color: #0A67A2;
 }

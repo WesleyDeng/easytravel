@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition template="/WEB-INF/templates/default.xhtml"
+<ui:composition template="/WEB-INF/facelets/templates/default.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -9,7 +9,7 @@
 	<ui:define name="nav">
 		<h:form>
 			<p:tabMenu activeIndex="-1">
-				<ui:include src="/resources/includes/menu.xhtml" />
+				<ui:include src="/WEB-INF/facelets/includes/menu.xhtml" />
 			</p:tabMenu>
 		</h:form>
 	</ui:define>
@@ -25,7 +25,7 @@
 }
 </style>
 		
-		<h2>New Travel</h2>
+		<h2>Plan Travel</h2>
 
 		<h:form id="form">
 			
@@ -36,25 +36,26 @@
 
 
 				<p:tab id="information" title="Details">
-					<ui:include src="/secured/wizzard/travelInformation.xhtml" />
+					<ui:include src="/WEB-INF/facelets/includes/wizzard/travelDestinies.xhtml" />
 				</p:tab>
 
 				<p:tab id="flights" title="Flights">
-					<ui:include src="/secured/wizzard/travelFlights.xhtml" />
+					<ui:include src="/WEB-INF/facelets/includes/wizzard/travelFlights.xhtml" />
 				</p:tab>
 
 				<p:tab id="contact" title="Hotels">
-					<ui:include src="/secured/wizzard/travelHotels.xhtml" />
+					<ui:include src="/WEB-INF/facelets/includes/wizzard/travelHotels.xhtml" />
 				</p:tab>
 
-				<p:tab id="confirm" title="Confirmation">
-					<ui:include src="/secured/wizzard/travelConfirmation.xhtml" />
+				<p:tab id="confirm" title="Confirm">
+					<ui:include src="/WEB-INF/facelets/includes/wizzard/travelConfirm.xhtml" />
 				</p:tab>
 
 			</p:wizard>
+			<p:ajaxStatus/>
 		</h:form>
 		
-		<ui:include src="/secured/wizzard/googleMaps.xhtml" />
+		<ui:include src="/WEB-INF/facelets/includes/dialogs/googleMapsDialog.xhtml" />
 		
 	</ui:define>
 

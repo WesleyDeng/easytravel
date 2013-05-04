@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13628625172290" configfile="/easytravel-web/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="secured/myTravels.xhtml" id="pf136297917168412" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf136297917168413" path="/secured/myTravels.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="secured/newTravel.xhtml" id="pf136297917168414" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf136297917168413" path="/secured/newTravel.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="secured/myTravels.xhtml" id="pf136297917168412" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf136297917168413" inlinks="pf13676631043360" path="/secured/myTravels.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="secured/newTravel.xhtml" id="pf136297917168414" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13676631043360" inlinks="pf136297917168413" path="/secured/newTravel.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="singup.xhtml" id="pf13637583881790" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf13637583881801" path="/singup.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="secured/home.xhtml" id="pf13637583881802" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf13637583881801" path="/secured/home.xhtml"/>
   <links id="pf136297917168413" target="pf136297917168414" source="pf136297917168412" outcome="startNewTravel" redirect="true"/>
+  <links id="pf13637583881801" target="pf13637583881802" source="pf13637583881790" outcome="home" redirect="true"/>
+  <links id="pf13676631043360" target="pf136297917168412" source="pf136297917168414" outcome="endNewTravel" redirect="true"/>
 </pageflow:Pageflow>
