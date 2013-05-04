@@ -1,8 +1,16 @@
 package com.armandorv.easytravel.business.domain;
 
+import java.io.Serializable;
 
-public class HotelInfo {
+import javax.persistence.Embeddable;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@Embeddable
+@XmlRootElement(name = "Hotel")
+public class HotelInfo implements Serializable{
+
+	private static final long serialVersionUID = 3651530139811203082L;
+	
 	private Long hotelId;
 	private String name;
 	private String city;

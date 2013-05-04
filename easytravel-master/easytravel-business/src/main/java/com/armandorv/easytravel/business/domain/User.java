@@ -1,11 +1,26 @@
 package com.armandorv.easytravel.business.domain;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class User {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
 
+@Entity
+@Table(name = "easytravel_user")
+public class User implements Serializable {
+
+	private static final long serialVersionUID = -6499882856579056633L;
+
+	@Id
+	@GeneratedValue
 	private Long id;
 
 	private String name;
@@ -14,15 +29,27 @@ public class User {
 
 	private String mail;
 
+	@Column(unique = true, nullable = false)
+	private String username;
+
+	@Column(nullable = false)
+	private String password;
+
+	@XmlTransient
+	@OneToMany(mappedBy = "user")
 	private Set<Travel> travels = new HashSet<>();
-	
-	public void addTravel(Travel travel){
+
+	public void addTravel(Travel travel) {
 		travels.add(travel);
 		travel.setUser(this);
 	}
 
 	public Long getId() {
 		return id;
+	}
+
+	protected void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -55,6 +82,22 @@ public class User {
 
 	public void setTravels(Set<Travel> travels) {
 		this.travels = travels;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override

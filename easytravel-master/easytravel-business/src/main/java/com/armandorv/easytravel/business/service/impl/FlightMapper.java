@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.business.service.mapper;
+package com.armandorv.easytravel.business.service.impl;
 
 import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.business.service.Mapper;
@@ -10,6 +10,8 @@ class FlightMapper implements Mapper<Flight, FlightInfo> {
 	public FlightInfo map(Flight source) {
 		FlightInfo info = new FlightInfo();
 
+		info.setFlightId(source.getId());
+		
 		info.setArrivalTime(source.getArrivalTime());
 		info.setDepartureTime(source.getDepartureTime());
 

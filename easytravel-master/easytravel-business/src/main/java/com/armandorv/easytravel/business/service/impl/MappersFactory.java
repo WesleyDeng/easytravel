@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.business.service.mapper;
+package com.armandorv.easytravel.business.service.impl;
 
 import java.util.Collection;
 
@@ -8,7 +8,7 @@ import com.armandorv.easytravel.business.service.Mapper;
 import com.armandorv.easytravel.expediawsclient.model.Hotel;
 import com.armandorv.easytravel.flightswsclient.model.Flight;
 
-public class MappersFactory {
+class MappersFactory {
 
 	private static Mapper<Hotel, HotelInfo> hotelMaper = new HotelMapper();
 

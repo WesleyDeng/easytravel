@@ -1,11 +1,29 @@
 package com.armandorv.easytravel.business.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Destiny {
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+@Entity
+@Table(name = "easytravel_destiny")
+public class Destiny implements Serializable {
+
+	private static final long serialVersionUID = -4844476680907137289L;
+
+	@Id
+	@GeneratedValue
 	private Long id;
 
 	private String name;
@@ -18,19 +36,30 @@ public class Destiny {
 
 	private String timeZone;
 
+	@Temporal(TemporalType.DATE)
 	private Date estimatedDate;
 
+	@OneToOne(optional = true)
 	private Destiny previous;
 
+	@OneToOne(optional = true)
 	private Destiny next;
 
-	private FlightBooking flight;
+	@ManyToOne
+	private Travel travel;
 
+	@OneToMany(mappedBy = "destiny", cascade = { CascadeType.REMOVE,
+			CascadeType.PERSIST })
+	private Set<FlightBooking> flights = new HashSet<>();
+
+	@OneToMany(mappedBy = "destiny", cascade = { CascadeType.REMOVE,
+			CascadeType.PERSIST })
 	private Set<HotelBooking> hotels = new HashSet<>();
 
 	public Destiny() {
-		// Forbidden
 	}
+
+	/* ********** Domain logic methods ************** */
 
 	public boolean isEnd() {
 		return next == null;
@@ -40,18 +69,42 @@ public class Destiny {
 		return previous == null;
 	}
 
+	public int getHotelsNumber() {
+		return hotels.size();
+	}
+
+	public int getFlightsNumber() {
+		return flights.size();
+	}
+
 	public void addHotel(HotelBooking booking) {
 		booking.setDestiny(this);
 		hotels.add(booking);
 	}
 
-	public void removeHotel(HotelBooking booking) {
+	public void removeHotel(FlightBooking booking) {
 		hotels.remove(booking);
 		booking.setDestiny(null);
 	}
 
+	public void addFlight(FlightBooking booking) {
+		booking.setDestiny(this);
+		flights.add(booking);
+	}
+
+	public void removeFlight(HotelBooking booking) {
+		flights.remove(booking);
+		booking.setDestiny(null);
+	}
+
+	/* ********** Get and set methods ************** */
+
 	public Long getId() {
 		return id;
+	}
+
+	protected void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -118,12 +171,12 @@ public class Destiny {
 		this.next = next;
 	}
 
-	public FlightBooking getFlight() {
-		return flight;
+	public Set<FlightBooking> getFlights() {
+		return flights;
 	}
 
-	public void setFlight(FlightBooking flight) {
-		this.flight = flight;
+	public void setFlights(Set<FlightBooking> flights) {
+		this.flights = flights;
 	}
 
 	public Set<HotelBooking> getHotels() {
@@ -133,6 +186,8 @@ public class Destiny {
 	public void setHotels(Set<HotelBooking> hotels) {
 		this.hotels = hotels;
 	}
+
+	/* ********** Get and set methods ************** */
 
 	@Override
 	public int hashCode() {
@@ -185,8 +240,16 @@ public class Destiny {
 		return "Destiny [id=" + id + ", name=" + name + ", address=" + address
 				+ ", lattitude=" + lattitude + ", longitude=" + longitude
 				+ ", timeZone=" + timeZone + ", estimatedDate=" + estimatedDate
-				+ ", previous=" + previous + ", next=" + next + ", flight="
-				+ flight + ", hotels=" + hotels + "]";
+				+ ", previous=" + previous + ", next=" + next + ", flights="
+				+ flights + ", hotels=" + hotels + "]";
+	}
+
+	public Travel getTravel() {
+		return travel;
+	}
+
+	public void setTravel(Travel travel) {
+		this.travel = travel;
 	}
 
 }

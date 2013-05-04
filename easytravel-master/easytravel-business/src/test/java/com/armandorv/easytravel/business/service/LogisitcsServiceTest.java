@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.business.service.travel;
+package com.armandorv.easytravel.business.service;
 
 import java.util.Collection;
 
@@ -14,16 +14,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.armandorv.easytravel.business.domain.Destiny;
 import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.business.domain.HotelInfo;
-import com.armandorv.easytravel.business.exception.LogisticsException;
+import com.armandorv.easytravel.business.exception.BusinessException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:easytravel-service-context.xml")
-public class LogisitcsManagerTest {
+public class LogisitcsServiceTest {
 
-	private static Logger log = Logger.getLogger(LogisitcsManagerTest.class);
+	private static Logger log = Logger.getLogger(LogisitcsServiceTest.class);
 
 	@Autowired
-	private LogisticsManager logisticsManager;
+	private LogisticsService logisticsManager;
 
 	private Destiny target = new Destiny();
 
@@ -39,7 +39,7 @@ public class LogisitcsManagerTest {
 	}
 
 	@Test
-	public void testGetAddress() throws LogisticsException {
+	public void testGetAddress() throws BusinessException {
 		String address = logisticsManager.getAddress(target.getLattitude(),
 				target.getLongitude());
 
@@ -48,7 +48,7 @@ public class LogisitcsManagerTest {
 	}
 
 	@Test
-	public void testGetTimeZone() throws LogisticsException {
+	public void testGetTimeZone() throws BusinessException {
 		String timeZone = logisticsManager.getTimeZone(target.getLattitude(),
 				target.getLongitude());
 		Assert.assertNotNull(timeZone);
@@ -56,7 +56,7 @@ public class LogisitcsManagerTest {
 	}
 
 	@Test
-	public void testGetHotels() throws LogisticsException {
+	public void testGetHotels() throws BusinessException {
 		Collection<HotelInfo> hotels = logisticsManager.getHotels(target);
 		Assert.assertNotNull(hotels);
 		Assert.assertFalse(hotels.isEmpty());
@@ -64,7 +64,7 @@ public class LogisitcsManagerTest {
 	}
 
 	@Test
-	public void testGetFlights() throws LogisticsException {
+	public void testGetFlights() throws BusinessException {
 		Collection<FlightInfo> flights = logisticsManager.getFlights(target);
 		Assert.assertNotNull(flights);
 		Assert.assertFalse(flights.isEmpty());

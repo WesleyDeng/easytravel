@@ -1,7 +1,7 @@
 package com.armandorv.easytravel.business.service;
 
 /**
- * Define an interface to carry out object to object mapping operations.
+ * It defines an interface to carry out object to object mapping operations.
  * 
  * S-> Source object R-> Resultant object
  * 

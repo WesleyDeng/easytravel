@@ -11,7 +11,7 @@
 	<import resource="easytravel-googlegeocode-ws-client.xml" />
 
 	<!-- Set the correct file to use flight aware or flight stats. -->
-	<import resource="classpath:easytravel-flightaware-ws-client.xml" />
-	<!-- <import resource="classpath:easytravel-flightstats-ws-client.xml" /> -->
+	<!-- <import resource="classpath:easytravel-flightaware-ws-client.xml" /> -->
+	<import resource="classpath:easytravel-flightstats-ws-client.xml" />
 
 </beans>

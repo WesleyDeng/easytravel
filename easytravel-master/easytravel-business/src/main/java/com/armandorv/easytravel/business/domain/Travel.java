@@ -1,10 +1,19 @@
 package com.armandorv.easytravel.business.domain;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.armandorv.easytravel.business.exception.BrokenDomainRuleException;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.armandorv.easytravel.business.exception.DomainException;
 
 /**
  * DDD class which model a domain object and implements part of the domain
@@ -15,9 +24,15 @@ import com.armandorv.easytravel.business.exception.BrokenDomainRuleException;
  * @author armandorv
  * 
  */
-public class Travel {
+@Entity
+@Table(name = "easytravel_travel")
+public class Travel implements Serializable {
 
-	private Long id = 0L;
+	private static final long serialVersionUID = -4174248367460603002L;
+
+	@Id
+	@GeneratedValue
+	private Long id;
 
 	private String name;
 
@@ -25,42 +40,52 @@ public class Travel {
 
 	private String summary;
 
+	@ManyToOne
 	private User user;
 
 	private Boolean done = false;
 
+	@OneToMany(mappedBy = "travel", cascade = { CascadeType.REMOVE,
+			CascadeType.PERSIST })
 	private Set<Destiny> destinies = new HashSet<>();
 
-	// Domain logic
+	/* ************ Domain logic *********** */
 
-	public void addDestiny(Destiny destiny) throws BrokenDomainRuleException {
+	public void addDestiny(Destiny destiny) throws DomainException {
 		if (done) {
-			throw new BrokenDomainRuleException(
+			throw new DomainException(
 					"You can't remove a destiny because the travel is done!");
 		}
 
+		destiny.setTravel(this);
 		destinies.add(destiny);
 	}
 
-	public void removeDestiny(Destiny destiny) throws BrokenDomainRuleException {
+	public void removeDestiny(Destiny destiny) throws DomainException {
 		if (done) {
-			throw new BrokenDomainRuleException(
+			throw new DomainException(
 					"You can't remove a destiny because the travel is done!");
 		}
 
 		destinies.remove(destiny);
+		destiny.setTravel(null);
 	}
 
-	public void markAsDone() throws BrokenDomainRuleException {
+	public void markAsDone() throws DomainException {
 		if (done) {
-			throw new BrokenDomainRuleException("This travel is already done !");
+			throw new DomainException("This travel is already done !");
 		}
+		done = true;
 	}
 
-	// Getters and Setters
+	/* ************ Get and Set Method *********** */
 
 	public Long getId() {
 		return id;
+	}
+
+	protected void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -106,6 +131,8 @@ public class Travel {
 	public void setDestinies(Set<Destiny> destinies) {
 		this.destinies = destinies;
 	}
+
+	/* ************ Object methods *********** */
 
 	@Override
 	public int hashCode() {

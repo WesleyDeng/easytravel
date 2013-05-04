@@ -1,31 +1,24 @@
 package com.armandorv.easytravel.business.service;
 
-import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 import com.armandorv.easytravel.business.domain.Destiny;
-import com.armandorv.easytravel.business.domain.FlightInfo;
-import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.business.domain.Travel;
 import com.armandorv.easytravel.business.exception.BusinessException;
 
 public interface TravelsService {
 
-	void createTravel(Travel travel) throws BusinessException;
-
-	Iterable<Travel> getTravels(String userId) throws BusinessException;
-
-	Collection<FlightInfo> getFlights(Destiny destiny) throws BusinessException;
-
-	Collection<HotelInfo> getHotels(Destiny destiny) throws BusinessException;
-
-	String getTimeZone(float lattiude, float longitude)
+	void createTravel(String username, Travel travel, List<Destiny> destinies)
 			throws BusinessException;
 
-	String getTimeZone(double lattiude, double longitude)
-			throws BusinessException;
+	Iterable<Travel> getTravels(String username) throws BusinessException;
 
-	String getAddress(float lattiude, float longitude) throws BusinessException;
+	Iterable<Travel> getTravels() throws BusinessException;
 
-	String getAddress(double lattiude, double longitude)
-			throws BusinessException;
+	void removeTravel(Travel travel) throws BusinessException;
+
+	void summarizeTravel(Travel travel) throws BusinessException;
+
+	Set<Destiny> getDestinies(Long id) throws BusinessException;
 }

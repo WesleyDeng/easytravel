@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.business.service.mapper;
+package com.armandorv.easytravel.business.service.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;

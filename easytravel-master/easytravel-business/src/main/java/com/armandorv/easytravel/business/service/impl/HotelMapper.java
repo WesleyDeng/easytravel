@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.business.service.mapper;
+package com.armandorv.easytravel.business.service.impl;
 
 import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.business.service.Mapper;
@@ -10,7 +10,7 @@ import com.armandorv.easytravel.expediawsclient.model.Hotel;
  * @author armandorv
  * 
  */
-public class HotelMapper implements Mapper<Hotel, HotelInfo> {
+class HotelMapper implements Mapper<Hotel, HotelInfo> {
 
 	@Override
 	public HotelInfo map(Hotel hotel) {
