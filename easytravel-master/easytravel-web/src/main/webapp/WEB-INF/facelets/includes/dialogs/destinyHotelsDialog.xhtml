@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<!-- Dialog which hold a list of hotels already added to the selected destiny. -->
+
+<ui:composition>
+
+	<p:dialog widgetVar="destinyHotelsDialog" id="destinyHotelsDialog">
+
+		<f:facet name="header">
+			<h:outputText value="#{destiny.name} 's hotels" />
+		</f:facet>
+
+		<p:dataTable id="destinyHotels" var="hotel"
+			value="#{newTravelBean.selectedHotels}"
+			emptyMessage="There is no hotels for this destiny.">
+
+			<p:column headerText="Name">  
+                #{hotel.hotelInfo.name}
+                 </p:column>
+
+			<p:column headerText="City">  
+                 #{hotel.hotelInfo.city}
+               </p:column>
+
+			<p:column headerText="Rating">
+			 	#{hotel.hotelInfo.hotelRating}
+			</p:column>
+
+			<p:column headerText="Price Rate">
+				#{hotel.hotelInfo.lowRate} - #{hotel.hotelInfo.highRate}
+			</p:column>
+
+			<p:column headerText="Remove">
+				<p:commandLink value="Remove"></p:commandLink>
+			</p:column>
+
+		</p:dataTable>
+
+	</p:dialog>
+
+
+</ui:composition>
+
+</html>
