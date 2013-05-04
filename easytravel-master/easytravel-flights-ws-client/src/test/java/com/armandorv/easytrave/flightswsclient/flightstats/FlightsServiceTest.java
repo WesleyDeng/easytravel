@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -27,9 +26,6 @@ public class FlightsServiceTest {
 	@Autowired
 	private FlightsService flightsService;
 
-	@Autowired
-	private ApplicationContext applicationContext;
-
 	@Before
 	public void setUp() {
 		Assert.assertNotNull(flightsService);
@@ -41,7 +37,26 @@ public class FlightsServiceTest {
 		List<Flight> flights = flightsService.findFlights(BARCELONA_ICAO);
 		Assert.assertNotNull(flights);
 		Assert.assertFalse(flights.isEmpty());
-		log.info(flights);
+
+		for (Flight flight : flights) {
+			printFlight(flight);
+		}
+	}
+
+	private void printFlight(Flight flight) {
+
+		System.out.println(" ********* Airport ************");
+		
+		System.out.println("ID: " + flight.getId());
+		
+		System.out.println("Destiny ICAO: " + flight.getDestinationAirportICAO());
+		System.out.println("Destiny Name: " + flight.getDestinationAirportName());
+		System.out.println("Destiny City: " + flight.getDestinationCity());
+
+		System.out.println("Origin ICAO: " + flight.getOriginAirportICAO());
+		System.out.println("Origin Name: " + flight.getOriginAirportName());
+		System.out.println("Origin City: " + flight.getOriginCity());
+
 	}
 
 }
