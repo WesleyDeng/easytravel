@@ -19,7 +19,10 @@ import com.armandorv.easytravel.expediawsclient.model.Hotel;
 @ContextConfiguration("classpath:easytravel-expedia-ws-client.xml")
 public class HotelsServiceTest {
 
+	private static final String SPAIN = "Spain";
 	private static final String MADRID = "Madrid";
+	private static final String BARCELONA = "Barcelona";
+	private static final String OVIEDO = "Oviedo";
 
 	private static Logger log = Logger.getLogger(HotelsServiceTest.class);
 
@@ -38,23 +41,28 @@ public class HotelsServiceTest {
 	@Test
 	public void testfindHotels() {
 		try {
-			Collection<Hotel> hotels = service.findHotels(MADRID);
-
-			Assert.assertNotNull(hotels);
-			Assert.assertFalse(hotels.isEmpty());
-
-			log.info("Found " + hotels.size() + "hotels");
-			log.info(hotels);
-
+			testFindHotels(MADRID,SPAIN);
+			testFindHotels(OVIEDO,SPAIN);
+			testFindHotels(BARCELONA,SPAIN);
 		} catch (HotelsException e) {
 			log.error(e);
 			Assert.fail(e.getMessage());
 		}
 	}
 
+	private void testFindHotels(String city, String country) throws HotelsException {
+		Collection<Hotel> hotels = service.findHotels(city, country);
+
+		Assert.assertNotNull(hotels);
+		Assert.assertFalse(hotels.isEmpty());
+
+		log.info("Found " + hotels.size() + "hotels");
+		log.info(hotels);
+	}
+
 	@Test(expected = HotelsException.class)
 	public void testfindHotelsError() throws HotelsException {
-		service.findHotels("");
+		service.findHotels("", "");
 	}
 
 }

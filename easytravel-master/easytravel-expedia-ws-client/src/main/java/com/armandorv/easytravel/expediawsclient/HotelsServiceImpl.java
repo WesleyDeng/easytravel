@@ -28,9 +28,10 @@ class HotelsServiceImpl implements HotelsService {
 	private HotelServices hotelsService;
 
 	@Override
-	public Set<Hotel> findHotels(String city) throws HotelsException {
+	public Set<Hotel> findHotels(String city, String country)
+			throws HotelsException {
 		HotelListResponse response = hotelsService
-				.getList(hotelListRequest(city));
+				.getList(hotelListRequest(city + "," + country));
 		validateResponse(response);
 		log.info("Retrieved " + response.getHotelList().getSize() + " hotels");
 		return new HotelsMapper(response.getHotelList()).map();
