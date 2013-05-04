@@ -26,6 +26,7 @@ public interface GeocodingService {
 			throws GoogleGeocodingException;
 
 	/**
+	 * Inverse geo location.
 	 * 
 	 * @param lattitude
 	 * @param longitude
