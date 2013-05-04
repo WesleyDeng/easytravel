@@ -1,0 +1,19 @@
+Representational State Transfer (REST) architecture style.
+----------------------------------------------------------
+
+Naveen Balani in Developing RESTful Services with CXF:
+"REST stands for Representational State Transfer. REST is neither a technology nor a
+standard; it's an architectural style, a set of guidelines for exposing resources over the
+web. The REST architecture style is related to a resource, which is a representation
+identified by a Uniform Resource Indicator (URI)".
+
+This project is built using the principles of REST architecture so it can be
+termed as a Restful web service.
+
+Links:
+
+http://jcp.org/en/jsr/detail?id=311
+http://jcp.org/en/jsr/detail?id=339
+http://cxf.apache.org/docs/jax-rs.html
+
+Another popular JAX RS implementations are Jersey and RestEasy.
