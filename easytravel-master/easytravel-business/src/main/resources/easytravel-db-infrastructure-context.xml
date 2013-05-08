@@ -20,15 +20,15 @@
 		<property name="placeholderPrefix" value="props{"/>
 	</bean>
 
-   <bean id="dataSource"
+<!--    <bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="props{bbdd.driver.name}" />
 		<property name="url" value="props{bbdd.url}" />
 		<property name="username" value="props{bbdd.user}" />
 		<property name="password" value="props{bbdd.pass}" />
-	</bean> 
+	</bean>  -->
 
-	<!-- <cloud:data-source id="dataSource" /> -->
+	<cloud:data-source id="dataSource" />
 
  	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">

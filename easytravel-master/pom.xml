@@ -30,7 +30,7 @@
 		<module>easytravel-airport-ws-client</module>
 		<module>easytravel-business</module>
 		<module>easytravel-users-ws</module>
-		<module>easytravel-users-ws-client</module>
+		<!--<module>easytravel-users-ws-client</module>-->
 		<module>easytravel-travels-ws</module>
 		<module>easytravel-web</module>
 		<module>easytravel-logistics-ws</module>
@@ -127,7 +127,17 @@
 	</reporting>
 
 	<repositories>
+			<!-- Added for Cloud Foundry-->
+			<repository>
+			<id>org.springframework.maven.milestone</id>
+			<name>Spring Maven Milestone Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 
+	
 		<repository>
 			<id>central</id>
 			<name>Maven Repository Switchboard</name>
@@ -139,7 +149,7 @@
 		</repository>
 
 		<!-- Added for APIviz -->
-		<repository>
+	 	<repository>
 			<id>jboss.releases</id>
 			<name>JBoss releases</name>
 			<url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
@@ -150,6 +160,7 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		
 
 	</repositories>
 

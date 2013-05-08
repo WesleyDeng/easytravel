@@ -33,16 +33,23 @@
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>2.3.5.Final</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-spring</artifactId>
 			<version>2.3.5.Final</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.cloudfoundry</groupId>
+			<artifactId>cloudfoundry-runtime</artifactId>
+			<version>0.8.1</version>
+		</dependency>
+
+
 	</dependencies>
-	
-		<build>
+
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>

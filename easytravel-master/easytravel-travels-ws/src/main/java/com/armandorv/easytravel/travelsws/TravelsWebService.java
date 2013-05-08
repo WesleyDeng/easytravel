@@ -1,6 +1,7 @@
 package com.armandorv.easytravel.travelsws;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -12,6 +13,7 @@ import javax.jws.soap.SOAPBinding.Use;
 
 import com.armandorv.easytravel.business.domain.Destiny;
 import com.armandorv.easytravel.business.domain.Travel;
+import com.armandorv.easytravel.travelsws.exception.TravelsWsException;
 
 /**
  * SEI for the users web service, a ws intended for query travels.
@@ -24,14 +26,23 @@ import com.armandorv.easytravel.business.domain.Travel;
 public interface TravelsWebService {
 
 	@WebMethod(operationName = "getTravels")
-	Collection<Travel> getTravels(@WebParam(name = "term") String term);
+	Collection<Travel> getTravels(@WebParam(name = "term") String term)
+			throws TravelsWsException;
 
 	@WebMethod(operationName = "isVisited")
-	boolean isVisited(String destinyName);
+	boolean hasVisited(@WebParam(name = "username") String username,
+			@WebParam(name = "destinyName") String destinyName)
+			throws TravelsWsException;
 
 	@WebMethod(operationName = "numberTravelsByDestination")
-	int numberTravelsByDestination(String destinyName);
+	int numberTravelsByDestination(
+			@WebParam(name = "destinyName") String destinyName)
+			throws TravelsWsException;
 
 	@WebMethod(operationName = "mostVistedDestination")
-	public Destiny mostVistedDestination();
+	public Destiny mostVistedDestination() throws TravelsWsException;
+
+	@WebMethod(operationName = "mostVistedDestinations")
+	public List<Destiny> mostVistedDestinations(int max)
+			throws TravelsWsException;
 }

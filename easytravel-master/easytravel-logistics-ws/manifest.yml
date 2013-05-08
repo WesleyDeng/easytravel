@@ -1,0 +1,14 @@
+--- 
+applications: 
+- name: easytravel-logistics-ws
+  framework: spring
+  runtime: java7
+  memory: 256M
+  instances: 1
+  url: logistics.easytravel.${target-base}
+  path: target/easytravel-logistics-ws-0.0.1-SNAPSHOT
+  services: 
+    easytravel-database: 
+      vendor: postgresql
+      version: "9.0"
+      tier: free

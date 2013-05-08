@@ -1,0 +1,14 @@
+--- 
+applications: 
+- name: easytravel
+  framework: spring
+  runtime: java7
+  memory: 512M
+  instances: 1
+  url: easytravel.${target-base}
+  path: target/easytravel-web-0.0.1-SNAPSHOT
+  services: 
+    easytravel-database: 
+      vendor: postgresql
+      version: "9.0"
+      tier: free

@@ -69,7 +69,7 @@
 									<sourceRoot>${basedir}/src/generated/java</sourceRoot>
 									<wsdlOptions>
 										<wsdlOption>
-											<wsdl>http://localhost/easytravel-users-ws/services/UsersWebService?wsdl</wsdl>
+											<wsdl>http://users.easytravel.cloudfoundry.com/services/UsersWebService?wsdl</wsdl>
 											<serviceName>UsersWebService</serviceName>
 										</wsdlOption>
 									</wsdlOptions>

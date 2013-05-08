@@ -1,5 +1,6 @@
 package com.armandorv.easytravel.business.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -98,6 +99,21 @@ class TravelsServiceImpl implements TravelsService {
 		Travel travel = travel(id);
 		travel.getDestinies().size();
 		return travel.getDestinies();
+	}
+
+	@Override
+	public int getTravelsByDestination() {
+		return 0;
+	}
+
+	@Override
+	public Destiny getMostVisitedDestinations() {
+		return new Destiny();
+	}
+
+	@Override
+	public List<Destiny> getMostVisitedDestinations(int max) {
+		return new ArrayList<>();
 	}
 
 }

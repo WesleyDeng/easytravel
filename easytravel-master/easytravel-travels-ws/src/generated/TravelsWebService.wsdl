@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="TravelsWebService" targetNamespace="http://armandorv.com/easytravel/travelsws" xmlns:ns1="http://armandorv.com/easytravel/travelsws/exception" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://armandorv.com/easytravel/travelsws" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://armandorv.com/easytravel/travelsws" elementFormDefault="unqualified" targetNamespace="http://armandorv.com/easytravel/travelsws" version="1.0">
+<xs:element name="Flight" type="tns:flightInfo"/>
+<xs:element name="Hotel" type="tns:hotelInfo"/>
+<xs:element name="getTravels" type="tns:getTravels"/>
+<xs:element name="getTravelsResponse" type="tns:getTravelsResponse"/>
+<xs:element name="isVisited" type="tns:isVisited"/>
+<xs:element name="isVisitedResponse" type="tns:isVisitedResponse"/>
+<xs:element name="mostVistedDestination" type="tns:mostVistedDestination"/>
+<xs:element name="mostVistedDestinationResponse" type="tns:mostVistedDestinationResponse"/>
+<xs:element name="mostVistedDestinations" type="tns:mostVistedDestinations"/>
+<xs:element name="mostVistedDestinationsResponse" type="tns:mostVistedDestinationsResponse"/>
+<xs:element name="numberTravelsByDestination" type="tns:numberTravelsByDestination"/>
+<xs:element name="numberTravelsByDestinationResponse" type="tns:numberTravelsByDestinationResponse"/>
+<xs:complexType name="mostVistedDestination">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="mostVistedDestinationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:destiny"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="destiny">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address" type="xs:string"/>
+      <xs:element minOccurs="0" name="estimatedDate" type="xs:dateTime"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="flights" nillable="true" type="tns:flightBooking"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="hotels" nillable="true" type="tns:hotelBooking"/>
+      <xs:element minOccurs="0" name="lattitude" type="xs:float"/>
+      <xs:element minOccurs="0" name="longitude" type="xs:float"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="next" type="tns:destiny"/>
+      <xs:element minOccurs="0" name="previous" type="tns:destiny"/>
+      <xs:element minOccurs="0" name="timeZone" type="xs:string"/>
+      <xs:element minOccurs="0" name="travel" type="tns:travel"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="flightBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="destiny" type="tns:destiny"/>
+      <xs:element minOccurs="0" name="flightInfo" type="tns:flightInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="flightInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arrivalTime" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="departureTime" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="destinationAirportICAO" type="xs:string"/>
+      <xs:element minOccurs="0" name="destinationAirportName" type="xs:string"/>
+      <xs:element minOccurs="0" name="destinationCity" type="xs:string"/>
+      <xs:element minOccurs="0" name="flightId" type="xs:string"/>
+      <xs:element minOccurs="0" name="originAirportICAO" type="xs:string"/>
+      <xs:element minOccurs="0" name="originAirportName" type="xs:string"/>
+      <xs:element minOccurs="0" name="originCity" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="hotelBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="destiny" type="tns:destiny"/>
+      <xs:element minOccurs="0" name="hotelInfo" type="tns:hotelInfo"/>
+      <xs:element minOccurs="0" name="id" type="xs:long"/>
+      <xs:element minOccurs="0" name="persons" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="hotelInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="city" type="xs:string"/>
+      <xs:element minOccurs="0" name="highRate" type="xs:float"/>
+      <xs:element minOccurs="0" name="hotelId" type="xs:long"/>
+      <xs:element minOccurs="0" name="hotelRating" type="xs:float"/>
+      <xs:element minOccurs="0" name="locationDescription" type="xs:string"/>
+      <xs:element minOccurs="0" name="lowRate" type="xs:float"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="postalCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="travel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="destinies" nillable="true" type="tns:destiny"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="summary" type="xs:string"/>
+      <xs:element minOccurs="0" name="user" type="tns:user"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="user">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+      <xs:element minOccurs="0" name="mail" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="travels" nillable="true" type="tns:travel"/>
+      <xs:element minOccurs="0" name="username" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getTravels">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="term" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getTravelsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:travel"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="mostVistedDestinations">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="mostVistedDestinationsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:destiny"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isVisited">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="username" type="xs:string"/>
+      <xs:element minOccurs="0" name="destinyName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="isVisitedResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="numberTravelsByDestination">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="destinyName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="numberTravelsByDestinationResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://armandorv.com/easytravel/travelsws/exception" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://armandorv.com/easytravel/travelsws/exception">
+  <xsd:element name="UsersWsException" type="tns:UsersWsException"/>
+  <xsd:complexType name="UsersWsException">
+    <xsd:sequence/>
+  </xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="mostVistedDestinationsResponse">
+    <wsdl:part name="parameters" element="tns:mostVistedDestinationsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="numberTravelsByDestinationResponse">
+    <wsdl:part name="parameters" element="tns:numberTravelsByDestinationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TravelsWsException">
+    <wsdl:part name="TravelsWsException" element="ns1:UsersWsException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isVisitedResponse">
+    <wsdl:part name="parameters" element="tns:isVisitedResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="numberTravelsByDestination">
+    <wsdl:part name="parameters" element="tns:numberTravelsByDestination">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isVisited">
+    <wsdl:part name="parameters" element="tns:isVisited">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mostVistedDestination">
+    <wsdl:part name="parameters" element="tns:mostVistedDestination">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mostVistedDestinationResponse">
+    <wsdl:part name="parameters" element="tns:mostVistedDestinationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTravels">
+    <wsdl:part name="parameters" element="tns:getTravels">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mostVistedDestinations">
+    <wsdl:part name="parameters" element="tns:mostVistedDestinations">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTravelsResponse">
+    <wsdl:part name="parameters" element="tns:getTravelsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="travelsWebService">
+    <wsdl:operation name="mostVistedDestination">
+      <wsdl:input name="mostVistedDestination" message="tns:mostVistedDestination">
+    </wsdl:input>
+      <wsdl:output name="mostVistedDestinationResponse" message="tns:mostVistedDestinationResponse">
+    </wsdl:output>
+      <wsdl:fault name="TravelsWsException" message="tns:TravelsWsException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTravels">
+      <wsdl:input name="getTravels" message="tns:getTravels">
+    </wsdl:input>
+      <wsdl:output name="getTravelsResponse" message="tns:getTravelsResponse">
+    </wsdl:output>
+      <wsdl:fault name="TravelsWsException" message="tns:TravelsWsException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="mostVistedDestinations">
+      <wsdl:input name="mostVistedDestinations" message="tns:mostVistedDestinations">
+    </wsdl:input>
+      <wsdl:output name="mostVistedDestinationsResponse" message="tns:mostVistedDestinationsResponse">
+    </wsdl:output>
+      <wsdl:fault name="TravelsWsException" message="tns:TravelsWsException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isVisited">
+      <wsdl:input name="isVisited" message="tns:isVisited">
+    </wsdl:input>
+      <wsdl:output name="isVisitedResponse" message="tns:isVisitedResponse">
+    </wsdl:output>
+      <wsdl:fault name="TravelsWsException" message="tns:TravelsWsException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="numberTravelsByDestination">
+      <wsdl:input name="numberTravelsByDestination" message="tns:numberTravelsByDestination">
+    </wsdl:input>
+      <wsdl:output name="numberTravelsByDestinationResponse" message="tns:numberTravelsByDestinationResponse">
+    </wsdl:output>
+      <wsdl:fault name="TravelsWsException" message="tns:TravelsWsException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TravelsWebServiceSoapBinding" type="tns:travelsWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="mostVistedDestination">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="mostVistedDestination">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="mostVistedDestinationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TravelsWsException">
+        <soap:fault name="TravelsWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTravels">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTravels">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTravelsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TravelsWsException">
+        <soap:fault name="TravelsWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="mostVistedDestinations">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="mostVistedDestinations">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="mostVistedDestinationsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TravelsWsException">
+        <soap:fault name="TravelsWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isVisited">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isVisited">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isVisitedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TravelsWsException">
+        <soap:fault name="TravelsWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="numberTravelsByDestination">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="numberTravelsByDestination">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="numberTravelsByDestinationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TravelsWsException">
+        <soap:fault name="TravelsWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TravelsWebService">
+    <wsdl:port name="TravelsWebService" binding="tns:TravelsWebServiceSoapBinding">
+      <soap:address location="http://localhost:9090/TravelsWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

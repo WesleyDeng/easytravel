@@ -24,30 +24,13 @@
 
 	<bean id="travelsWsConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="classpath:usersws.properties" />
+		<property name="location" value="classpath:travelsws.properties" />
 		<property name="placeholderPrefix" value="$travelsws{" />
 	</bean>
 
-	<jaxws:endpoint id="usersWsEndpoint"
-		implementor="com.armandorv.easytravel.usersws.UsersWebServiceImpl"
+	<jaxws:endpoint id="travelsWsEndpoint"
+		implementor="com.armandorv.easytravel.travelsws.TravelsWebServiceImpl"
 		address="$travelsws{easytravel.travelsws.address}">
-		<jaxws:properties>
-			<entry key="mtom-enabled" value="true" />
-		</jaxws:properties>
-
-		<jaxws:inInterceptors>
-			<bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
-				<constructor-arg>
-					<map>
-						<entry key="action" value="UsernameToken" />
-						<entry key="passwordType" value="PasswordText" />
-						<entry key="passwordCallbackRef">
-							<ref bean="altaExpC1NnPasswordCallback" />
-						</entry>
-					</map>
-				</constructor-arg>
-			</bean>
-		</jaxws:inInterceptors>
 	</jaxws:endpoint>
 
 </beans>

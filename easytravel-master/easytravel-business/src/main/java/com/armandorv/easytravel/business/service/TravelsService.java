@@ -21,4 +21,10 @@ public interface TravelsService {
 	void summarizeTravel(Travel travel) throws BusinessException;
 
 	Set<Destiny> getDestinies(Long id) throws BusinessException;
+
+	int getTravelsByDestination();
+
+	Destiny getMostVisitedDestinations();
+
+	List<Destiny> getMostVisitedDestinations(int max);
 }
