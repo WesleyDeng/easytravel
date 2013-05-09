@@ -2,10 +2,10 @@ package com.armandorv.easytravel.travelsws.exception;
 
 import javax.xml.ws.WebFault;
 
-@WebFault(name = "UsersNotFoundException", targetNamespace = "http://armandorv.com/easytravel/travelsws/exception")
+@WebFault(name = "TravelNotFoundException", targetNamespace = "http://armandorv.com/easytravel/travelsws/exception")
 public class TravelNotFoundException extends TravelsWsException {
 
-	private static final long serialVersionUID = -4261840469113536391L;
+	private static final long serialVersionUID = 7534926248280215233L;
 
 	public TravelNotFoundException() {
 		super();

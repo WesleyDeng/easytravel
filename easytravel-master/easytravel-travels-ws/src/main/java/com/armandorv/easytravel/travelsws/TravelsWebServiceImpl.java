@@ -38,7 +38,7 @@ public class TravelsWebServiceImpl implements TravelsWebService {
 	@Override
 	public int numberTravelsByDestination(String destinyName)
 			throws TravelsWsException {
-		return travelsService.getTravelsByDestination();
+		return travelsService.getTravelsByDestination(destinyName);
 	}
 
 	@Override

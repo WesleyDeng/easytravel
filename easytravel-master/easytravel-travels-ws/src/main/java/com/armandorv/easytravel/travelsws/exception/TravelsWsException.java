@@ -2,10 +2,10 @@ package com.armandorv.easytravel.travelsws.exception;
 
 import javax.xml.ws.WebFault;
 
-@WebFault(name = "UsersWsException", targetNamespace = "http://armandorv.com/easytravel/travelsws/exception")
+@WebFault(name = "TravelsWsException", targetNamespace = "http://armandorv.com/easytravel/travelsws/exception")
 public class TravelsWsException extends Exception {
 
-	private static final long serialVersionUID = 4563056757246974891L;
+	private static final long serialVersionUID = 3767856088787627306L;
 
 	public TravelsWsException() {
 		super();

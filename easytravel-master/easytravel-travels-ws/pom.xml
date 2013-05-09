@@ -113,7 +113,7 @@
 		<profile>
 			<id>wsdl</id>
 			<build>
-				<finalName>easytravel-users-ws</finalName>
+				<finalName>easytravel-travels-ws</finalName>
 				<plugins>
 					<plugin>
 						<groupId>org.apache.cxf</groupId>

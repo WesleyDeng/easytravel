@@ -18,6 +18,7 @@ import com.armandorv.easytravel.business.repository.TravelRepository;
 import com.armandorv.easytravel.business.repository.UserRepository;
 import com.armandorv.easytravel.business.service.LogisticsService;
 import com.armandorv.easytravel.business.service.TravelsService;
+import com.armandorv.easytravel.business.util.IterableUtils;
 
 @Service
 @Transactional
@@ -102,13 +103,35 @@ class TravelsServiceImpl implements TravelsService {
 	}
 
 	@Override
-	public int getTravelsByDestination() {
-		return 0;
+	public int getTravelsByDestination(String destinyName) {
+		int count = 0;
+		Iterable<Destiny> destinies = destinyRepository.findByName(destinyName);
+
+		for (Destiny destiny : destinies) {
+			Iterable<Travel> travels = travelRepository.findByDestiny(destiny);
+			count += travels != null ? IterableUtils.size(travels) : 0;
+		}
+		return count;
 	}
 
 	@Override
 	public Destiny getMostVisitedDestinations() {
-		return new Destiny();
+		// FIXME optimize taking advantage of the RDBMS.
+		Iterable<Destiny> all = destinyRepository.findAll();
+		Destiny mostvVisited = null;
+		int visits = 0;
+
+		for (Destiny destiny : all) {
+			Iterable<Travel> travels = travelRepository.findByDestiny(destiny);
+			int visitsOfCurrent = travels != null ? IterableUtils.size(travels)
+					: 0;
+			if (visitsOfCurrent > visits) {
+				visits = visitsOfCurrent;
+				mostvVisited = destiny;
+			}
+		}
+
+		return mostvVisited;
 	}
 
 	@Override

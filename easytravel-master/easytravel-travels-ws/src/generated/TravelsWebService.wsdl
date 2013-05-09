@@ -139,8 +139,8 @@
   </xs:complexType>
 </xs:schema>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://armandorv.com/easytravel/travelsws/exception" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://armandorv.com/easytravel/travelsws/exception">
-  <xsd:element name="UsersWsException" type="tns:UsersWsException"/>
-  <xsd:complexType name="UsersWsException">
+  <xsd:element name="TravelsWsException" type="tns:TravelsWsException"/>
+  <xsd:complexType name="TravelsWsException">
     <xsd:sequence/>
   </xsd:complexType>
 </xsd:schema>
@@ -154,7 +154,7 @@
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="TravelsWsException">
-    <wsdl:part name="TravelsWsException" element="ns1:UsersWsException">
+    <wsdl:part name="TravelsWsException" element="ns1:TravelsWsException">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="isVisitedResponse">

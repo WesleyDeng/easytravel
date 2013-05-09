@@ -3,7 +3,7 @@ applications:
 - name: easytravel-travels-ws
   framework: spring
   runtime: java7
-  memory: 256M
+  memory: 384M
   instances: 1
   url: travels.easytravel.${target-base}
   path: target/easytravel-travels-ws

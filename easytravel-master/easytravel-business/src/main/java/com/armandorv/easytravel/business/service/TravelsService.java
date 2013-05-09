@@ -22,7 +22,7 @@ public interface TravelsService {
 
 	Set<Destiny> getDestinies(Long id) throws BusinessException;
 
-	int getTravelsByDestination();
+	int getTravelsByDestination(String dstinyName);
 
 	Destiny getMostVisitedDestinations();
 
