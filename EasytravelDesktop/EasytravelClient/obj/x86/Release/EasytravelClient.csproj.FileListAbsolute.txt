@@ -1,0 +1,17 @@
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\bin\Release\EasytravelClient.exe.config
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\bin\Release\EasytravelClient.exe
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\bin\Release\EasytravelClient.pdb
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\bin\Release\EasytravelWsClient.dll
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\bin\Release\EasytravelWsClient.pdb
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\ResolveAssemblyReference.cache
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\View\MainView.g.cs
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\App.g.cs
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\EasytravelClient_MarkupCompile.cache
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\EasytravelClient_MarkupCompile.lref
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\View\MainView.baml
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\EasytravelClient.g.resources
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\Armandorv.EasytravelClient.Properties.Resources.resources
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\GenerateResource.read.1.tlog
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\GenerateResource.write.1.tlog
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\EasytravelClient.exe
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelClient\obj\x86\Release\EasytravelClient.pdb

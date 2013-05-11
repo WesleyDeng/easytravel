@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="cd8d3c82-7aea-4f1c-b691-74b77554f2f8" name="armandorv@ARMANDORV-PC 2013-05-11 07:55:41" runUser="armandorv-pc\armandorv" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="c8c134b9-4e63-4f20-86f5-020a6ecd1d56">
+    <Description>Esta es la configuración de pruebas predeterminada para una ejecución de pruebas local.</Description>
+    <Deployment enabled="false" runDeploymentRoot="armandorv_ARMANDORV-PC 2013-05-11 07_55_41">
+      <DeploymentItem filename="D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClient\bin\Debug\EasytravelWsClient.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-05-11T07:55:41.5280186+02:00" queuing="2013-05-11T07:55:41.5620205+02:00" start="2013-05-11T07:55:41.5890221+02:00" finish="2013-05-11T07:56:39.4153295+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="5" executed="5" passed="5" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMostVisitedDestination" storage="d:\work\git-hub\easytravel\easytraveldesktop\easytravelwsclienttests\bin\debug\easytravelwsclienttests.dll" id="753b58d8-c74a-3816-5000-d074a20eac90">
+      <Execution id="309fd19d-442e-4606-90fa-d434bcbaba33" />
+      <TestMethod codeBase="D:/Work/git-hub/easytravel/EasytravelDesktop/EasytravelWsClientTests/bin/Debug/EasytravelWsClientTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="EasytravelWsClientTests.TravelsServiceTest, EasytravelWsClientTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMostVisitedDestination" />
+    </UnitTest>
+    <UnitTest name="TestMostVisitedDestinations" storage="d:\work\git-hub\easytravel\easytraveldesktop\easytravelwsclienttests\bin\debug\easytravelwsclienttests.dll" id="7f34963f-81bb-5197-8ce5-028a2cf4181c">
+      <Execution id="550e57a7-7e39-41e9-b2d6-c71df2ad31e2" />
+      <TestMethod codeBase="D:/Work/git-hub/easytravel/EasytravelDesktop/EasytravelWsClientTests/bin/Debug/EasytravelWsClientTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="EasytravelWsClientTests.TravelsServiceTest, EasytravelWsClientTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMostVisitedDestinations" />
+    </UnitTest>
+    <UnitTest name="TestNumberOfTravelsByDestination" storage="d:\work\git-hub\easytravel\easytraveldesktop\easytravelwsclienttests\bin\debug\easytravelwsclienttests.dll" id="87cc84c5-8d84-bd9e-6ada-e0380df85a89">
+      <Execution id="0864e8e8-f83f-4442-bc2a-85da274c1a38" />
+      <TestMethod codeBase="D:/Work/git-hub/easytravel/EasytravelDesktop/EasytravelWsClientTests/bin/Debug/EasytravelWsClientTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="EasytravelWsClientTests.TravelsServiceTest, EasytravelWsClientTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestNumberOfTravelsByDestination" />
+    </UnitTest>
+    <UnitTest name="TestIsVisited" storage="d:\work\git-hub\easytravel\easytraveldesktop\easytravelwsclienttests\bin\debug\easytravelwsclienttests.dll" id="21685716-bd6e-1308-7218-3f2b2ca12dfa">
+      <Execution id="9a047c3e-0ec5-4971-b932-787e6de0b4dd" />
+      <TestMethod codeBase="D:/Work/git-hub/easytravel/EasytravelDesktop/EasytravelWsClientTests/bin/Debug/EasytravelWsClientTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="EasytravelWsClientTests.TravelsServiceTest, EasytravelWsClientTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestIsVisited" />
+    </UnitTest>
+    <UnitTest name="TestGetTravels" storage="d:\work\git-hub\easytravel\easytraveldesktop\easytravelwsclienttests\bin\debug\easytravelwsclienttests.dll" id="5fd63081-93ec-491b-3b9d-aabf20c39f7f">
+      <Execution id="c8a660e3-80bb-425c-84f2-fc003a4c1d70" />
+      <TestMethod codeBase="D:/Work/git-hub/easytravel/EasytravelDesktop/EasytravelWsClientTests/bin/Debug/EasytravelWsClientTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="EasytravelWsClientTests.TravelsServiceTest, EasytravelWsClientTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestGetTravels" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Resultados que no están en la lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="21685716-bd6e-1308-7218-3f2b2ca12dfa" executionId="9a047c3e-0ec5-4971-b932-787e6de0b4dd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5fd63081-93ec-491b-3b9d-aabf20c39f7f" executionId="c8a660e3-80bb-425c-84f2-fc003a4c1d70" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="753b58d8-c74a-3816-5000-d074a20eac90" executionId="309fd19d-442e-4606-90fa-d434bcbaba33" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7f34963f-81bb-5197-8ce5-028a2cf4181c" executionId="550e57a7-7e39-41e9-b2d6-c71df2ad31e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="87cc84c5-8d84-bd9e-6ada-e0380df85a89" executionId="0864e8e8-f83f-4442-bc2a-85da274c1a38" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="9a047c3e-0ec5-4971-b932-787e6de0b4dd" testId="21685716-bd6e-1308-7218-3f2b2ca12dfa" testName="TestIsVisited" computerName="ARMANDORV-PC" duration="00:00:55.3200131" startTime="2013-05-11T07:55:41.5900221+02:00" endTime="2013-05-11T07:56:37.1061975+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9a047c3e-0ec5-4971-b932-787e6de0b4dd">
+      <Output>
+        <StdOut>False</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c8a660e3-80bb-425c-84f2-fc003a4c1d70" testId="5fd63081-93ec-491b-3b9d-aabf20c39f7f" testName="TestGetTravels" computerName="ARMANDORV-PC" duration="00:00:00.6205236" startTime="2013-05-11T07:56:37.1111977+02:00" endTime="2013-05-11T07:56:37.7462341+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8a660e3-80bb-425c-84f2-fc003a4c1d70">
+      <Output>
+        <StdOut>System.Collections.Generic.List`1[Armandorv.EasytravelWsClient.Travel]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="309fd19d-442e-4606-90fa-d434bcbaba33" testId="753b58d8-c74a-3816-5000-d074a20eac90" testName="TestMostVisitedDestination" computerName="ARMANDORV-PC" duration="00:00:00.6278076" startTime="2013-05-11T07:56:37.7532345+02:00" endTime="2013-05-11T07:56:38.3932711+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="309fd19d-442e-4606-90fa-d434bcbaba33">
+      <Output>
+        <StdOut>Armandorv.EasytravelWsClient.Destination</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="550e57a7-7e39-41e9-b2d6-c71df2ad31e2" testId="7f34963f-81bb-5197-8ce5-028a2cf4181c" testName="TestMostVisitedDestinations" computerName="ARMANDORV-PC" duration="00:00:00.5102840" startTime="2013-05-11T07:56:38.3962712+02:00" endTime="2013-05-11T07:56:38.9253015+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="550e57a7-7e39-41e9-b2d6-c71df2ad31e2">
+      <Output>
+        <StdOut>System.Collections.Generic.List`1[Armandorv.EasytravelWsClient.Destination]</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0864e8e8-f83f-4442-bc2a-85da274c1a38" testId="87cc84c5-8d84-bd9e-6ada-e0380df85a89" testName="TestNumberOfTravelsByDestination" computerName="ARMANDORV-PC" duration="00:00:00.4292174" startTime="2013-05-11T07:56:38.9323019+02:00" endTime="2013-05-11T07:56:39.3753272+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0864e8e8-f83f-4442-bc2a-85da274c1a38">
+      <Output>
+        <StdOut>0</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

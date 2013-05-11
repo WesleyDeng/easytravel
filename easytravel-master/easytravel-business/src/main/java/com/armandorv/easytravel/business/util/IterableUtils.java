@@ -11,6 +11,7 @@ public class IterableUtils {
 		int count = 0;
 		for (Iterator<T> iterator = iterable.iterator(); iterator.hasNext();) {
 			count++;
+			iterator.next();
 		}
 		return count;
 	}

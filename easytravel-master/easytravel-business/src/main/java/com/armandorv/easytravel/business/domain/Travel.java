@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlTransient;
 
 import com.armandorv.easytravel.business.exception.DomainException;
 
@@ -41,10 +42,12 @@ public class Travel implements Serializable {
 	private String summary;
 
 	@ManyToOne
+	@XmlTransient
 	private User user;
 
 	private Boolean done = false;
 
+	@XmlTransient
 	@OneToMany(mappedBy = "travel", cascade = { CascadeType.REMOVE,
 			CascadeType.PERSIST })
 	private Set<Destiny> destinies = new HashSet<>();
@@ -123,7 +126,7 @@ public class Travel implements Serializable {
 	public void setUser(User user) {
 		this.user = user;
 	}
-
+	
 	public Set<Destiny> getDestinies() {
 		return Collections.unmodifiableSet(destinies);
 	}

@@ -15,6 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
 @Table(name = "easytravel_destiny")
@@ -39,19 +40,23 @@ public class Destiny implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date estimatedDate;
 
+	@XmlTransient
 	@OneToOne(optional = true)
 	private Destiny previous;
 
+	@XmlTransient
 	@OneToOne(optional = true)
 	private Destiny next;
 
 	@ManyToOne
 	private Travel travel;
 
+	@XmlTransient
 	@OneToMany(mappedBy = "destiny", cascade = { CascadeType.REMOVE,
 			CascadeType.PERSIST })
 	private Set<FlightBooking> flights = new HashSet<>();
 
+	@XmlTransient
 	@OneToMany(mappedBy = "destiny", cascade = { CascadeType.REMOVE,
 			CascadeType.PERSIST })
 	private Set<HotelBooking> hotels = new HashSet<>();

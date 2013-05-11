@@ -2,7 +2,7 @@
 <wsdl:definitions name="UsersWebService" targetNamespace="http://armandorv.com/easytravel/usersws" xmlns:ns1="http://armandorv.com/easytravel/usersws/exception" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://armandorv.com/easytravel/usersws" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
   <wsdl:types>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://armandorv.com/easytravel/usersws" elementFormDefault="unqualified" targetNamespace="http://armandorv.com/easytravel/usersws" version="1.0">
-<xs:element name="Destiny" type="tns:destiny"/>
+<xs:element name="Flight" type="tns:flightInfo"/>
 <xs:element name="Hotel" type="tns:hotelInfo"/>
 <xs:element name="deleteUser" type="tns:deleteUser"/>
 <xs:element name="deleteUserByUsername" type="tns:deleteUserByUsername"/>
@@ -49,7 +49,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="address" type="xs:string"/>
       <xs:element minOccurs="0" name="estimatedDate" type="xs:dateTime"/>
-      <xs:element minOccurs="0" name="flight" type="tns:flightBooking"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="flights" nillable="true" type="tns:flightBooking"/>
       <xs:element maxOccurs="unbounded" minOccurs="0" name="hotels" nillable="true" type="tns:hotelBooking"/>
       <xs:element minOccurs="0" name="lattitude" type="xs:float"/>
       <xs:element minOccurs="0" name="longitude" type="xs:float"/>
@@ -57,11 +57,26 @@
       <xs:element minOccurs="0" name="next" type="tns:destiny"/>
       <xs:element minOccurs="0" name="previous" type="tns:destiny"/>
       <xs:element minOccurs="0" name="timeZone" type="xs:string"/>
+      <xs:element minOccurs="0" name="travel" type="tns:travel"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType name="flightBooking">
     <xs:sequence>
-      <xs:element minOccurs="0" name="departureDestiny" type="tns:destiny"/>
+      <xs:element minOccurs="0" name="destiny" type="tns:destiny"/>
+      <xs:element minOccurs="0" name="flightInfo" type="tns:flightInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="flightInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arrivalTime" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="departureTime" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="destinationAirportICAO" type="xs:string"/>
+      <xs:element minOccurs="0" name="destinationAirportName" type="xs:string"/>
+      <xs:element minOccurs="0" name="destinationCity" type="xs:string"/>
+      <xs:element minOccurs="0" name="flightId" type="xs:string"/>
+      <xs:element minOccurs="0" name="originAirportICAO" type="xs:string"/>
+      <xs:element minOccurs="0" name="originAirportName" type="xs:string"/>
+      <xs:element minOccurs="0" name="originCity" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
 <xs:complexType name="hotelBooking">

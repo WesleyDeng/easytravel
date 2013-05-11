@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="easytravel-soapui" resourceRoot="" soapui-version="4.5.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TravelsWebServiceSoapBinding" type="wsdl" bindingName="{http://armandorv.com/easytravel/travelsws}TravelsWebServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://travels.easytravel.cloudfoundry.com/services/TravelsWebService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://travels.easytravel.cloudfoundry.com/services/TravelsWebService?wsdl"><con:part><con:url>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="TravelsWebService" targetNamespace="http://armandorv.com/easytravel/travelsws" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://armandorv.com/easytravel/travelsws" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://armandorv.com/easytravel/travelsws/exception">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://armandorv.com/easytravel/travelsws" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Flight" type="tns:flightInfo"/>
+      <xs:element name="Hotel" type="tns:hotelInfo"/>
+      <xs:element name="getTravels" type="tns:getTravels"/>
+      <xs:element name="getTravelsResponse" type="tns:getTravelsResponse"/>
+      <xs:element name="isVisited" type="tns:isVisited"/>
+      <xs:element name="isVisitedResponse" type="tns:isVisitedResponse"/>
+      <xs:element name="mostVistedDestination" type="tns:mostVistedDestination"/>
+      <xs:element name="mostVistedDestinationResponse" type="tns:mostVistedDestinationResponse"/>
+      <xs:element name="mostVistedDestinations" type="tns:mostVistedDestinations"/>
+      <xs:element name="mostVistedDestinationsResponse" type="tns:mostVistedDestinationsResponse"/>
+      <xs:element name="numberTravelsByDestination" type="tns:numberTravelsByDestination"/>
+      <xs:element name="numberTravelsByDestinationResponse" type="tns:numberTravelsByDestinationResponse"/>
+      <xs:complexType name="mostVistedDestination">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="mostVistedDestinationResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:destiny"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="destiny">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="address" type="xs:string"/>
+          <xs:element minOccurs="0" name="estimatedDate" type="xs:dateTime"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="flights" nillable="true" type="tns:flightBooking"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="hotels" nillable="true" type="tns:hotelBooking"/>
+          <xs:element minOccurs="0" name="lattitude" type="xs:float"/>
+          <xs:element minOccurs="0" name="longitude" type="xs:float"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="next" type="tns:destiny"/>
+          <xs:element minOccurs="0" name="previous" type="tns:destiny"/>
+          <xs:element minOccurs="0" name="timeZone" type="xs:string"/>
+          <xs:element minOccurs="0" name="travel" type="tns:travel"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="flightBooking">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="destiny" type="tns:destiny"/>
+          <xs:element minOccurs="0" name="flightInfo" type="tns:flightInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="flightInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arrivalTime" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="departureTime" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="destinationAirportICAO" type="xs:string"/>
+          <xs:element minOccurs="0" name="destinationAirportName" type="xs:string"/>
+          <xs:element minOccurs="0" name="destinationCity" type="xs:string"/>
+          <xs:element minOccurs="0" name="flightId" type="xs:string"/>
+          <xs:element minOccurs="0" name="originAirportICAO" type="xs:string"/>
+          <xs:element minOccurs="0" name="originAirportName" type="xs:string"/>
+          <xs:element minOccurs="0" name="originCity" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hotelBooking">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="destiny" type="tns:destiny"/>
+          <xs:element minOccurs="0" name="hotelInfo" type="tns:hotelInfo"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="persons" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hotelInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="city" type="xs:string"/>
+          <xs:element minOccurs="0" name="highRate" type="xs:float"/>
+          <xs:element minOccurs="0" name="hotelId" type="xs:long"/>
+          <xs:element minOccurs="0" name="hotelRating" type="xs:float"/>
+          <xs:element minOccurs="0" name="locationDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="lowRate" type="xs:float"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="postalCode" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="travel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="destinies" nillable="true" type="tns:destiny"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="summary" type="xs:string"/>
+          <xs:element minOccurs="0" name="user" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="user">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+          <xs:element minOccurs="0" name="mail" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="travels" nillable="true" type="tns:travel"/>
+          <xs:element minOccurs="0" name="username" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getTravels">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="term" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getTravelsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:travel"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mostVistedDestinations">
+        <xs:sequence>
+          <xs:element name="arg0" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mostVistedDestinationsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:destiny"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="isVisited">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="username" type="xs:string"/>
+          <xs:element minOccurs="0" name="destinyName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="isVisitedResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="numberTravelsByDestination">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="destinyName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="numberTravelsByDestinationResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://armandorv.com/easytravel/travelsws/exception" xmlns:tns="http://armandorv.com/easytravel/travelsws/exception">
+      <xsd:element name="TravelsWsException" type="tns:TravelsWsException"/>
+      <xsd:complexType name="TravelsWsException">
+        <xsd:sequence/>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="mostVistedDestinationsResponse">
+    <wsdl:part element="tns:mostVistedDestinationsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="numberTravelsByDestinationResponse">
+    <wsdl:part element="tns:numberTravelsByDestinationResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TravelsWsException">
+    <wsdl:part element="ns1:TravelsWsException" name="TravelsWsException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isVisitedResponse">
+    <wsdl:part element="tns:isVisitedResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="numberTravelsByDestination">
+    <wsdl:part element="tns:numberTravelsByDestination" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="isVisited">
+    <wsdl:part element="tns:isVisited" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mostVistedDestination">
+    <wsdl:part element="tns:mostVistedDestination" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mostVistedDestinationResponse">
+    <wsdl:part element="tns:mostVistedDestinationResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTravels">
+    <wsdl:part element="tns:getTravels" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="mostVistedDestinations">
+    <wsdl:part element="tns:mostVistedDestinations" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTravelsResponse">
+    <wsdl:part element="tns:getTravelsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="travelsWebService">
+    <wsdl:operation name="mostVistedDestination">
+      <wsdl:input message="tns:mostVistedDestination" name="mostVistedDestination"></wsdl:input>
+      <wsdl:output message="tns:mostVistedDestinationResponse" name="mostVistedDestinationResponse"></wsdl:output>
+      <wsdl:fault message="tns:TravelsWsException" name="TravelsWsException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTravels">
+      <wsdl:input message="tns:getTravels" name="getTravels"></wsdl:input>
+      <wsdl:output message="tns:getTravelsResponse" name="getTravelsResponse"></wsdl:output>
+      <wsdl:fault message="tns:TravelsWsException" name="TravelsWsException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="mostVistedDestinations">
+      <wsdl:input message="tns:mostVistedDestinations" name="mostVistedDestinations"></wsdl:input>
+      <wsdl:output message="tns:mostVistedDestinationsResponse" name="mostVistedDestinationsResponse"></wsdl:output>
+      <wsdl:fault message="tns:TravelsWsException" name="TravelsWsException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isVisited">
+      <wsdl:input message="tns:isVisited" name="isVisited"></wsdl:input>
+      <wsdl:output message="tns:isVisitedResponse" name="isVisitedResponse"></wsdl:output>
+      <wsdl:fault message="tns:TravelsWsException" name="TravelsWsException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="numberTravelsByDestination">
+      <wsdl:input message="tns:numberTravelsByDestination" name="numberTravelsByDestination"></wsdl:input>
+      <wsdl:output message="tns:numberTravelsByDestinationResponse" name="numberTravelsByDestinationResponse"></wsdl:output>
+      <wsdl:fault message="tns:TravelsWsException" name="TravelsWsException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TravelsWebServiceSoapBinding" type="tns:travelsWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="mostVistedDestination">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="mostVistedDestination">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="mostVistedDestinationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TravelsWsException">
+        <soap:fault name="TravelsWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getTravels">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTravels">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTravelsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TravelsWsException">
+        <soap:fault name="TravelsWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="mostVistedDestinations">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="mostVistedDestinations">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="mostVistedDestinationsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TravelsWsException">
+        <soap:fault name="TravelsWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isVisited">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isVisited">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isVisitedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TravelsWsException">
+        <soap:fault name="TravelsWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="numberTravelsByDestination">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="numberTravelsByDestination">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="numberTravelsByDestinationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="TravelsWsException">
+        <soap:fault name="TravelsWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TravelsWebService">
+    <wsdl:port binding="tns:TravelsWebServiceSoapBinding" name="TravelsWebService">
+      <soap:address location="http://travels.easytravel.cloudfoundry.com/services/TravelsWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getTravels" bindingOperationName="getTravels" type="Request-Response" outputName="getTravelsResponse" inputName="getTravels" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="term=a"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trav="http://armandorv.com/easytravel/travelsws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <trav:getTravels>
+         <!--Optional:-->
+         <term>a</term>
+      </trav:getTravels>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/travelsws/travelsWebService/getTravels"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="isVisited" bindingOperationName="isVisited" type="Request-Response" outputName="isVisitedResponse" inputName="isVisited" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="armandorv,Barcelona"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trav="http://armandorv.com/easytravel/travelsws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <trav:isVisited>
+         <!--Optional:-->
+         <username>armandorv</username>
+         <destinyName>Barcelona</destinyName>
+      </trav:isVisited>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/travelsws/travelsWebService/isVisited"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="mostVistedDestination" bindingOperationName="mostVistedDestination" type="Request-Response" outputName="mostVistedDestinationResponse" inputName="mostVistedDestination" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trav="http://armandorv.com/easytravel/travelsws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <trav:mostVistedDestination/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/travelsws/travelsWebService/mostVistedDestination"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="mostVistedDestinations" bindingOperationName="mostVistedDestinations" type="Request-Response" outputName="mostVistedDestinationsResponse" inputName="mostVistedDestinations" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="10"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trav="http://armandorv.com/easytravel/travelsws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <trav:mostVistedDestinations>
+         <arg0>10</arg0>
+      </trav:mostVistedDestinations>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/travelsws/travelsWebService/mostVistedDestinations"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="numberTravelsByDestination" bindingOperationName="numberTravelsByDestination" type="Request-Response" outputName="numberTravelsByDestinationResponse" inputName="numberTravelsByDestination" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Barcelona"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trav="http://armandorv.com/easytravel/travelsws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <trav:numberTravelsByDestination>
+         <destinyName>Barcelona</destinyName>
+      </trav:numberTravelsByDestination>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/travelsws/travelsWebService/numberTravelsByDestination"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="UsersWebServiceSoapBinding" type="wsdl" bindingName="{http://armandorv.com/easytravel/usersws}UsersWebServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://users.easytravel.cloudfoundry.com/services/UsersWebService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://users.easytravel.cloudfoundry.com/services/UsersWebService?wsdl"><con:part><con:url>http://users.easytravel.cloudfoundry.com/services/UsersWebService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="UsersWebService" targetNamespace="http://armandorv.com/easytravel/usersws" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://armandorv.com/easytravel/usersws" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://armandorv.com/easytravel/usersws/exception">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://armandorv.com/easytravel/usersws" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="Flight" type="tns:flightInfo"/>
+      <xs:element name="Hotel" type="tns:hotelInfo"/>
+      <xs:element name="deleteUser" type="tns:deleteUser"/>
+      <xs:element name="deleteUserByUsername" type="tns:deleteUserByUsername"/>
+      <xs:element name="deleteUserByUsernameResponse" type="tns:deleteUserByUsernameResponse"/>
+      <xs:element name="deleteUserResponse" type="tns:deleteUserResponse"/>
+      <xs:element name="findUser" type="tns:findUser"/>
+      <xs:element name="findUserByUsername" type="tns:findUserByUsername"/>
+      <xs:element name="findUserByUsernameResponse" type="tns:findUserByUsernameResponse"/>
+      <xs:element name="findUserResponse" type="tns:findUserResponse"/>
+      <xs:element name="listNFirstUsers" type="tns:listNFirstUsers"/>
+      <xs:element name="listNFirstUsersResponse" type="tns:listNFirstUsersResponse"/>
+      <xs:element name="newUser" type="tns:newUser"/>
+      <xs:element name="newUserResponse" type="tns:newUserResponse"/>
+      <xs:complexType name="findUser">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findUserResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="user">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+          <xs:element minOccurs="0" name="mail" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="password" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="travels" nillable="true" type="tns:travel"/>
+          <xs:element minOccurs="0" name="username" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="travel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="destinies" nillable="true" type="tns:destiny"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="summary" type="xs:string"/>
+          <xs:element minOccurs="0" name="user" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="destiny">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="address" type="xs:string"/>
+          <xs:element minOccurs="0" name="estimatedDate" type="xs:dateTime"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="flights" nillable="true" type="tns:flightBooking"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="hotels" nillable="true" type="tns:hotelBooking"/>
+          <xs:element minOccurs="0" name="lattitude" type="xs:float"/>
+          <xs:element minOccurs="0" name="longitude" type="xs:float"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="next" type="tns:destiny"/>
+          <xs:element minOccurs="0" name="previous" type="tns:destiny"/>
+          <xs:element minOccurs="0" name="timeZone" type="xs:string"/>
+          <xs:element minOccurs="0" name="travel" type="tns:travel"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="flightBooking">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="destiny" type="tns:destiny"/>
+          <xs:element minOccurs="0" name="flightInfo" type="tns:flightInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="flightInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arrivalTime" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="departureTime" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="destinationAirportICAO" type="xs:string"/>
+          <xs:element minOccurs="0" name="destinationAirportName" type="xs:string"/>
+          <xs:element minOccurs="0" name="destinationCity" type="xs:string"/>
+          <xs:element minOccurs="0" name="flightId" type="xs:string"/>
+          <xs:element minOccurs="0" name="originAirportICAO" type="xs:string"/>
+          <xs:element minOccurs="0" name="originAirportName" type="xs:string"/>
+          <xs:element minOccurs="0" name="originCity" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hotelBooking">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="destiny" type="tns:destiny"/>
+          <xs:element minOccurs="0" name="hotelInfo" type="tns:hotelInfo"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="persons" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hotelInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="city" type="xs:string"/>
+          <xs:element minOccurs="0" name="highRate" type="xs:float"/>
+          <xs:element minOccurs="0" name="hotelId" type="xs:long"/>
+          <xs:element minOccurs="0" name="hotelRating" type="xs:float"/>
+          <xs:element minOccurs="0" name="locationDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="lowRate" type="xs:float"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="postalCode" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteUser">
+        <xs:sequence>
+          <xs:element name="userId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteUserResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="newUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="user" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="newUserResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="listNFirstUsers">
+        <xs:sequence>
+          <xs:element name="n" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listNFirstUsersResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteUserByUsername">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="username" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="deleteUserByUsernameResponse">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="findUserByUsername">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="username" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="findUserByUsernameResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:user"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://armandorv.com/easytravel/usersws/exception" xmlns:tns="http://armandorv.com/easytravel/usersws/exception">
+      <xsd:element name="UsersWsException" type="tns:UsersWsException"/>
+      <xsd:complexType name="UsersWsException">
+        <xsd:sequence/>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteUserResponse">
+    <wsdl:part element="tns:deleteUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findUser">
+    <wsdl:part element="tns:findUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteUser">
+    <wsdl:part element="tns:deleteUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listNFirstUsers">
+    <wsdl:part element="tns:listNFirstUsers" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findUserResponse">
+    <wsdl:part element="tns:findUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newUser">
+    <wsdl:part element="tns:newUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteUserByUsernameResponse">
+    <wsdl:part element="tns:deleteUserByUsernameResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newUserResponse">
+    <wsdl:part element="tns:newUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findUserByUsername">
+    <wsdl:part element="tns:findUserByUsername" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UsersWsException">
+    <wsdl:part element="ns1:UsersWsException" name="UsersWsException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteUserByUsername">
+    <wsdl:part element="tns:deleteUserByUsername" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findUserByUsernameResponse">
+    <wsdl:part element="tns:findUserByUsernameResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listNFirstUsersResponse">
+    <wsdl:part element="tns:listNFirstUsersResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="usersWebService">
+    <wsdl:operation name="findUser">
+      <wsdl:input message="tns:findUser" name="findUser"></wsdl:input>
+      <wsdl:output message="tns:findUserResponse" name="findUserResponse"></wsdl:output>
+      <wsdl:fault message="tns:UsersWsException" name="UsersWsException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <wsdl:input message="tns:deleteUser" name="deleteUser"></wsdl:input>
+      <wsdl:output message="tns:deleteUserResponse" name="deleteUserResponse"></wsdl:output>
+      <wsdl:fault message="tns:UsersWsException" name="UsersWsException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="newUser">
+      <wsdl:input message="tns:newUser" name="newUser"></wsdl:input>
+      <wsdl:output message="tns:newUserResponse" name="newUserResponse"></wsdl:output>
+      <wsdl:fault message="tns:UsersWsException" name="UsersWsException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listNFirstUsers">
+      <wsdl:input message="tns:listNFirstUsers" name="listNFirstUsers"></wsdl:input>
+      <wsdl:output message="tns:listNFirstUsersResponse" name="listNFirstUsersResponse"></wsdl:output>
+      <wsdl:fault message="tns:UsersWsException" name="UsersWsException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUserByUsername">
+      <wsdl:input message="tns:deleteUserByUsername" name="deleteUserByUsername"></wsdl:input>
+      <wsdl:output message="tns:deleteUserByUsernameResponse" name="deleteUserByUsernameResponse"></wsdl:output>
+      <wsdl:fault message="tns:UsersWsException" name="UsersWsException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findUserByUsername">
+      <wsdl:input message="tns:findUserByUsername" name="findUserByUsername"></wsdl:input>
+      <wsdl:output message="tns:findUserByUsernameResponse" name="findUserByUsernameResponse"></wsdl:output>
+      <wsdl:fault message="tns:UsersWsException" name="UsersWsException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UsersWebServiceSoapBinding" type="tns:usersWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="UsersWsException">
+        <soap:fault name="UsersWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="UsersWsException">
+        <soap:fault name="UsersWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="newUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="newUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="newUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="UsersWsException">
+        <soap:fault name="UsersWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="listNFirstUsers">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listNFirstUsers">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listNFirstUsersResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="UsersWsException">
+        <soap:fault name="UsersWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="deleteUserByUsername">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteUserByUsername">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteUserByUsernameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="UsersWsException">
+        <soap:fault name="UsersWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findUserByUsername">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="findUserByUsername">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findUserByUsernameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="UsersWsException">
+        <soap:fault name="UsersWsException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UsersWebService">
+    <wsdl:port binding="tns:UsersWebServiceSoapBinding" name="UsersWebService">
+      <soap:address location="http://users.easytravel.cloudfoundry.com/services/UsersWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="deleteUser" bindingOperationName="deleteUser" type="Request-Response" outputName="deleteUserResponse" inputName="deleteUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:deleteUser>
+         <userId>1</userId>
+      </user:deleteUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/usersws/usersWebService/deleteUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="deleteUserByUsername" bindingOperationName="deleteUserByUsername" type="Request-Response" outputName="deleteUserByUsernameResponse" inputName="deleteUserByUsername" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="soapui"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:deleteUserByUsername>
+         <!--Optional:-->
+         <username>?</username>
+      </user:deleteUserByUsername>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/usersws/usersWebService/deleteUserByUsername"/></con:call></con:operation><con:operation isOneWay="false" action="" name="findUser" bindingOperationName="findUser" type="Request-Response" outputName="findUserResponse" inputName="findUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="armandorv"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:findUser>
+         <id>1</id>
+      </user:findUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/usersws/usersWebService/findUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="findUserByUsername" bindingOperationName="findUserByUsername" type="Request-Response" outputName="findUserByUsernameResponse" inputName="findUserByUsername" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="armandorv"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:findUserByUsername>
+         <!--Optional:-->
+         <username>armandorv</username>
+      </user:findUserByUsername>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/usersws/usersWebService/findUserByUsername"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="listNFirstUsers" bindingOperationName="listNFirstUsers" type="Request-Response" outputName="listNFirstUsersResponse" inputName="listNFirstUsers" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="10"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:listNFirstUsers>
+         <n>?</n>
+      </user:listNFirstUsers>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/usersws/usersWebService/listNFirstUsers"/></con:call></con:operation><con:operation isOneWay="false" action="" name="newUser" bindingOperationName="newUser" type="Request-Response" outputName="newUserResponse" inputName="newUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="soapui"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:newUser>
+         <!--Optional:-->
+         <user>
+            <!--Optional:-->
+            <lastname>UI</lastname>
+            <!--Optional:-->
+            <mail>soapui@nomail.com</mail>
+            <!--Optional:-->
+            <name>Soap</name>
+            <!--Optional:-->
+            <password>secret</password>
+            <!--Zero or more repetitions:-->
+            <travels/>
+            <username>soapui</username>
+         </user>
+      </user:newUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://armandorv.com/easytravel/usersws/usersWebService/newUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="EasytravelLogisticsService" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>logistics.easytravel.cloudfoundry.com</con:endpoint></con:endpoints><con:resource name="address" path="logistics/address/23/56"><con:settings/><con:parameters/><con:method name="getAddress" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>logistics.easytravel.cloudfoundry.com</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="fligths" path="logistics/fligths/23/56"><con:settings/><con:parameters/><con:method name="GwtFligths" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/xml"><con:settings/><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="timezone" path="logistics/timezone/23/56"><con:settings/><con:parameters/><con:method name="getTimeZone" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/xml"><con:settings/><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="hotels" path="logistics/hotels/23/56"><con:settings/><con:parameters/><con:method name="getHotels" method="GET"><con:settings/><con:parameters/><con:request name="Request 1" mediaType="application/xml"><con:settings/><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite name="TravelsWebServiceTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getTravels TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="getTravels"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TravelsWebServiceSoapBinding</con:interface><con:operation>getTravels</con:operation><con:request name="getTravels"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trav="http://armandorv.com/easytravel/travelsws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <trav:getTravels>
+         <!--Optional:-->
+         <term>?</term>
+      </trav:getTravels>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/travelsws/travelsWebService/getTravels"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="isVisited TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="isVisited"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TravelsWebServiceSoapBinding</con:interface><con:operation>isVisited</con:operation><con:request name="isVisited"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trav="http://armandorv.com/easytravel/travelsws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <trav:isVisited>
+         <!--Optional:-->
+         <username>?</username>
+         <!--Optional:-->
+         <destinyName>?</destinyName>
+      </trav:isVisited>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/travelsws/travelsWebService/isVisited"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="mostVistedDestination TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="mostVistedDestination"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TravelsWebServiceSoapBinding</con:interface><con:operation>mostVistedDestination</con:operation><con:request name="mostVistedDestination"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trav="http://armandorv.com/easytravel/travelsws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <trav:mostVistedDestination/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/travelsws/travelsWebService/mostVistedDestination"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="mostVistedDestinations TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="mostVistedDestinations"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TravelsWebServiceSoapBinding</con:interface><con:operation>mostVistedDestinations</con:operation><con:request name="mostVistedDestinations"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trav="http://armandorv.com/easytravel/travelsws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <trav:mostVistedDestinations>
+         <arg0>?</arg0>
+      </trav:mostVistedDestinations>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/travelsws/travelsWebService/mostVistedDestinations"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="numberTravelsByDestination TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="numberTravelsByDestination"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>TravelsWebServiceSoapBinding</con:interface><con:operation>numberTravelsByDestination</con:operation><con:request name="numberTravelsByDestination"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://travels.easytravel.cloudfoundry.com/services/TravelsWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:trav="http://armandorv.com/easytravel/travelsws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <trav:numberTravelsByDestination>
+         <!--Optional:-->
+         <destinyName>?</destinyName>
+      </trav:numberTravelsByDestination>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/travelsws/travelsWebService/numberTravelsByDestination"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="UsersWebServiceTests"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="deleteUser TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="deleteUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UsersWebServiceSoapBinding</con:interface><con:operation>deleteUser</con:operation><con:request name="deleteUser"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:deleteUser>
+         <userId>?</userId>
+      </user:deleteUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/usersws/usersWebService/deleteUser"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="deleteUserByUsername TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="deleteUserByUsername"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UsersWebServiceSoapBinding</con:interface><con:operation>deleteUserByUsername</con:operation><con:request name="deleteUserByUsername"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:deleteUserByUsername>
+         <!--Optional:-->
+         <username>?</username>
+      </user:deleteUserByUsername>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/usersws/usersWebService/deleteUserByUsername"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="findUser TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="findUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UsersWebServiceSoapBinding</con:interface><con:operation>findUser</con:operation><con:request name="findUser"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:findUser>
+         <id>?</id>
+      </user:findUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/usersws/usersWebService/findUser"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="findUserByUsername TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="findUserByUsername"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UsersWebServiceSoapBinding</con:interface><con:operation>findUserByUsername</con:operation><con:request name="findUserByUsername"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:findUserByUsername>
+         <!--Optional:-->
+         <username>?</username>
+      </user:findUserByUsername>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/usersws/usersWebService/findUserByUsername"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="listNFirstUsers TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="listNFirstUsers"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UsersWebServiceSoapBinding</con:interface><con:operation>listNFirstUsers</con:operation><con:request name="listNFirstUsers"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:listNFirstUsers>
+         <n>?</n>
+      </user:listNFirstUsers>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/usersws/usersWebService/listNFirstUsers"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="newUser TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="newUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>UsersWebServiceSoapBinding</con:interface><con:operation>newUser</con:operation><con:request name="newUser"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://users.easytravel.cloudfoundry.com/services/UsersWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://armandorv.com/easytravel/usersws">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:newUser>
+         <!--Optional:-->
+         <user>
+            <!--Optional:-->
+            <lastname>?</lastname>
+            <!--Optional:-->
+            <mail>?</mail>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <password>?</password>
+            <!--Zero or more repetitions:-->
+            <travels>
+               <!--Optional:-->
+               <description>?</description>
+               <!--Zero or more repetitions:-->
+               <destinies>
+                  <!--Optional:-->
+                  <address>?</address>
+                  <!--Optional:-->
+                  <estimatedDate>?</estimatedDate>
+                  <!--Zero or more repetitions:-->
+                  <flights>
+                     <!--Optional:-->
+                     <destiny/>
+                     <!--Optional:-->
+                     <flightInfo>
+                        <!--Optional:-->
+                        <arrivalTime>?</arrivalTime>
+                        <!--Optional:-->
+                        <departureTime>?</departureTime>
+                        <!--Optional:-->
+                        <destinationAirportICAO>?</destinationAirportICAO>
+                        <!--Optional:-->
+                        <destinationAirportName>?</destinationAirportName>
+                        <!--Optional:-->
+                        <destinationCity>?</destinationCity>
+                        <!--Optional:-->
+                        <flightId>?</flightId>
+                        <!--Optional:-->
+                        <originAirportICAO>?</originAirportICAO>
+                        <!--Optional:-->
+                        <originAirportName>?</originAirportName>
+                        <!--Optional:-->
+                        <originCity>?</originCity>
+                     </flightInfo>
+                  </flights>
+                  <!--Zero or more repetitions:-->
+                  <hotels>
+                     <!--Optional:-->
+                     <destiny/>
+                     <!--Optional:-->
+                     <hotelInfo>
+                        <!--Optional:-->
+                        <city>?</city>
+                        <!--Optional:-->
+                        <highRate>?</highRate>
+                        <!--Optional:-->
+                        <hotelId>?</hotelId>
+                        <!--Optional:-->
+                        <hotelRating>?</hotelRating>
+                        <!--Optional:-->
+                        <locationDescription>?</locationDescription>
+                        <!--Optional:-->
+                        <lowRate>?</lowRate>
+                        <!--Optional:-->
+                        <name>?</name>
+                        <!--Optional:-->
+                        <phoneNumber>?</phoneNumber>
+                        <!--Optional:-->
+                        <postalCode>?</postalCode>
+                     </hotelInfo>
+                     <!--Optional:-->
+                     <id>?</id>
+                     <!--Optional:-->
+                     <persons>?</persons>
+                  </hotels>
+                  <!--Optional:-->
+                  <lattitude>?</lattitude>
+                  <!--Optional:-->
+                  <longitude>?</longitude>
+                  <!--Optional:-->
+                  <name>?</name>
+                  <!--Optional:-->
+                  <next/>
+                  <!--Optional:-->
+                  <previous/>
+                  <!--Optional:-->
+                  <timeZone>?</timeZone>
+                  <!--Optional:-->
+                  <travel/>
+               </destinies>
+               <!--Optional:-->
+               <name>?</name>
+               <!--Optional:-->
+               <summary>?</summary>
+               <!--Optional:-->
+               <user/>
+            </travels>
+            <!--Optional:-->
+            <username>?</username>
+         </user>
+      </user:newUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://armandorv.com/easytravel/usersws/usersWebService/newUser"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>

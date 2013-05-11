@@ -1,0 +1,8 @@
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClientTests\bin\Release\EasytravelWsClientTests.dll.config
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClientTests\bin\Release\EasytravelWsClientTests.dll
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClientTests\bin\Release\EasytravelWsClientTests.pdb
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClientTests\bin\Release\EasytravelWsClient.dll
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClientTests\bin\Release\EasytravelWsClient.pdb
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClientTests\obj\Release\ResolveAssemblyReference.cache
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClientTests\obj\Release\EasytravelWsClientTests.dll
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClientTests\obj\Release\EasytravelWsClientTests.pdb

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="33683b77-fcef-441c-97c2-7950782b24e8" name="armandorv@ARMANDORV-PC 2013-05-11 07:50:58" runUser="armandorv-pc\armandorv" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="c8c134b9-4e63-4f20-86f5-020a6ecd1d56">
+    <Description>Esta es la configuración de pruebas predeterminada para una ejecución de pruebas local.</Description>
+    <Deployment enabled="false" runDeploymentRoot="armandorv_ARMANDORV-PC 2013-05-11 07_50_58">
+      <DeploymentItem filename="D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClient\bin\Debug\EasytravelWsClient.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2013-05-11T07:50:58.8848523+02:00" queuing="2013-05-11T07:50:58.9058535+02:00" start="2013-05-11T07:50:58.9158541+02:00" finish="2013-05-11T07:51:03.2961046+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestNumberOfTravelsByDestination" storage="d:\work\git-hub\easytravel\easytraveldesktop\easytravelwsclienttests\bin\debug\easytravelwsclienttests.dll" id="87cc84c5-8d84-bd9e-6ada-e0380df85a89">
+      <Execution id="c1a10110-8be8-4a90-9cb0-d19ea04352bf" />
+      <TestMethod codeBase="D:/Work/git-hub/easytravel/EasytravelDesktop/EasytravelWsClientTests/bin/Debug/EasytravelWsClientTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="EasytravelWsClientTests.TravelsServiceTest, EasytravelWsClientTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestNumberOfTravelsByDestination" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Resultados que no están en la lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="87cc84c5-8d84-bd9e-6ada-e0380df85a89" executionId="c1a10110-8be8-4a90-9cb0-d19ea04352bf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="c1a10110-8be8-4a90-9cb0-d19ea04352bf" testId="87cc84c5-8d84-bd9e-6ada-e0380df85a89" testName="TestNumberOfTravelsByDestination" computerName="ARMANDORV-PC" duration="00:00:04.1367802" startTime="2013-05-11T07:50:58.9178542+02:00" endTime="2013-05-11T07:51:03.2571024+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c1a10110-8be8-4a90-9cb0-d19ea04352bf">
+    </UnitTestResult>
+  </Results>
+</TestRun>

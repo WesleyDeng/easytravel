@@ -12,7 +12,7 @@ import com.armandorv.easytravel.business.domain.Destiny;
 import com.armandorv.easytravel.business.domain.Travel;
 import com.armandorv.easytravel.business.service.TravelsService;
 import com.armandorv.easytravel.business.service.UsersService;
-import com.armandorv.easytravel.travelsws.commands.FindByTermCommand;
+import com.armandorv.easytravel.business.service.impl.commands.FindByTermCommand;
 import com.armandorv.easytravel.travelsws.exception.TravelsWsException;
 
 @WebService(endpointInterface = "com.armandorv.easytravel.travelsws.TravelsWebService", serviceName = "TravelsWebService", portName = "TravelsWebService", targetNamespace = "http://armandorv.com/easytravel/travelsws")
@@ -26,13 +26,13 @@ public class TravelsWebServiceImpl implements TravelsWebService {
 
 	@Override
 	public Collection<Travel> getTravels(String term) throws TravelsWsException {
-		return new FindByTermCommand(travelsService).execute(term);
+		return   travelsService .getTravelsByTerm(term);
 	}
 
 	@Override
 	public boolean hasVisited(String username, String destinyName)
 			throws TravelsWsException {
-		return false;
+		return travelsService.hasUserVisited(username , destinyName);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class TravelsWebServiceImpl implements TravelsWebService {
 
 	@Override
 	public Destiny mostVistedDestination() throws TravelsWsException {
-		return travelsService.getMostVisitedDestinations();
+		return travelsService.getMostVisitedDestination();
 	}
 
 	@Override

@@ -1,0 +1,6 @@
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClient\bin\Debug\EasytravelWsClient.dll.config
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClient\bin\Debug\EasytravelWsClient.dll
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClient\bin\Debug\EasytravelWsClient.pdb
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClient\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClient\obj\Debug\EasytravelWsClient.dll
+D:\Work\git-hub\easytravel\EasytravelDesktop\EasytravelWsClient\obj\Debug\EasytravelWsClient.pdb

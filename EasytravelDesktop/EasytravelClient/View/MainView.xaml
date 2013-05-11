@@ -1,0 +1,144 @@
+﻿<Window x:Class="Armandorv.EasytravelClient.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Easytravel Client" mc:Ignorable="d" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:easytravel="clr-namespace:Armandorv.EasytravelClient.View"
+        Height="485" Width="758" WindowStyle="ToolWindow" 
+        ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    
+    <DockPanel Height="484" Name="dockPanel1" Width="743">
+        <!-- Left Panel Grid-->
+
+        <!-- *************** Header**************** -->
+        <Grid DockPanel.Dock="Top">
+            <Label Content="Easytravel" Name="label6" FontWeight="Bold" FontSize="24" FontStyle="Normal" FontFamily="Maiandra GD" Margin="9,14,0,0" />
+        </Grid>
+
+        <!-- *************** Options (Left) ************ -->
+        <Grid Height="354" Name="OptionsGrid" Width="199">
+            
+            <Label Content="Options" Height="28" HorizontalAlignment="Left" 
+                   Margin="6,16,0,0" Name="personalInformationLabel" VerticalAlignment="Top" Width="177" 
+                   FontWeight="Bold" FontStyle="Normal" FontFamily="Maiandra GD" FontSize="14" />
+            <ListBox Height="226" HorizontalAlignment="Left" Margin="6,60,0,0" Name="optionsList" VerticalAlignment="Top" Width="187">
+
+                <ListBoxItem  Height="30"  Focusable="False" Margin="10">
+                    <Hyperlink  Command="{Binding ShowHomeCommand}">
+                        <TextBlock Text="Home" Margin="1"/>
+                    </Hyperlink>
+                </ListBoxItem>
+
+                <ListBoxItem Height="30" Focusable="False" Margin="10" Selected="ListBoxItem_Selected">
+                    <Hyperlink  Command="{Binding ShowTravelsBrowserCommand}">
+                        <TextBlock Text="Travels browser"/>
+                    </Hyperlink>
+                </ListBoxItem>
+
+                <ListBoxItem Height="30" Focusable="False" Margin="10">
+                    <Hyperlink  Command="{Binding ShowHasVisitedCommand}">
+                        <TextBlock Text="Has visitied" Margin="1" />
+                    </Hyperlink>
+                </ListBoxItem>
+
+                <ListBoxItem Height="30" Margin="10" Focusable="False">
+                    <Hyperlink  Command="{Binding ShowMostVisitedCommand}">
+                        <TextBlock Text="Most visited destinations" Margin="1" Focusable="True" />
+                    </Hyperlink>
+                </ListBoxItem>
+            </ListBox>
+
+        </Grid>
+
+        <!-- *************** Selected option (Center) ************ -->
+
+        <TabControl Height="365" Name="selectedOptionTabControl" Width="495">
+
+            <!-- ************* Home ***************** -->
+            <TabItem Header="" Name="homeTabItem" Height="0" Width="0">
+                <Grid Height="347" Name="homeGrid" Width="487" OpacityMask="{x:Null}" IsEnabled="True">
+                    <Label Content="Welcome to Easytravel desktop" Height="28" HorizontalAlignment="Left" 
+                   Margin="6,16,0,0" Name="homeLabel" VerticalAlignment="Top" Width="462" 
+                   FontWeight="Bold" FontStyle="Normal" FontFamily="Maiandra GD" FontSize="14" />
+                    <Image Height="187" HorizontalAlignment="Left" Margin="0,93,0,0" Name="image2" Stretch="Fill" VerticalAlignment="Top" Width="488" Source="/EasytravelClient;component/Images/headerimg.jpg" />
+                </Grid>
+            </TabItem>
+            
+            <!-- ************** Travels ************************** -->
+            <TabItem Header="" Name="travelsBrowserTabItem" Height="0" Width="0">
+                <Grid Height="347" Name="travelsBrowserGrid" Width="487" OpacityMask="{x:Null}" IsEnabled="True">
+                    
+                   <Label Content="Travels Browser" Height="28" HorizontalAlignment="Left" 
+                   Margin="6,16,0,0" Name="travelsBrowserLabel" VerticalAlignment="Top" Width="177" 
+                   FontWeight="Bold" FontStyle="Normal" FontFamily="Maiandra GD" FontSize="14" />
+
+                    <Label Content="Key words" Height="28" HorizontalAlignment="Left" Margin="6,68,0,0" Name="keyWordsTextLabel" VerticalAlignment="Top" Width="146" />
+                    <TextBox Text="{Binding Term}" Height="23" HorizontalAlignment="Left" Margin="175,68,0,0" Name="termTextBox" VerticalAlignment="Top" Width="271" DataContext="{Binding}" />
+                    <Button Command="{Binding SearchTravelsCommand}" Content="Button" Height="23" HorizontalAlignment="Left" Margin="371,109,0,0" Name="searchButton" VerticalAlignment="Top" Width="75" />
+                    
+                    <Label Content="Results" Height="28" HorizontalAlignment="Left" Margin="6,142,0,0" Name="travelsLabel" VerticalAlignment="Top" Width="146" />
+
+                    <ListView ItemsSource ="{Binding Travels}"
+                              Height="125" HorizontalAlignment="Left" Margin="6,176,0,0" Name="travelsListView" 
+                              VerticalAlignment="Top" Width="440">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}" Width="129" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Grid>
+            </TabItem>
+            
+            <!-- *************** Has Visited  ********************** -->
+            <TabItem Header="" Name="hasVisitedTabItem" Height="0" Width="0">
+                <Grid Height="347" Name="hasVisitedGrid" Width="487" OpacityMask="{x:Null}" IsEnabled="True">
+                    <Label Content="Query visits of users" Height="28" HorizontalAlignment="Left" 
+                   Margin="6,16,0,0" Name="hasVisitedLabel" VerticalAlignment="Top" Width="455" 
+                   FontWeight="Bold" FontStyle="Normal" FontFamily="Maiandra GD" FontSize="14" />
+
+                    <Label Content="Username :" Height="28" HorizontalAlignment="Left" Margin="6,68,0,0" Name="usernameLabel" VerticalAlignment="Top" Width="136" />
+                    <TextBox Text="{Binding Username}" Height="23" HorizontalAlignment="Left" Margin="173,70,0,0" Name="usernameTextBox" VerticalAlignment="Top" Width="265" />
+
+                    <Label Content="Destination :" Height="28" HorizontalAlignment="Left" Margin="6,102,0,0" Name="label2" VerticalAlignment="Top" />
+                    <TextBox Text="{Binding Destination}" Height="23" HorizontalAlignment="Left" Margin="173,104,0,0" Name="destinationTextBox" VerticalAlignment="Top" Width="265" />
+                    
+                    <Image Height="141" HorizontalAlignment="Left" Margin="173,188,0,0" Name="yesNoImage" Stretch="Fill" VerticalAlignment="Top" Width="265" Source="/EasytravelClient;component/Images/white.jpg" />
+                    <Button Command="{Binding CheckHasVisitedCommand}" Content="Check" Height="23" HorizontalAlignment="Left" Margin="363,145,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
+                </Grid>
+            </TabItem>
+            
+            <!-- **************** Most visited ********************** -->
+            <TabItem Header="" Name="mostVisitedTabItem" Height="0" Width="0">
+                <Grid Height="347" Name="mostVisitedGrid" Width="487" OpacityMask="{x:Null}" IsEnabled="True">
+                    
+                    <Label Content="Query most visited places" Height="28" HorizontalAlignment="Left" 
+                    Margin="6,16,0,0" Name="mostVisitedTitle" VerticalAlignment="Top" Width="450" 
+                    FontWeight="Bold" FontStyle="Normal" FontFamily="Maiandra GD" FontSize="14" />
+
+                    <Label Content="The most visited destination is :" Height="28" HorizontalAlignment="Left" Margin="6,50,0,0" Name="mostVisitedLabel" VerticalAlignment="Top" Width="178" />
+                    <TextBlock  Height="23" HorizontalAlignment="Left" Margin="221,52,0,0" Name="mostVisitedDesstinationTextBlock" VerticalAlignment="Top" Width="120" />
+
+                    <Label Content="The most visited destination has :" Height="28" HorizontalAlignment="Left" Margin="6,84,0,0" Name="label1" VerticalAlignment="Top" Width="194" />
+                    <TextBlock  Height="23" HorizontalAlignment="Left" Margin="221,84,0,0" Name="mostVisitedDesstinationNumbersTextBlock" VerticalAlignment="Top" Width="72" />
+                    <Label Content="travels." Height="28" HorizontalAlignment="Left" Margin="299,84,0,0" Name="label3" VerticalAlignment="Top" Width="101" />
+                    
+                    <Label Content="The ten most popular destinations" Height="28" HorizontalAlignment="Left" Margin="6,140,0,0" Name="tenMostVisitedLabel" VerticalAlignment="Top" Width="194" />
+                    <ListView ItemsSource ="{Binding MostVisitedDestinations}" Height="127" HorizontalAlignment="Left" Margin="14,174,0,0" Name="mostPopDestinationListView" VerticalAlignment="Top" Width="430">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}" Width="129" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                    <Button Command="{Binding RefreshMostVisitedCommand}" Content="Refresh" Height="23" HorizontalAlignment="Left" Margin="369,307,0,0" Name="button2" VerticalAlignment="Top" Width="75" />
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        
+    </DockPanel>
+</Window>
