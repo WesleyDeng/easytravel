@@ -1,7 +1,6 @@
-package com.armandorv.easytravel.business.service.impl;
+package com.armandorv.easytravel.business.service.impl.mapper;
 
 import com.armandorv.easytravel.business.domain.FlightInfo;
-import com.armandorv.easytravel.business.service.Mapper;
 import com.armandorv.easytravel.flightswsclient.model.Flight;
 
 class FlightMapper implements Mapper<Flight, FlightInfo> {

@@ -1,6 +1,6 @@
 package com.armandorv.easytravel.business.service.impl;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -18,7 +18,10 @@ import com.armandorv.easytravel.business.repository.TravelRepository;
 import com.armandorv.easytravel.business.repository.UserRepository;
 import com.armandorv.easytravel.business.service.LogisticsService;
 import com.armandorv.easytravel.business.service.TravelsService;
-import com.armandorv.easytravel.business.util.IterableUtils;
+import com.armandorv.easytravel.business.service.impl.commands.FindByTermCommand;
+import com.armandorv.easytravel.business.service.impl.commands.HasVisitedCommand;
+import com.armandorv.easytravel.business.service.impl.commands.MostVisitedDestinationsCommand;
+import com.armandorv.easytravel.business.service.impl.commands.TravelsByDestinationCommand;
 
 @Service
 @Transactional
@@ -104,39 +107,34 @@ class TravelsServiceImpl implements TravelsService {
 
 	@Override
 	public int getTravelsByDestination(String destinyName) {
-		int count = 0;
-		Iterable<Destiny> destinies = destinyRepository.findByName(destinyName);
-
-		for (Destiny destiny : destinies) {
-			Iterable<Travel> travels = travelRepository.findByDestiny(destiny);
-			count += travels != null ? IterableUtils.size(travels) : 0;
-		}
-		return count;
+		return new TravelsByDestinationCommand(travelRepository,
+				destinyRepository).execute(destinyName);
 	}
 
 	@Override
-	public Destiny getMostVisitedDestinations() {
-		// FIXME optimize taking advantage of the RDBMS.
-		Iterable<Destiny> all = destinyRepository.findAll();
-		Destiny mostvVisited = null;
-		int visits = 0;
-
-		for (Destiny destiny : all) {
-			Iterable<Travel> travels = travelRepository.findByDestiny(destiny);
-			int visitsOfCurrent = travels != null ? IterableUtils.size(travels)
-					: 0;
-			if (visitsOfCurrent > visits) {
-				visits = visitsOfCurrent;
-				mostvVisited = destiny;
-			}
-		}
-
-		return mostvVisited;
+	public Destiny getMostVisitedDestination() {
+		List<Destiny> dests = new MostVisitedDestinationsCommand(
+				travelRepository, destinyRepository).execute(1);
+		return (dests.size() > 0) ? dests.get(0) : null;
 	}
 
 	@Override
 	public List<Destiny> getMostVisitedDestinations(int max) {
-		return new ArrayList<>();
+		return new MostVisitedDestinationsCommand(travelRepository,
+				destinyRepository).execute(max);
+	}
+
+	@Override
+	public Collection<Travel> getTravelsByTerm(String term) {
+		Iterable<Travel> travels = travelRepository.findAll();
+		return new FindByTermCommand(travels).execute(term);
+	}
+
+	@Override
+	public boolean hasUserVisited(String username, String destinyName) {
+		User user = userRepository.findByUsername(username);
+		Iterable<Travel> userTravels = travelRepository.findByUser(user);
+		return new HasVisitedCommand(userTravels).execute(destinyName);
 	}
 
 }

@@ -1,7 +1,6 @@
-package com.armandorv.easytravel.business.service.impl;
+package com.armandorv.easytravel.business.service.impl.mapper;
 
 import com.armandorv.easytravel.business.domain.HotelInfo;
-import com.armandorv.easytravel.business.service.Mapper;
 import com.armandorv.easytravel.expediawsclient.model.Hotel;
 
 /**

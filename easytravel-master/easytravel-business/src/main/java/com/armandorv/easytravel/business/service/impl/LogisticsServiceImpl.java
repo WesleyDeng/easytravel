@@ -20,6 +20,7 @@ import com.armandorv.easytravel.business.domain.FlightInfo;
 import com.armandorv.easytravel.business.domain.HotelInfo;
 import com.armandorv.easytravel.business.exception.LogisticsException;
 import com.armandorv.easytravel.business.service.LogisticsService;
+import com.armandorv.easytravel.business.service.impl.mapper.MappersFactory;
 import com.armandorv.easytravel.expediawsclient.HotelsService;
 import com.armandorv.easytravel.expediawsclient.exception.HotelsException;
 import com.armandorv.easytravel.expediawsclient.model.Hotel;

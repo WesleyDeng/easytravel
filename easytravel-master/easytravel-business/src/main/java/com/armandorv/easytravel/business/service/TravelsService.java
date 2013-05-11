@@ -1,5 +1,6 @@
 package com.armandorv.easytravel.business.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -24,7 +25,11 @@ public interface TravelsService {
 
 	int getTravelsByDestination(String dstinyName);
 
-	Destiny getMostVisitedDestinations();
+	Destiny getMostVisitedDestination();
 
 	List<Destiny> getMostVisitedDestinations(int max);
+
+	Collection<Travel> getTravelsByTerm(String term);
+
+	boolean hasUserVisited(String username, String destinyName);
 }

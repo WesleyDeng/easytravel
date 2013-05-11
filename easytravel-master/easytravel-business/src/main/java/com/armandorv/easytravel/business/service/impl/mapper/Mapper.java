@@ -1,4 +1,4 @@
-package com.armandorv.easytravel.business.service;
+package com.armandorv.easytravel.business.service.impl.mapper;
 
 /**
  * It defines an interface to carry out object to object mapping operations.

@@ -1,9 +1,8 @@
-package com.armandorv.easytravel.business.service.impl;
+package com.armandorv.easytravel.business.service.impl.mapper;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.armandorv.easytravel.business.service.Mapper;
 
 class CollectionMapper<S, R> implements
 		Mapper<Collection<S>, Collection<R>> {
