@@ -1,0 +1,1 @@
+<%request.getRequestDispatcher("/services").forward(request, response);%>

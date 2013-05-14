@@ -35,7 +35,6 @@ public class User implements Serializable {
 	@Column(nullable = false)
 	private String password;
 
-	@XmlTransient
 	@OneToMany(mappedBy = "user")
 	private Set<Travel> travels = new HashSet<>();
 
@@ -76,6 +75,7 @@ public class User implements Serializable {
 		this.mail = mail;
 	}
 
+	@XmlTransient
 	public Set<Travel> getTravels() {
 		return Collections.unmodifiableSet(travels);
 	}
@@ -128,6 +128,6 @@ public class User implements Serializable {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", Lastname=" + Lastname
-				+ ", mail=" + mail + ", travels=" + travels + "]";
+				+ ", mail=" + mail  + "]";
 	}
 }

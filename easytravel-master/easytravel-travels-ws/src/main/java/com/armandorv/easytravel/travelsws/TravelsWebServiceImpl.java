@@ -12,7 +12,6 @@ import com.armandorv.easytravel.business.domain.Destiny;
 import com.armandorv.easytravel.business.domain.Travel;
 import com.armandorv.easytravel.business.service.TravelsService;
 import com.armandorv.easytravel.business.service.UsersService;
-import com.armandorv.easytravel.business.service.impl.commands.FindByTermCommand;
 import com.armandorv.easytravel.travelsws.exception.TravelsWsException;
 
 @WebService(endpointInterface = "com.armandorv.easytravel.travelsws.TravelsWebService", serviceName = "TravelsWebService", portName = "TravelsWebService", targetNamespace = "http://armandorv.com/easytravel/travelsws")

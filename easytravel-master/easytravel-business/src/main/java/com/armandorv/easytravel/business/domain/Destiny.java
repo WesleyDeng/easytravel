@@ -40,23 +40,19 @@ public class Destiny implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date estimatedDate;
 
-	@XmlTransient
 	@OneToOne(optional = true)
 	private Destiny previous;
 
-	@XmlTransient
 	@OneToOne(optional = true)
 	private Destiny next;
 
 	@ManyToOne
 	private Travel travel;
 
-	@XmlTransient
 	@OneToMany(mappedBy = "destiny", cascade = { CascadeType.REMOVE,
 			CascadeType.PERSIST })
 	private Set<FlightBooking> flights = new HashSet<>();
 
-	@XmlTransient
 	@OneToMany(mappedBy = "destiny", cascade = { CascadeType.REMOVE,
 			CascadeType.PERSIST })
 	private Set<HotelBooking> hotels = new HashSet<>();
@@ -160,6 +156,7 @@ public class Destiny implements Serializable {
 		this.estimatedDate = estimatedDate;
 	}
 
+	@XmlTransient
 	public Destiny getPrevious() {
 		return previous;
 	}
@@ -168,6 +165,7 @@ public class Destiny implements Serializable {
 		this.previous = previous;
 	}
 
+	@XmlTransient
 	public Destiny getNext() {
 		return next;
 	}
@@ -176,6 +174,7 @@ public class Destiny implements Serializable {
 		this.next = next;
 	}
 
+	@XmlTransient
 	public Set<FlightBooking> getFlights() {
 		return flights;
 	}
@@ -184,6 +183,7 @@ public class Destiny implements Serializable {
 		this.flights = flights;
 	}
 
+	@XmlTransient
 	public Set<HotelBooking> getHotels() {
 		return hotels;
 	}
@@ -244,9 +244,7 @@ public class Destiny implements Serializable {
 	public String toString() {
 		return "Destiny [id=" + id + ", name=" + name + ", address=" + address
 				+ ", lattitude=" + lattitude + ", longitude=" + longitude
-				+ ", timeZone=" + timeZone + ", estimatedDate=" + estimatedDate
-				+ ", previous=" + previous + ", next=" + next + ", flights="
-				+ flights + ", hotels=" + hotels + "]";
+				+ ", timeZone=" + timeZone + ", estimatedDate=" + estimatedDate+ "]";
 	}
 
 	public Travel getTravel() {

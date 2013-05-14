@@ -25,11 +25,11 @@ import com.armandorv.easytravel.travelsws.exception.TravelsWsException;
 @SOAPBinding(style = Style.DOCUMENT, use = Use.LITERAL, parameterStyle = ParameterStyle.WRAPPED)
 public interface TravelsWebService {
 
-	@WebMethod(operationName = "getTravels")
-	Collection<Travel> getTravels(@WebParam(name = "term") String term)
+	@WebMethod(operationName = "getTravels" )
+	Collection<Travel> getTravels(@WebParam(name = "term" )  String term)
 			throws TravelsWsException;
 
-	@WebMethod(operationName = "isVisited")
+	@WebMethod(operationName = "isVisited" )
 	boolean hasVisited(@WebParam(name = "username") String username,
 			@WebParam(name = "destinyName") String destinyName)
 			throws TravelsWsException;

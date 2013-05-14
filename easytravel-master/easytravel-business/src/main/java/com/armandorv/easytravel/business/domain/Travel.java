@@ -42,12 +42,10 @@ public class Travel implements Serializable {
 	private String summary;
 
 	@ManyToOne
-	@XmlTransient
 	private User user;
 
 	private Boolean done = false;
 
-	@XmlTransient
 	@OneToMany(mappedBy = "travel", cascade = { CascadeType.REMOVE,
 			CascadeType.PERSIST })
 	private Set<Destiny> destinies = new HashSet<>();
@@ -59,7 +57,6 @@ public class Travel implements Serializable {
 			throw new DomainException(
 					"You can't remove a destiny because the travel is done!");
 		}
-
 		destiny.setTravel(this);
 		destinies.add(destiny);
 	}
@@ -69,7 +66,6 @@ public class Travel implements Serializable {
 			throw new DomainException(
 					"You can't remove a destiny because the travel is done!");
 		}
-
 		destinies.remove(destiny);
 		destiny.setTravel(null);
 	}
@@ -127,6 +123,7 @@ public class Travel implements Serializable {
 		this.user = user;
 	}
 	
+	@XmlTransient
 	public Set<Destiny> getDestinies() {
 		return Collections.unmodifiableSet(destinies);
 	}
@@ -179,7 +176,7 @@ public class Travel implements Serializable {
 	public String toString() {
 		return "Travel [id=" + id + ", name=" + name + ", description="
 				+ description + ", summary=" + summary + ", user=" + user
-				+ ", done=" + done + ", destinies=" + destinies + "]";
+				+ ", done=" + done + "]";
 	}
 
 }

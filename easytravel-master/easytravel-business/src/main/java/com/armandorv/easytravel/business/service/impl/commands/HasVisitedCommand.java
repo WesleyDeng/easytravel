@@ -4,6 +4,7 @@ import com.armandorv.easytravel.business.domain.Destiny;
 import com.armandorv.easytravel.business.domain.FlightBooking;
 import com.armandorv.easytravel.business.domain.HotelBooking;
 import com.armandorv.easytravel.business.domain.Travel;
+import com.armandorv.easytravel.business.util.StringUtils;
 
 public class HasVisitedCommand implements Command<String, Boolean> {
 
@@ -20,7 +21,7 @@ public class HasVisitedCommand implements Command<String, Boolean> {
 		for (Travel trvl : userTravels) {
 			for (Destiny dst : trvl.getDestinies()) {
 
-				if (dst.getName() != null && contains(dst.getName(), param)) {
+				if (dst.getName() != null && StringUtils.contains(dst.getName(), param)) {
 					return true;
 				}
 				if (checkAddress(dst, param)) {
@@ -38,7 +39,7 @@ public class HasVisitedCommand implements Command<String, Boolean> {
 	}
 
 	private boolean checkAddress(Destiny dst, String param) {
-		return dst.getAddress() != null && contains(dst.getAddress(), param);
+		return dst.getAddress() != null && StringUtils.contains(dst.getAddress(), param);
 	}
 
 	private boolean checkFlights(Destiny dst, String param) {
@@ -47,26 +48,26 @@ public class HasVisitedCommand implements Command<String, Boolean> {
 			if (flight.getFlightInfo() != null) {
 
 				if (flight.getFlightInfo().getDestinationCity() != null
-						&& contains(
+						&& StringUtils.contains(
 								flight.getFlightInfo().getDestinationCity(),
 								param)) {
 					return true;
 				}
 
 				if (flight.getFlightInfo().getDestinationAirportName() != null
-						&& contains(flight.getFlightInfo()
+						&& StringUtils.contains(flight.getFlightInfo()
 								.getDestinationAirportName(), param)) {
 					return true;
 				}
 
 				if (flight.getFlightInfo().getOriginCity() != null
-						&& contains(flight.getFlightInfo().getOriginCity(),
+						&& StringUtils.contains(flight.getFlightInfo().getOriginCity(),
 								param)) {
 					return true;
 				}
 
 				if (flight.getFlightInfo().getOriginAirportName() != null
-						&& contains(flight.getFlightInfo()
+						&& StringUtils.contains(flight.getFlightInfo()
 								.getOriginAirportName(), param)) {
 					return true;
 				}
@@ -82,21 +83,16 @@ public class HasVisitedCommand implements Command<String, Boolean> {
 			if (hotel.getHotelInfo() != null) {
 
 				if (hotel.getHotelInfo().getName() != null
-						&& contains(hotel.getHotelInfo().getName(), param)) {
+						&& StringUtils.contains(hotel.getHotelInfo().getName(), param)) {
 					return true;
 				}
 				if (hotel.getHotelInfo().getCity() != null
-						&& contains(hotel.getHotelInfo().getCity(), param)) {
+						&& StringUtils.contains(hotel.getHotelInfo().getCity(), param)) {
 					return true;
 				}
 			}
 		}
 		return false;
-	}
-
-	private boolean contains(String a, String b) {
-		return a.toLowerCase().contains(b.toLowerCase())
-				|| b.toLowerCase().contains(a.toLowerCase());
 	}
 
 }

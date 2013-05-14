@@ -7,6 +7,7 @@ import com.armandorv.easytravel.business.domain.Destiny;
 import com.armandorv.easytravel.business.domain.FlightBooking;
 import com.armandorv.easytravel.business.domain.HotelBooking;
 import com.armandorv.easytravel.business.domain.Travel;
+import com.armandorv.easytravel.business.util.StringUtils;
 
 public class FindByTermCommand implements Command<String, Collection<Travel>> {
 
@@ -40,7 +41,7 @@ public class FindByTermCommand implements Command<String, Collection<Travel>> {
 
 			if (flight.getFlightInfo() != null
 					&& flight.getFlightInfo().getDestinationCity() != null
-					&& contains(flight.getFlightInfo().getDestinationCity(),
+					&& StringUtils.contains(flight.getFlightInfo().getDestinationCity(),
 							term)) {
 
 				if (!result.contains(travel))
@@ -56,7 +57,7 @@ public class FindByTermCommand implements Command<String, Collection<Travel>> {
 
 			if (hotel.getHotelInfo() != null
 					&& hotel.getHotelInfo().getName() != null
-					&& contains(hotel.getHotelInfo().getName(), term)) {
+					&& StringUtils.contains(hotel.getHotelInfo().getName(), term)) {
 
 				if (!result.contains(travel))
 					result.add(travel);
@@ -67,8 +68,8 @@ public class FindByTermCommand implements Command<String, Collection<Travel>> {
 	private void checkDestinyNameAndAddress(String term,
 			Collection<Travel> result, Travel travel, Destiny destiny) {
 
-		if (contains(destiny.getName(), term)
-				|| contains(destiny.getAddress(), term)) {
+		if (StringUtils.contains(destiny.getName(), term)
+				|| StringUtils.contains(destiny.getAddress(), term)) {
 
 			if (!result.contains(travel))
 				result.add(travel);
@@ -77,22 +78,18 @@ public class FindByTermCommand implements Command<String, Collection<Travel>> {
 
 	private void checkNameAndDescription(String term,
 			Collection<Travel> result, Travel travel) {
-		if (travel.getName() != null && contains(travel.getName(), term)) {
+		if (travel.getName() != null && StringUtils.contains(travel.getName(), term)) {
 
 			if (!result.contains(travel))
 				result.add(travel);
 		}
 
 		if (travel.getDescription() != null
-				&& contains(travel.getDescription(), term)) {
+				&& StringUtils.contains(travel.getDescription(), term)) {
 
 			if (!result.contains(travel))
 				result.add(travel);
 		}
 	}
 
-	private boolean contains(String a, String b) {
-		return a.toLowerCase().contains(b.toLowerCase())
-				|| b.toLowerCase().contains(a.toLowerCase());
-	}
 }
