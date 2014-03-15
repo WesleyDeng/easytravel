@@ -23,7 +23,7 @@ import com.armandorv.easytravel.business.exception.BusinessException;
  * @author armandorv
  * 
  */
-@Path("/logistics")
+@Path("/services")
 @Produces("application/xml")
 @Component
 public interface LogisticsRestService {

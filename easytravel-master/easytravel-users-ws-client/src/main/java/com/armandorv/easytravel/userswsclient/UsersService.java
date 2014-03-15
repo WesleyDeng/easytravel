@@ -17,5 +17,5 @@ public interface UsersService {
 
 	void deleteUser(long id) throws UsersException;
 
-	void deleteUser(String password) throws UsersException;
+	void deleteUser(String username) throws UsersException;
 }

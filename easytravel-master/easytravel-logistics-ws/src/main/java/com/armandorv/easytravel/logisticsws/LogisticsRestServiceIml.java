@@ -41,6 +41,11 @@ public class LogisticsRestServiceIml implements LogisticsRestService {
 			log.error("Error at rest service : " + e.getMessage(), e);
 			throw new WebApplicationException(error(e.getMessage()));
 		}
+		catch (Exception e){
+			log.error("Error at rest service : " + e.getMessage(), e);
+			throw new WebApplicationException(error(e.getMessage()));
+		}
+		
 	}
 
 	private Response error(String message) {
@@ -63,6 +68,10 @@ public class LogisticsRestServiceIml implements LogisticsRestService {
 			log.error("Error at rest service : " + e.getMessage(), e);
 			throw new WebApplicationException(error(e.getMessage()));
 		}
+		catch (Exception e){
+			log.error("Error at rest service : " + e.getMessage(), e);
+			throw new WebApplicationException(error(e.getMessage()));
+		}
 	}
 
 	@Override
@@ -76,6 +85,10 @@ public class LogisticsRestServiceIml implements LogisticsRestService {
 			log.error("Error at rest service : " + e.getMessage(), e);
 			throw new WebApplicationException(error(e.getMessage()));
 		}
+		catch (Exception e){
+			log.error("Error at rest service : " + e.getMessage(), e);
+			throw new WebApplicationException(error(e.getMessage()));
+		}
 	}
 
 	@Override
@@ -86,6 +99,10 @@ public class LogisticsRestServiceIml implements LogisticsRestService {
 		try {
 			return logisticsService.getFlights(destiny(lattitude, longitude));
 		} catch (BusinessException e) {
+			log.error("Error at rest service : " + e.getMessage(), e);
+			throw new WebApplicationException(error(e.getMessage()));
+		}
+		catch (Exception e){
 			log.error("Error at rest service : " + e.getMessage(), e);
 			throw new WebApplicationException(error(e.getMessage()));
 		}

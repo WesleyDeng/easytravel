@@ -8,6 +8,7 @@ import junit.framework.Assert;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.armandorv.easytravel.googlegeocodewsclient.exception.GoogleGeocodingException;
@@ -20,6 +21,7 @@ public class AddressParserTest {
 	private AddressJaxbParser parser = new AddressJaxbParser();
 
 	@Test
+	@Ignore
 	public void test() throws FileNotFoundException, GoogleGeocodingException,
 			IOException {
 		InputStream in = this.getClass().getClassLoader()

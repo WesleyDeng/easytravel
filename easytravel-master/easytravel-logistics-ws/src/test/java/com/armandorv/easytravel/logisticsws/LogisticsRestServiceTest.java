@@ -32,7 +32,7 @@ public class LogisticsRestServiceTest {
 	@Test
 	public void testGetHotels() throws BusinessException{
 		log.info("Context loaded");
-		Collection<HotelInfo> hotels =  service.getHotels(23, 56);
+		Collection<HotelInfo> hotels =  service.getHotels(41.383366F, 41.383366F);
 		Assert.assertNotNull(hotels);
 		log.info(hotels);
 	}

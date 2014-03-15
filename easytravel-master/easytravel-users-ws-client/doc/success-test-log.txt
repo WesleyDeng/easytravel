@@ -1,0 +1,291 @@
+jun 16, 2013 4:39:17 PM org.apache.cxf.services.UsersWebServiceService.usersWebServicePort.usersWebService
+INFO: Outbound Message
+---------------------------
+ID: 1
+Address: http://localhost:90/services/UsersWebService
+Encoding: UTF-8
+Http-Method: POST
+Content-Type: text/xml
+Headers: {Accept=[*/*], SOAPAction=[""]}
+Payload: <?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1">
+      <wsse:BinarySecurityToken EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" wsu:Id="X509-FDCC82F75C3742ECF713713935557804">MIICyTCCAbGgAwIBAgIEZhYaODANBgkqhkiG9w0BAQUFADAVMRMwEQYDVQQDEwpjbGllbnR1c2VyMB4XDTEyMTAyOTIyMDM1MVoXDTMyMTAyNDIyMDM1MVowFTETMBEGA1UEAxMKY2xpZW50dXNlcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIFrw9HluRXcDXZ3TW/phjvvhBUMvddZi1oxdflB5TXqQa5X3tGLDArseKSr7WLBE64VMh70fgH71BwhgmSfQ8WVYVZJ7ucRVLgqfW/7QYA2QoqhWeefFvBqxPShvh0w5c2ELzjw9Clf+8rrHInawaODEvCUi6lzw5MJ8yD49Lp+Sj3m1ptcnuNR6aqo6L93X0we6HHrPMF+aAtKq8aAhh6i4+/yFeEBjWJx630SclrVK/OG9pCkDb11zEZNEqePc8IGkk3iqTXGOP9oZmWaC8e540ITJcI2bkOUpJlrFPOv2sJFgxOnXRHiYkkCG7jHYkv2rEgrv1rq9ECJcMGeEWMCAwEAAaMhMB8wHQYDVR0OBBYEFIdE6i23LrgCVOF4pGckt1EP6EQfMA0GCSqGSIb3DQEBBQUAA4IBAQAoaEuNnmEXwmIMddqgK55dkO4p05PoS8J6iTuXFXx/PyUL1jKWGrarE4DS9D61DcxvE4/CGAE/RYj3UPM/kB7ECxmoBHWJqRs75FtL1lrK67ugeqzBybnfD9SxlAOZxnz9+0I+t513Bo2mjSigLhxhcHeiqHRhAn/22HYQj1FEYnlcPiJuK1f++XuQceTPsLyjwc1zQbw6bQ9aaKy8sYHYBO63eCsKbi8tbpS6eNnE2wYtapInNJk5ayaPg8tn9HRJDWAnMf8/i5l0g908VKbRC9aZu8hbF3ctSBfNo8v+jLhXvbQn4sn1wCoNEpjej7HyO4WoOTCB3BZHGCEUwuMe</wsse:BinarySecurityToken>
+      <wsu:Timestamp wsu:Id="TS-1">
+        <wsu:Created>2013-06-16T14:39:15.700Z</wsu:Created>
+        <wsu:Expires>2013-06-16T14:44:15.700Z</wsu:Expires>
+      </wsu:Timestamp>
+      <xenc:EncryptedKey xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" Id="EK-FDCC82F75C3742ECF713713935575825">
+        <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5"/>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <wsse:SecurityTokenReference>
+            <wsse:KeyIdentifier EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#ThumbprintSHA1">jty4pXwCh0zUm3Ns0sw5Gjno5co=</wsse:KeyIdentifier>
+          </wsse:SecurityTokenReference>
+        </ds:KeyInfo>
+        <xenc:CipherData>
+          <xenc:CipherValue>tWiTW+Ke/K/HIH0v8QqYwH3Q+AwavsSY1LktMIoYY+OycPrz4720S8GqKHvy50w9JpfDMoSDxaYDfj9zA0Y04/dLKGwLEecYx9s4/fdH7INDpMo1gR++qPY7+TqPnAk+YdOX6sGQpwT3pvfSRk2SBJliPj1QvWPYyn2NQz2BpkLTNknJgL28KmUeaoHS9jUXcFI/Y4SjvXuy0oIMBQfzyoP73mtP3Ph/6wQuFwqKv1sZL0isgPhaCPdblLldGhgvAJQ7wvnuNiwiQhcNfPkGwRJQ2lDRcMOat71k5zumuqEYr7L5LrtCPgEXU8N/tTSvaye+iDk0zCnvVlfyJJTYnQ==</xenc:CipherValue>
+        </xenc:CipherData>
+        <xenc:ReferenceList>
+          <xenc:DataReference URI="#ED-3"/>
+        </xenc:ReferenceList>
+      </xenc:EncryptedKey>
+      <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-2">
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+            <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+          </ds:CanonicalizationMethod>
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+          <ds:Reference URI="#TS-1">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>93UI1NVgNMC7BB9onAtC3hXSGQ4=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Id-1495365160">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>qmcCJ9tRDecjg+w5st3yomZf2K0=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>PauenEiZwy20q4nMsg91CHe0gOYVd3ncM4wktGL0hJ4HdAItG50Q3/KQ+3R8W4sTY6Tl2sDQ2FINK1jWjy5sCOL2MNfRNJn8CIvUSfa9ELTq8FO0bBqLmbCiWEwufQeQdtFLK43cnhSCKXIk48Fo+oDENQhG8V9TPfCzCmodGcXUxtwmPitSCUWuPvgD7JT2+iOwOfEQnqkXLTFLrOyIHJDYbU4euclO3ERX0QOJuJLMOkbcHSQDVPYt0MukbkHNCtbzy3CGRSSsy9FnSFqlMbGitZlXHrbOwxQO1+OvVSMVg27k/zAQgoOy3OsPXoL+XLNi73IQgLtUbux/OvIebA==</ds:SignatureValue>
+        <ds:KeyInfo Id="KI-FDCC82F75C3742ECF713713935557702">
+          <wsse:SecurityTokenReference wsu:Id="STR-FDCC82F75C3742ECF713713935557803">
+            <wsse:KeyIdentifier EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#ThumbprintSHA1">ll3y+QpETHqwq/KupM7TNh370Xk=</wsse:KeyIdentifier>
+          </wsse:SecurityTokenReference>
+        </ds:KeyInfo>
+      </ds:Signature>
+    </wsse:Security>
+  </soap:Header>
+  <soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Id-1495365160">
+    <xenc:EncryptedData xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" Id="ED-3" Type="http://www.w3.org/2001/04/xmlenc#Content">
+      <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <wsse:SecurityTokenReference xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" wsse11:TokenType="http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#EncryptedKey">
+          <wsse:Reference URI="#EK-FDCC82F75C3742ECF713713935575825"/>
+        </wsse:SecurityTokenReference>
+      </ds:KeyInfo>
+      <xenc:CipherData>
+        <xenc:CipherValue>cDTkMRDdbBeX+vrM8lNKP6063y5wXezr3B2xOzRgjgkLulTsegF1IbDi58qR8JvqEkOkItPi7hBCuWYWVRPEITMOh8iecpJ7R/Fk/tanh1Sx1WkHByGSBSYp8Lfu8gzxHHIPS0BTI0IBMaWTlkJMMvDQqbsMhxE9U/YiO23M5AMOzzIY667Q2kSCeUQoVS9xuZjlN8R4MkfIqWa01IC4+/Me1r6pA5sWV8Yrt+fo+R4=</xenc:CipherValue>
+      </xenc:CipherData>
+    </xenc:EncryptedData>
+  </soap:Body>
+</soap:Envelope>
+
+--------------------------------------
+jun 16, 2013 4:39:22 PM org.apache.cxf.services.UsersWebServiceService.usersWebServicePort.usersWebService
+INFO: Inbound Message
+----------------------------
+ID: 1
+Response-Code: 200
+Encoding: UTF-8
+Content-Type: text/xml; charset=utf-8
+Headers: {content-type=[text/xml; charset=utf-8], Server=[Jetty(6.1.10)], transfer-encoding=[chunked]}
+Payload: <?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1">
+      <wsu:Timestamp wsu:Id="TS-1">
+        <wsu:Created>2013-06-16T14:39:21.954Z</wsu:Created>
+        <wsu:Expires>2013-06-16T14:44:21.954Z</wsu:Expires>
+      </wsu:Timestamp>
+      <xenc:EncryptedKey xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" Id="EK-97E7F52A96D49644D213713935620244">
+        <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5"/>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <wsse:SecurityTokenReference>
+            <wsse:KeyIdentifier EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#ThumbprintSHA1">ll3y+QpETHqwq/KupM7TNh370Xk=</wsse:KeyIdentifier>
+          </wsse:SecurityTokenReference>
+        </ds:KeyInfo>
+        <xenc:CipherData>
+          <xenc:CipherValue>WVVy/1TR6nF3aKRCZWOvHO/zQdPG+mD9iaJts3ipLYBFPp8CjBL7tBywspVph+fMqmT+xTYLQdbxJTO4Nt2c1ZDhBJhejhvMRj4u4NLnU5JlSurkD7lSgmCJ11gRZToxblmmHxgcwnF35ittQr6H1oJClGT7iiIJY8vG4AvxcQka8tEqPt4ZeG6kJUbTLXvnhyMBd0Fy2SL9AWLW1pO2MjY01Ug6hv26qWb8QX4tYq57CqRVsJl3olCgdFszmDk/rFpyxk4mw6M1Lx7WbCoBhqPl6iFys/lLZKoljV/2BdeENQrd66lLJXXsrPRp7zOQ76yboQiY6MVeGZ9r0k7few==</xenc:CipherValue>
+        </xenc:CipherData>
+        <xenc:ReferenceList>
+          <xenc:DataReference URI="#ED-3"/>
+        </xenc:ReferenceList>
+      </xenc:EncryptedKey>
+      <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-2">
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+            <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+          </ds:CanonicalizationMethod>
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+          <ds:Reference URI="#TS-1">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>H5Qm81nx4nY8i7m9bL7SEWxSMn8=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Id-806847554">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>Nj5KXGt9FAleGdkEfScZl2o1dLo=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>bKrQMMK7KbP0XbrnfrFu9uOi2mK38XkG0q/lymi8Zt5Gh1CvxhPRaPEpdgAqBfGpVjtvx7HcWLanGQbqsJ24jLyaP5x90BumtDcqV0qT6QthzZOg0qQstYPvpsFk8PKhN/E44GSMTaRq4oZYk124HbU5mKZIgsISbRVRuvGg8VlA/SXvx9Zbr1IAatK06BNVgDXqCvIKVuAk2xfZCnKyVBl447P8nMiUoLVF2o+MN5VZ85uG7V/QDDeTb4tc3qv4kh70XOLaj/hBxsJGDE00f/m86uC3Gc89xkJjNsyO/K84ScxaYTEyorGcoOaNNS0oo0E9SVjdLeMgwYyLx0QBiA==</ds:SignatureValue>
+        <ds:KeyInfo Id="KI-97E7F52A96D49644D213713935619742">
+          <wsse:SecurityTokenReference wsu:Id="STR-97E7F52A96D49644D213713935619743">
+            <wsse:KeyIdentifier EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#ThumbprintSHA1">jty4pXwCh0zUm3Ns0sw5Gjno5co=</wsse:KeyIdentifier>
+          </wsse:SecurityTokenReference>
+        </ds:KeyInfo>
+      </ds:Signature>
+    </wsse:Security>
+  </soap:Header>
+  <soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Id-806847554">
+    <xenc:EncryptedData xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" Id="ED-3" Type="http://www.w3.org/2001/04/xmlenc#Content">
+      <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <wsse:SecurityTokenReference xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" wsse11:TokenType="http://docs.oasis-open.org/wss/oasis-wss-soap-message-security-1.1#EncryptedKey">
+          <wsse:Reference URI="#EK-97E7F52A96D49644D213713935620244"/>
+        </wsse:SecurityTokenReference>
+      </ds:KeyInfo>
+      <xenc:CipherData>
+        <xenc:CipherValue>SFhp28arZO+U+rWnt4MVI1ee4dIfKA1Xy2zLDXHAvMtnlsoOi/+HQIWslHC63zL73/FHHFm9if5BxOkjhKB6IrYGcogZf7UEu2x1QUJTZhC5f/7xBgDeCX5+NATg3sjmlg80X8073XUDK5QvyyqiE0Nwg+W4fSmnha2hlNHvpE2DR16D6nNve8Km3/xfbPTcvWrMgF7NuGo7nIlFaIceRgSTeGaSBkQ/nlezcsU5I8cLDNQzzDD0KXbRfmnuuGcMnOVVLvTtmlBIEZNSohO0loAR7E3mFsOpejK68A19xHvXS1ULt2tH2VCJpRgQ851/ZsT6HNm9tsnbhn1JISb4QLMv6yw9w5tqIDlBNSZotRdFSOhsSOWseHVHZRDv95bD/a1uMU57jkxV9cNOTXMCUPOmeU00QlX+F+hDtH9hmwAcJfUR4+eZ0kUYwjee8Wj4EX+PV2qkvAIpENofIV8vxFCk60oxEz8lYY83P+WrmORVsa2pFEmEolTwwUfrErVq0nTx/wX3wmmpzyY2Xnzrw5QgTqYW7AanLk+JCvg6Ba6Hn2stnDJpcsNS6WDN1tuS</xenc:CipherValue>
+      </xenc:CipherData>
+    </xenc:EncryptedData>
+  </soap:Body>
+</soap:Envelope>
+
+--------------------------------------
+16:39:22,196 DEBUG [CryptoFactory:214] Using Crypto Engine [class org.apache.ws.security.components.crypto.Merlin]
+16:39:22,196 DEBUG [Loader:119] Trying to find [clientKeystore.jks] using sun.misc.Launcher$AppClassLoader@6469cee6 class loader.
+16:39:22,196 DEBUG [Merlin:192] The KeyStore clientKeystore.jks of type jks has been loaded
+16:39:22,206 DEBUG [TimestampProcessor:46] Found Timestamp list element
+16:39:22,206 DEBUG [Timestamp:151] Current time: 2013-06-16T14:39:22.206Z
+16:39:22,216 DEBUG [Timestamp:156] Timestamp created: 2013-06-16T14:39:21.954Z
+16:39:22,216 DEBUG [Timestamp:162] Timestamp expires: 2013-06-16T14:44:21.954Z
+16:39:22,216 DEBUG [Timestamp:342] Validation of Timestamp: Everything is ok
+16:39:22,216 DEBUG [EncryptedKeyProcessor:75] Found encrypted key element
+16:39:22,216 DEBUG [X509Util:69] Sym Enc Algo: http://www.w3.org/2001/04/xmlenc#rsa-1_5
+16:39:22,226 DEBUG [JCEMapper:219] Request for URI http://www.w3.org/2001/04/xmlenc#rsa-1_5
+16:39:22,237 DEBUG [EncryptedKeySTRParser:146] cert: [
+[
+  Version: V3
+  Subject: CN=clientuser
+  Signature Algorithm: SHA1withRSA, OID = 1.2.840.113549.1.1.5
+
+  Key:  RSA Public Key
+            modulus: 816bc3d1e5b915dc0d76774d6fe9863bef84150cbdd7598b5a3175f941e535ea41ae57ded18b0c0aec78a4abed62c113ae15321ef47e01fbd41c2182649f43c595615649eee71154b82a7d6ffb418036428aa159e79f16f06ac4f4a1be1d30e5cd842f38f0f4295ffbcaeb1c89dac1a38312f0948ba973c39309f320f8f4ba7e4a3de6d69b5c9ee351e9aaa8e8bf775f4c1ee871eb3cc17e680b4aabc680861ea2e3eff215e1018d6271eb7d12725ad52bf386f690a40dbd75cc464d12a78f73c206924de2a935c638ff6866659a0bc7b9e3421325c2366e4394a4996b14f3afdac2458313a75d11e26249021bb8c7624bf6ac482bbf5aeaf4408970c19e1163
+    public exponent: 10001
+
+  Validity: [From: Mon Oct 29 23:03:51 CET 2012,
+               To: Mon Oct 25 00:03:51 CEST 2032]
+  Issuer: CN=clientuser
+  SerialNumber: [    66161a38]
+
+Certificate Extensions: 1
+[1]: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 87 44 EA 2D B7 2E B8 02   54 E1 78 A4 67 24 B7 51  .D.-....T.x.g$.Q
+0010: 0F E8 44 1F                                        ..D.
+]
+]
+
+]
+  Algorithm: [SHA1withRSA]
+  Signature:
+0000: 28 68 4B 8D 9E 61 17 C2   62 0C 75 DA A0 2B 9E 5D  (hK..a..b.u..+.]
+0010: 90 EE 29 D3 93 E8 4B C2   7A 89 3B 97 15 7C 7F 3F  ..)...K.z.;....?
+0020: 25 0B D6 32 96 1A B6 AB   13 80 D2 F4 3E B5 0D CC  %..2........>...
+0030: 6F 13 8F C2 18 01 3F 45   88 F7 50 F3 3F 90 1E C4  o.....?E..P.?...
+0040: 0B 19 A8 04 75 89 A9 1B   3B E4 5B 4B D6 5A CA EB  ....u...;.[K.Z..
+0050: BB A0 7A AC C1 C9 B9 DF   0F D4 B1 94 03 99 C6 7C  ..z.............
+0060: FD FB 42 3E B7 9D 77 06   8D A6 8D 28 A0 2E 1C 61  ..B>..w....(...a
+0070: 70 77 A2 A8 74 61 02 7F   F6 D8 76 10 8F 51 44 62  pw..ta....v..QDb
+0080: 79 5C 3E 22 6E 2B 57 FE   F9 7B 90 71 E4 CF B0 BC  y\>"n+W....q....
+0090: A3 C1 CD 73 41 BC 3A 6D   0F 5A 68 AC BC B1 81 D8  ...sA.:m.Zh.....
+00A0: 04 EE B7 78 2B 0A 6E 2F   2D 6E 94 BA 78 D9 C4 DB  ...x+.n/-n..x...
+00B0: 06 2D 6A 92 27 34 99 39   6B 26 8F 83 CB 67 F4 74  .-j.'4.9k&...g.t
+00C0: 49 0D 60 27 31 FF 3F 8B   99 74 83 DD 3C 54 A6 D1  I.`'1.?..t..<T..
+00D0: 0B D6 99 BB C8 5B 17 77   2D 48 17 CD A3 CB FE 8C  .....[.w-H......
+00E0: B8 57 BD B4 27 E2 C9 F5   C0 2A 0D 12 98 DE 8F B1  .W..'....*......
+00F0: F2 3B 85 A8 39 30 81 DC   16 47 18 21 14 C2 E3 1E  .;..90...G.!....
+
+]
+16:39:22,257 DEBUG [EncryptedKeyProcessor:386] found data reference: ED-3
+16:39:22,257 DEBUG [X509Util:69] Sym Enc Algo: http://www.w3.org/2001/04/xmlenc#tripledes-cbc
+16:39:22,257 DEBUG [JCEMapper:254] Request for URI http://www.w3.org/2001/04/xmlenc#tripledes-cbc
+16:39:22,257 DEBUG [JCEMapper:271] Request for URI http://www.w3.org/2001/04/xmlenc#tripledes-cbc
+16:39:22,257 DEBUG [XMLCipher:396] Getting XMLCipher with transformation
+16:39:22,257 DEBUG [XMLCipher:291] Constructing XMLCipher...
+16:39:22,257 DEBUG [JCEMapper:219] Request for URI http://www.w3.org/2001/04/xmlenc#tripledes-cbc
+16:39:22,257 DEBUG [XMLCipher:1533] JCE Algorithm = DESede/CBC/ISO10126Padding
+16:39:22,257 DEBUG [XMLCipher:582] Initializing XMLCipher...
+16:39:22,257 DEBUG [XMLCipher:598] opmode = DECRYPT_MODE
+16:39:22,257 DEBUG [XMLCipher:962] Processing source element...
+16:39:22,257 DEBUG [XMLCipher:1605] Decrypting element...
+16:39:22,257 DEBUG [XMLCipher:1666] Decrypting to ByteArray...
+16:39:22,257 DEBUG [ElementProxy:90] setElement("ds:KeyInfo", "null")
+16:39:22,257 DEBUG [XMLCipherInput:179] Encrypted octets:
+SFhp28arZO+U+rWnt4MVI1ee4dIfKA1Xy2zLDXHAvMtnlsoOi/+HQIWslHC63zL73/FHHFm9if5BxOkjhKB6IrYGcogZf7UEu2x1QUJTZhC5f/7xBgDeCX5+NATg3sjmlg80X8073XUDK5QvyyqiE0Nwg+W4fSmnha2hlNHvpE2DR16D6nNve8Km3/xfbPTcvWrMgF7NuGo7nIlFaIceRgSTeGaSBkQ/nlezcsU5I8cLDNQzzDD0KXbRfmnuuGcMnOVVLvTtmlBIEZNSohO0loAR7E3mFsOpejK68A19xHvXS1ULt2tH2VCJpRgQ851/ZsT6HNm9tsnbhn1JISb4QLMv6yw9w5tqIDlBNSZotRdFSOhsSOWseHVHZRDv95bD/a1uMU57jkxV9cNOTXMCUPOmeU00QlX+F+hDtH9hmwAcJfUR4+eZ0kUYwjee8Wj4EX+PV2qkvAIpENofIV8vxFCk60oxEz8lYY83P+WrmORVsa2pFEmEolTwwUfrErVq0nTx/wX3wmmpzyY2Xnzrw5QgTqYW7AanLk+JCvg6Ba6Hn2stnDJpcsNS6WDN1tuS
+16:39:22,257 DEBUG [JCEMapper:219] Request for URI http://www.w3.org/2001/04/xmlenc#tripledes-cbc
+16:39:22,257 DEBUG [XMLCipher:1715] JCE Algorithm = DESede/CBC/ISO10126Padding
+16:39:22,267 DEBUG [XMLCipher:1615] Decrypted octets:
+<ns2:listNFirstUsersResponse xmlns:ns2="http://armandorv.com/easytravel/usersws"><return><lastname>Ramírez Vila</lastname><mail>armando@gmail.com</mail><name>Armando</name><password>secret</password><username>armandorv</username></return><return><lastname>Iglesias Cases</lastname><mail>cases@gmail.com</mail><name>Juan</name><password>secret</password><username>cases</username></return></ns2:listNFirstUsersResponse>
+16:39:22,287 DEBUG [SignatureProcessor:115] Found signature element
+16:39:22,297 DEBUG [SignatureTrustValidator:156] Transmitted certificate has subject CN=localhost
+16:39:22,297 DEBUG [SignatureTrustValidator:157] Transmitted certificate has issuer CN=localhost (serial 747293687)
+16:39:22,297 DEBUG [SignatureTrustValidator:259] Direct trust for certificate with CN=localhost
+16:39:22,297 DEBUG [SignatureProcessor:380] Verify XML Signature
+16:39:22,297 DEBUG [DOMSignatureMethod:168] Signature provider:BC version 1.46
+16:39:22,297 DEBUG [DOMSignatureMethod:169] verifying with key: RSA Public Key
+            modulus: da50214a324aa6a366fcef892de6df4452cbee15d95d5219e96c44e235d37095c514c445b53a27211a61340e3e90a697d6a390c28310f847f02960e1f1d1559be61513b6aad395b59c93b24ada405913acbece38065dde1821ec606062899a74edd6d8692f35fc98692d56fb91b9fbb34d27fa6efab993ddafeef0430513199dcae66edc14c2156d91e353143648e9c225e4104bdbd0a899c5853c8c515d3b68d260a917ae047f82bb6bf37f15bdf7702f38e5a1c4cf4011c56786a5ac9a0151d62e8e487363f1a06a311163c2d12b442b4dd339147406c63d852aff477a7c0d612ae0ab4d5c1081a89614a013d9e71aec239ad2cb76ec27c0ae2aa898029433
+    public exponent: 10001
+
+16:39:22,297 DEBUG [Transform:352] Create URI "http://www.w3.org/2001/10/xml-exc-c14n#" class "class org.apache.xml.security.transforms.implementations.TransformC14NExclusive"
+16:39:22,297 DEBUG [Transform:354] The NodeList is [ds:CanonicalizationMethod: null]
+16:39:22,297 DEBUG [ElementProxy:180] setElement(ds:CanonicalizationMethod, "null"
+16:39:22,297 DEBUG [ApacheCanonicalizer:206] Created transform for algorithm: http://www.w3.org/2001/10/xml-exc-c14n#
+16:39:22,297 DEBUG [ApacheCanonicalizer:222] isNodeSet() = true
+16:39:22,297 DEBUG [ElementProxy:90] setElement("ec:InclusiveNamespaces", "null")
+16:39:22,297 DEBUG [DOMSignedInfo:239] Canonicalized SignedInfo:
+16:39:22,297 DEBUG [DOMSignedInfo:244] <ds:SignedInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"></ec:InclusiveNamespaces></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod><ds:Reference URI="#TS-1"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"></ec:InclusiveNamespaces></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>H5Qm81nx4nY8i7m9bL7SEWxSMn8=</ds:DigestValue></ds:Reference><ds:Reference URI="#Id-806847554"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"><ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""></ec:InclusiveNamespaces></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>Nj5KXGt9FAleGdkEfScZl2o1dLo=</ds:DigestValue></ds:Reference></ds:SignedInfo>
+16:39:22,297 DEBUG [DOMSignedInfo:245] Data to be signed/verified:PGRzOlNpZ25lZEluZm8geG1sbnM6ZHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiIHhtbG5zOnNvYXA9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIj48ZHM6Q2Fub25pY2FsaXphdGlvbk1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvMTAveG1sLWV4Yy1jMTRuIyI+PGVjOkluY2x1c2l2ZU5hbWVzcGFjZXMgeG1sbnM6ZWM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvMTAveG1sLWV4Yy1jMTRuIyIgUHJlZml4TGlzdD0ic29hcCI+PC9lYzpJbmNsdXNpdmVOYW1lc3BhY2VzPjwvZHM6Q2Fub25pY2FsaXphdGlvbk1ldGhvZD48ZHM6U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3JzYS1zaGExIj48L2RzOlNpZ25hdHVyZU1ldGhvZD48ZHM6UmVmZXJlbmNlIFVSST0iI1RTLTEiPjxkczpUcmFuc2Zvcm1zPjxkczpUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzEwL3htbC1leGMtYzE0biMiPjxlYzpJbmNsdXNpdmVOYW1lc3BhY2VzIHhtbG5zOmVjPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzEwL3htbC1leGMtYzE0biMiIFByZWZpeExpc3Q9Indzc2Ugc29hcCI+PC9lYzpJbmNsdXNpdmVOYW1lc3BhY2VzPjwvZHM6VHJhbnNmb3JtPjwvZHM6VHJhbnNmb3Jtcz48ZHM6RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3NoYTEiPjwvZHM6RGlnZXN0TWV0aG9kPjxkczpEaWdlc3RWYWx1ZT5INVFtODFueDRuWThpN205Ykw3U0VXeFNNbjg9PC9kczpEaWdlc3RWYWx1ZT48L2RzOlJlZmVyZW5jZT48ZHM6UmVmZXJlbmNlIFVSST0iI0lkLTgwNjg0NzU1NCI+PGRzOlRyYW5zZm9ybXM+PGRzOlRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvMTAveG1sLWV4Yy1jMTRuIyI+PGVjOkluY2x1c2l2ZU5hbWVzcGFjZXMgeG1sbnM6ZWM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvMTAveG1sLWV4Yy1jMTRuIyIgUHJlZml4TGlzdD0iIj48L2VjOkluY2x1c2l2ZU5hbWVzcGFjZXM+PC9kczpUcmFuc2Zvcm0+PC9kczpUcmFuc2Zvcm1zPjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSI+PC9kczpEaWdlc3RNZXRob2Q+PGRzOkRpZ2VzdFZhbHVlPk5qNUtYR3Q5RkFsZUdka0VmU2NabDJvMWRMbz08L2RzOkRpZ2VzdFZhbHVlPjwvZHM6UmVmZXJlbmNlPjwvZHM6U2lnbmVkSW5mbz4=
+16:39:22,307 DEBUG [DOMReference:417] URIDereferencer class name: org.apache.jcp.xml.dsig.internal.dom.DOMURIDereferencer
+16:39:22,307 DEBUG [DOMReference:418] Data class name: org.apache.jcp.xml.dsig.internal.dom.ApacheNodeSetData
+16:39:22,307 DEBUG [Transform:352] Create URI "http://www.w3.org/2001/10/xml-exc-c14n#" class "class org.apache.xml.security.transforms.implementations.TransformC14NExclusive"
+16:39:22,307 DEBUG [Transform:354] The NodeList is [ds:Transform: null]
+16:39:22,307 DEBUG [ElementProxy:180] setElement(ds:Transform, "null"
+16:39:22,307 DEBUG [ApacheCanonicalizer:206] Created transform for algorithm: http://www.w3.org/2001/10/xml-exc-c14n#
+16:39:22,307 DEBUG [ApacheCanonicalizer:217] ApacheData = true
+16:39:22,307 DEBUG [ElementProxy:90] setElement("ec:InclusiveNamespaces", "null")
+16:39:22,307 DEBUG [DigesterOutputStream:88] Pre-digested input:
+16:39:22,307 DEBUG [DigesterOutputStream:93] <wsu:Timestamp xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="TS-1"><wsu:Created>2013-06-16T14:39:21.954Z</wsu:Created><wsu:Expires>2013-06-16T14:44:21.954Z</wsu:Expires></wsu:Timestamp>
+16:39:22,307 DEBUG [DOMReference:387] Expected digest: H5Qm81nx4nY8i7m9bL7SEWxSMn8=
+16:39:22,307 DEBUG [DOMReference:388] Actual digest: H5Qm81nx4nY8i7m9bL7SEWxSMn8=
+16:39:22,307 DEBUG [DOMXMLSignature:269] Reference[#TS-1] is valid: true
+16:39:22,307 DEBUG [DOMReference:417] URIDereferencer class name: org.apache.jcp.xml.dsig.internal.dom.DOMURIDereferencer
+16:39:22,307 DEBUG [DOMReference:418] Data class name: org.apache.jcp.xml.dsig.internal.dom.ApacheNodeSetData
+16:39:22,307 DEBUG [Transform:352] Create URI "http://www.w3.org/2001/10/xml-exc-c14n#" class "class org.apache.xml.security.transforms.implementations.TransformC14NExclusive"
+16:39:22,307 DEBUG [Transform:354] The NodeList is [ds:Transform: null]
+16:39:22,307 DEBUG [ElementProxy:180] setElement(ds:Transform, "null"
+16:39:22,307 DEBUG [ApacheCanonicalizer:206] Created transform for algorithm: http://www.w3.org/2001/10/xml-exc-c14n#
+16:39:22,307 DEBUG [ApacheCanonicalizer:217] ApacheData = true
+16:39:22,307 DEBUG [ElementProxy:90] setElement("ec:InclusiveNamespaces", "null")
+16:39:22,307 DEBUG [DigesterOutputStream:88] Pre-digested input:
+16:39:22,307 DEBUG [DigesterOutputStream:93] <soap:Body xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Id-806847554"><ns2:listNFirstUsersResponse xmlns:ns2="http://armandorv.com/easytravel/usersws"><return><lastname>Ramￃﾭrez Vila</lastname><mail>armando@gmail.com</mail><name>Armando</name><password>secret</password><username>armandorv</username></return><return><lastname>Iglesias Cases</lastname><mail>cases@gmail.com</mail><name>Juan</name><password>secret</password><username>cases</username></return></ns2:listNFirstUsersResponse></soap:Body>
+16:39:22,307 DEBUG [DOMReference:387] Expected digest: Nj5KXGt9FAleGdkEfScZl2o1dLo=
+16:39:22,307 DEBUG [DOMReference:388] Actual digest: Nj5KXGt9FAleGdkEfScZl2o1dLo=
+16:39:22,307 DEBUG [DOMXMLSignature:269] Reference[#Id-806847554] is valid: true
+16:39:22,377 INFO  [UsersWebServiceClientTest:45] Found 2hotels
+16:39:22,377 INFO  [UsersWebServiceClientTest:46] [UserDetails [id=-1, name=Armando, lastname=Ramírez Vila, mail=armando@gmail.com, username=armandorv], UserDetails [id=-1, name=Juan, lastname=Iglesias Cases, mail=cases@gmail.com, username=cases]]
+16:39:22,377 DEBUG [DirtiesContextTestExecutionListener:85] After test method: context [[TestContext@29ae5edf testClass = UsersWebServiceClientTest, testInstance = com.armandorv.easytravel.userswsclient.UsersWebServiceClientTest@76d697d9, testMethod = testfindUsers@UsersWebServiceClientTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@28b6483 testClass = UsersWebServiceClientTest, locations = '{classpath:easytravel-users-ws-client.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader']]], class dirties context [false], class mode [null], method dirties context [false].
+16:39:22,388 DEBUG [DirtiesContextTestExecutionListener:112] After test class: context [[TestContext@29ae5edf testClass = UsersWebServiceClientTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@28b6483 testClass = UsersWebServiceClientTest, locations = '{classpath:easytravel-users-ws-client.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader']]], dirtiesContext [false].
+16:39:22,392 INFO  [GenericApplicationContext:1042] Closing org.springframework.context.support.GenericApplicationContext@46176578: startup date [Sun Jun 16 16:39:13 CEST 2013]; root of context hierarchy
+16:39:22,395 DEBUG [DefaultListableBeanFactory:246] Returning cached instance of singleton bean 'lifecycleProcessor'
+16:39:22,395 INFO  [DefaultListableBeanFactory:444] Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@6ccc45d2: defining beans [userWsClientConfigurer,UsersWsClient.proxyFactory,UsersWsClient,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,usersServiceImpl,org.springframework.context.annotation.ConfigurationClassPostProcessor.importAwareProcessor]; root of factory hierarchy
+16:39:22,395 DEBUG [DefaultListableBeanFactory:500] Retrieved dependent beans for bean 'usersServiceImpl': [com.armandorv.easytravel.userswsclient.UsersWebServiceClientTest]
+16:39:22,396 DEBUG [DisposableBeanAdapter:219] Invoking destroy() on bean with name 'UsersWsClient'
+16:39:22,396 DEBUG [DefaultListableBeanFactory:500] Retrieved dependent beans for bean 'p:policies#6cd44892': [UsersWsClient]

@@ -3,9 +3,9 @@ applications:
 - name: easytravel-users-ws
   framework: spring
   runtime: java7
-  memory: 384M
+  memory: 512M
   instances: 1
-  url: users.easytravel.${target-base}
+  url: userseasytravel.${target-base}
   path: target/easytravel-users-ws
   services: 
     easytravel-database: 

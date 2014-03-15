@@ -24,7 +24,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Flight_QNAME = new QName("http://armandorv.com/easytravel/usersws", "Flight");
     private final static QName _DeleteUserResponse_QNAME = new QName("http://armandorv.com/easytravel/usersws", "deleteUserResponse");
     private final static QName _FindUser_QNAME = new QName("http://armandorv.com/easytravel/usersws", "findUser");
     private final static QName _DeleteUser_QNAME = new QName("http://armandorv.com/easytravel/usersws", "deleteUser");
@@ -34,9 +33,8 @@ public class ObjectFactory {
     private final static QName _DeleteUserByUsernameResponse_QNAME = new QName("http://armandorv.com/easytravel/usersws", "deleteUserByUsernameResponse");
     private final static QName _NewUserResponse_QNAME = new QName("http://armandorv.com/easytravel/usersws", "newUserResponse");
     private final static QName _FindUserByUsername_QNAME = new QName("http://armandorv.com/easytravel/usersws", "findUserByUsername");
-    private final static QName _Hotel_QNAME = new QName("http://armandorv.com/easytravel/usersws", "Hotel");
-    private final static QName _DeleteUserByUsername_QNAME = new QName("http://armandorv.com/easytravel/usersws", "deleteUserByUsername");
     private final static QName _FindUserByUsernameResponse_QNAME = new QName("http://armandorv.com/easytravel/usersws", "findUserByUsernameResponse");
+    private final static QName _DeleteUserByUsername_QNAME = new QName("http://armandorv.com/easytravel/usersws", "deleteUserByUsername");
     private final static QName _ListNFirstUsersResponse_QNAME = new QName("http://armandorv.com/easytravel/usersws", "listNFirstUsersResponse");
 
     /**
@@ -44,6 +42,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link DeleteUserResponse }
+     * 
+     */
+    public DeleteUserResponse createDeleteUserResponse() {
+        return new DeleteUserResponse();
     }
 
     /**
@@ -71,19 +77,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link HotelInfo }
+     * Create an instance of {@link FindUser }
      * 
      */
-    public HotelInfo createHotelInfo() {
-        return new HotelInfo();
-    }
-
-    /**
-     * Create an instance of {@link DeleteUserByUsername }
-     * 
-     */
-    public DeleteUserByUsername createDeleteUserByUsername() {
-        return new DeleteUserByUsername();
+    public FindUser createFindUser() {
+        return new FindUser();
     }
 
     /**
@@ -95,35 +93,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ListNFirstUsersResponse }
+     * Create an instance of {@link DeleteUserByUsername }
      * 
      */
-    public ListNFirstUsersResponse createListNFirstUsersResponse() {
-        return new ListNFirstUsersResponse();
-    }
-
-    /**
-     * Create an instance of {@link FlightInfo }
-     * 
-     */
-    public FlightInfo createFlightInfo() {
-        return new FlightInfo();
-    }
-
-    /**
-     * Create an instance of {@link DeleteUserResponse }
-     * 
-     */
-    public DeleteUserResponse createDeleteUserResponse() {
-        return new DeleteUserResponse();
-    }
-
-    /**
-     * Create an instance of {@link FindUser }
-     * 
-     */
-    public FindUser createFindUser() {
-        return new FindUser();
+    public DeleteUserByUsername createDeleteUserByUsername() {
+        return new DeleteUserByUsername();
     }
 
     /**
@@ -151,6 +125,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ListNFirstUsersResponse }
+     * 
+     */
+    public ListNFirstUsersResponse createListNFirstUsersResponse() {
+        return new ListNFirstUsersResponse();
+    }
+
+    /**
      * Create an instance of {@link FindUserResponse }
      * 
      */
@@ -159,52 +141,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link HotelBooking }
-     * 
-     */
-    public HotelBooking createHotelBooking() {
-        return new HotelBooking();
-    }
-
-    /**
-     * Create an instance of {@link Travel }
-     * 
-     */
-    public Travel createTravel() {
-        return new Travel();
-    }
-
-    /**
-     * Create an instance of {@link Destiny }
-     * 
-     */
-    public Destiny createDestiny() {
-        return new Destiny();
-    }
-
-    /**
-     * Create an instance of {@link FlightBooking }
-     * 
-     */
-    public FlightBooking createFlightBooking() {
-        return new FlightBooking();
-    }
-
-    /**
      * Create an instance of {@link User }
      * 
      */
     public User createUser() {
         return new User();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FlightInfo }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://armandorv.com/easytravel/usersws", name = "Flight")
-    public JAXBElement<FlightInfo> createFlight(FlightInfo value) {
-        return new JAXBElement<FlightInfo>(_Flight_QNAME, FlightInfo.class, null, value);
     }
 
     /**
@@ -289,12 +230,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link HotelInfo }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindUserByUsernameResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://armandorv.com/easytravel/usersws", name = "Hotel")
-    public JAXBElement<HotelInfo> createHotel(HotelInfo value) {
-        return new JAXBElement<HotelInfo>(_Hotel_QNAME, HotelInfo.class, null, value);
+    @XmlElementDecl(namespace = "http://armandorv.com/easytravel/usersws", name = "findUserByUsernameResponse")
+    public JAXBElement<FindUserByUsernameResponse> createFindUserByUsernameResponse(FindUserByUsernameResponse value) {
+        return new JAXBElement<FindUserByUsernameResponse>(_FindUserByUsernameResponse_QNAME, FindUserByUsernameResponse.class, null, value);
     }
 
     /**
@@ -304,15 +245,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://armandorv.com/easytravel/usersws", name = "deleteUserByUsername")
     public JAXBElement<DeleteUserByUsername> createDeleteUserByUsername(DeleteUserByUsername value) {
         return new JAXBElement<DeleteUserByUsername>(_DeleteUserByUsername_QNAME, DeleteUserByUsername.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FindUserByUsernameResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://armandorv.com/easytravel/usersws", name = "findUserByUsernameResponse")
-    public JAXBElement<FindUserByUsernameResponse> createFindUserByUsernameResponse(FindUserByUsernameResponse value) {
-        return new JAXBElement<FindUserByUsernameResponse>(_FindUserByUsernameResponse_QNAME, FindUserByUsernameResponse.class, null, value);
     }
 
     /**

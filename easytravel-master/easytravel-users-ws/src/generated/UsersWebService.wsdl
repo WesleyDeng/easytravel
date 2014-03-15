@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="UsersWebService" targetNamespace="http://armandorv.com/easytravel/usersws" xmlns:ns1="http://armandorv.com/easytravel/usersws/exception" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://armandorv.com/easytravel/usersws" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:definitions name="UsersWebService" targetNamespace="http://armandorv.com/easytravel/usersws" xmlns:ns1="http://armandorv.com/easytravel/usersws/exception" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://armandorv.com/easytravel/usersws" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
   <wsdl:types>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://armandorv.com/easytravel/usersws" elementFormDefault="unqualified" targetNamespace="http://armandorv.com/easytravel/usersws" version="1.0">
 <xs:element name="deleteUser" type="tns:deleteUser"/>
@@ -189,6 +189,7 @@
   </wsdl:portType>
   <wsdl:binding name="UsersWebServiceSoapBinding" type="tns:usersWebService">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsp:PolicyReference URI="#UsernameToken"/>
     <wsdl:operation name="findUser">
       <soap:operation soapAction="" style="document"/>
       <wsdl:input name="findUser">
@@ -267,4 +268,18 @@
       <soap:address location="http://localhost:9090/UsersWebService"/>
     </wsdl:port>
   </wsdl:service>
+    <wsp:Policy wsu:Id="UsernameToken" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	
+	<!-- It would be better constraint to HTTPS using  <sp:TransportBinding/> -->
+	
+	<sp:SupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+		<wsp:Policy>
+			<sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Always" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+				<wsp:Policy>
+					<sp:WssUsernameToken11/>
+				</wsp:Policy>
+			</sp:UsernameToken>
+		</wsp:Policy>
+	</sp:SupportingTokens>
+</wsp:Policy>
 </wsdl:definitions>

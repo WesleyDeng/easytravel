@@ -25,11 +25,11 @@ import net.restfulwebservices.datacontracts._2008._01.Airport;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetDetailsByCityRequest_QNAME = new QName("http://www.restfulwebservices.net/ServiceContracts/2008/01", "request");
-    private final static QName _GetDetailsByAirportNameResponseGetDetailsByAirportNameResult_QNAME = new QName("http://www.restfulwebservices.net/ServiceContracts/2008/01", "GetDetailsByAirportNameResult");
-    private final static QName _GetDetailsByIATACodeResponseGetDetailsByIATACodeResult_QNAME = new QName("http://www.restfulwebservices.net/ServiceContracts/2008/01", "GetDetailsByIATACodeResult");
     private final static QName _GetDetailsByICAOCodeResponseGetDetailsByICAOCodeResult_QNAME = new QName("http://www.restfulwebservices.net/ServiceContracts/2008/01", "GetDetailsByICAOCodeResult");
     private final static QName _GetDetailsByCityResponseGetDetailsByCityResult_QNAME = new QName("http://www.restfulwebservices.net/ServiceContracts/2008/01", "GetDetailsByCityResult");
+    private final static QName _GetDetailsByCityRequest_QNAME = new QName("http://www.restfulwebservices.net/ServiceContracts/2008/01", "request");
+    private final static QName _GetDetailsByIATACodeResponseGetDetailsByIATACodeResult_QNAME = new QName("http://www.restfulwebservices.net/ServiceContracts/2008/01", "GetDetailsByIATACodeResult");
+    private final static QName _GetDetailsByAirportNameResponseGetDetailsByAirportNameResult_QNAME = new QName("http://www.restfulwebservices.net/ServiceContracts/2008/01", "GetDetailsByAirportNameResult");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: net.restfulwebservices.servicecontracts._2008._01
@@ -103,39 +103,30 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Airport }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "request", scope = GetDetailsByCity.class)
-    public JAXBElement<String> createGetDetailsByCityRequest(String value) {
-        return new JAXBElement<String>(_GetDetailsByCityRequest_QNAME, String.class, GetDetailsByCity.class, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "request", scope = GetDetailsByAirportName.class)
-    public JAXBElement<String> createGetDetailsByAirportNameRequest(String value) {
-        return new JAXBElement<String>(_GetDetailsByCityRequest_QNAME, String.class, GetDetailsByAirportName.class, value);
+    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "GetDetailsByICAOCodeResult", scope = GetDetailsByICAOCodeResponse.class)
+    public JAXBElement<Airport> createGetDetailsByICAOCodeResponseGetDetailsByICAOCodeResult(Airport value) {
+        return new JAXBElement<Airport>(_GetDetailsByICAOCodeResponseGetDetailsByICAOCodeResult_QNAME, Airport.class, GetDetailsByICAOCodeResponse.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Airport }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "GetDetailsByAirportNameResult", scope = GetDetailsByAirportNameResponse.class)
-    public JAXBElement<Airport> createGetDetailsByAirportNameResponseGetDetailsByAirportNameResult(Airport value) {
-        return new JAXBElement<Airport>(_GetDetailsByAirportNameResponseGetDetailsByAirportNameResult_QNAME, Airport.class, GetDetailsByAirportNameResponse.class, value);
+    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "GetDetailsByCityResult", scope = GetDetailsByCityResponse.class)
+    public JAXBElement<Airport> createGetDetailsByCityResponseGetDetailsByCityResult(Airport value) {
+        return new JAXBElement<Airport>(_GetDetailsByCityResponseGetDetailsByCityResult_QNAME, Airport.class, GetDetailsByCityResponse.class, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "request", scope = GetDetailsByIATACode.class)
-    public JAXBElement<String> createGetDetailsByIATACodeRequest(String value) {
-        return new JAXBElement<String>(_GetDetailsByCityRequest_QNAME, String.class, GetDetailsByIATACode.class, value);
+    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "request", scope = GetDetailsByCity.class)
+    public JAXBElement<String> createGetDetailsByCityRequest(String value) {
+        return new JAXBElement<String>(_GetDetailsByCityRequest_QNAME, String.class, GetDetailsByCity.class, value);
     }
 
     /**
@@ -160,18 +151,27 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link Airport }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "GetDetailsByICAOCodeResult", scope = GetDetailsByICAOCodeResponse.class)
-    public JAXBElement<Airport> createGetDetailsByICAOCodeResponseGetDetailsByICAOCodeResult(Airport value) {
-        return new JAXBElement<Airport>(_GetDetailsByICAOCodeResponseGetDetailsByICAOCodeResult_QNAME, Airport.class, GetDetailsByICAOCodeResponse.class, value);
+    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "GetDetailsByAirportNameResult", scope = GetDetailsByAirportNameResponse.class)
+    public JAXBElement<Airport> createGetDetailsByAirportNameResponseGetDetailsByAirportNameResult(Airport value) {
+        return new JAXBElement<Airport>(_GetDetailsByAirportNameResponseGetDetailsByAirportNameResult_QNAME, Airport.class, GetDetailsByAirportNameResponse.class, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Airport }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "GetDetailsByCityResult", scope = GetDetailsByCityResponse.class)
-    public JAXBElement<Airport> createGetDetailsByCityResponseGetDetailsByCityResult(Airport value) {
-        return new JAXBElement<Airport>(_GetDetailsByCityResponseGetDetailsByCityResult_QNAME, Airport.class, GetDetailsByCityResponse.class, value);
+    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "request", scope = GetDetailsByIATACode.class)
+    public JAXBElement<String> createGetDetailsByIATACodeRequest(String value) {
+        return new JAXBElement<String>(_GetDetailsByCityRequest_QNAME, String.class, GetDetailsByIATACode.class, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.restfulwebservices.net/ServiceContracts/2008/01", name = "request", scope = GetDetailsByAirportName.class)
+    public JAXBElement<String> createGetDetailsByAirportNameRequest(String value) {
+        return new JAXBElement<String>(_GetDetailsByCityRequest_QNAME, String.class, GetDetailsByAirportName.class, value);
     }
 
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+	<soap:Header>
+		<wsse:Security soap:mustUnderstand="1"
+			xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<wsse:UsernameToken
+				xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+				wsu:Id="UsernameToken-1">
+				<wsse:Username>armandorv</wsse:Username>
+				<wsse:Password
+					Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">secret</wsse:Password>
+			</wsse:UsernameToken>
+		</wsse:Security>
+	</soap:Header>
+	<soap:Body>
+		<ns3:listNFirstUsers
+			xmlns:ns2="http://armandorv.com/easytravel/usersws/exception"
+			xmlns:ns3="http://armandorv.com/easytravel/usersws">
+			<n>2</n>
+		</ns3:listNFirstUsers>
+	</soap:Body>
+</soap:Envelope>

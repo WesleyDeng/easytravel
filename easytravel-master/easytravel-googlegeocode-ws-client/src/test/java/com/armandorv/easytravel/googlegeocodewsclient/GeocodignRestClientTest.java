@@ -55,8 +55,9 @@ public class GeocodignRestClientTest {
 	public void testGetAddress() {
 		//2018430933,41.383366
 		//40.714224F, -73.961452F
+		//37.370155/-5.963173
 		try {
-			Address address= geocodingService.getAddress(41.383366F, 41.383366F);
+			Address address= geocodingService.getAddress(37.370155F, -5.963173F);
 			Assert.assertNotNull(address);
 			log.info(address);
 			

@@ -10,6 +10,9 @@ import javax.jws.soap.SOAPBinding.ParameterStyle;
 import javax.jws.soap.SOAPBinding.Style;
 import javax.jws.soap.SOAPBinding.Use;
 
+import org.apache.cxf.annotations.Policies;
+import org.apache.cxf.annotations.Policy;
+
 import com.armandorv.easytravel.business.domain.User;
 import com.armandorv.easytravel.usersws.exception.UsersWsException;
 
@@ -22,6 +25,10 @@ import com.armandorv.easytravel.usersws.exception.UsersWsException;
  */
 @WebService(name = "usersWebService", targetNamespace = "http://armandorv.com/easytravel/usersws")
 @SOAPBinding(style = Style.DOCUMENT, use = Use.LITERAL, parameterStyle = ParameterStyle.WRAPPED)
+@Policies({
+		@Policy(uri = "username-token-policy.xml", placement = Policy.Placement.BINDING),
+		//@Policy(uri = "sing-encrypt-policy.xml", placement = Policy.Placement.BINDING) 
+		})
 public interface UsersWebService {
 
 	/**

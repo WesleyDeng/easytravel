@@ -30,6 +30,9 @@ public class UsersWebServiceImpl implements UsersWebService {
 		} catch (BusinessException e) {
 			log.error("Error creating user :" + e.getMessage());
 			throw new UsersWsException("Error creating user :" + e.getMessage());
+		} catch (Exception e) {
+			log.error("Error creating user :" + e.getMessage());
+			throw new UsersWsException("Error newUser :" + e.getMessage());
 		}
 	}
 
@@ -42,6 +45,9 @@ public class UsersWebServiceImpl implements UsersWebService {
 			log.error("Error at deleteUser: userId = " + userId, e);
 			throw new UsersWsException("Error at deleteUser: userId = "
 					+ userId);
+		} catch (Exception e) {
+			log.error("Error creating user :" + e.getMessage());
+			throw new UsersWsException("Error deleteUser :" + e.getMessage());
 		}
 	}
 
@@ -63,6 +69,9 @@ public class UsersWebServiceImpl implements UsersWebService {
 			log.error("Error at deleteUser: username = " + username, e);
 			throw new UsersWsException("Error at deleteUser: username = "
 					+ username);
+		} catch (Exception e) {
+			log.error("Error creating user :" + e.getMessage());
+			throw new UsersWsException("Error deleteUser  :" + e.getMessage());
 		}
 
 	}
@@ -74,6 +83,9 @@ public class UsersWebServiceImpl implements UsersWebService {
 		} catch (BusinessException e) {
 			log.error("Error at getUserById: id = " + id, e);
 			throw new UsersWsException("Error at findUserById: id = " + id);
+		} catch (Exception e) {
+			log.error("Error creating user :" + e.getMessage());
+			throw new UsersWsException("Error findUser username :" + e.getMessage());
 		}
 	}
 
@@ -86,6 +98,10 @@ public class UsersWebServiceImpl implements UsersWebService {
 			throw new UsersWsException(
 					"Error at getUserByUsername: username = " + username);
 		}
+		 catch (Exception e) {
+				log.error("Error creating user :" + e.getMessage());
+				throw new UsersWsException("Error findUser:" + e.getMessage());
+			}
 	}
 
 	@Override
@@ -95,13 +111,16 @@ public class UsersWebServiceImpl implements UsersWebService {
 		} catch (BusinessException e) {
 			log.error("Error at getAllUsers.", e);
 			throw new UsersWsException("Error at getAllUsers.");
+		} catch (Exception e) {
+			log.error("Error creating user :" + e.getMessage());
+			throw new UsersWsException("Error listUsers:" + e.getMessage());
 		}
 	}
 
 	private Collection<User> firstN(Iterable<User> users, int max) {
 		Collection<User> firstN = new ArrayList<>();
 		int i = 0;
-		
+
 		for (User user : users) {
 			if (i < max) {
 				firstN.add(user);

@@ -2,12 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://cxf.apache.org/configuration/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:cxf="http://cxf.apache.org/core"
+	xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+	xmlns:p="http://cxf.apache.org/policy"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://cxf.apache.org/configuration/beans http://cxf.apache.org/schemas/configuration/cxf-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
-		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
-	
+		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+		 http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+          http://cxf.apache.org/policy http://cxf.apache.org/schemas/policy.xsd http://cxf.apache.org/transports/http/configuration
+           http://cxf.apache.org/schemas/configuration/http-conf.xsd">
+
 	<bean id="userWsClientConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
@@ -15,11 +20,39 @@
 				<value>classpath:usersws.properties</value>
 			</list>
 		</property>
-		<property name="placeholderPrefix" value="$uws{"/>
+		<property name="placeholderPrefix" value="$uws{" />
 	</bean>
 
-	<jaxws:client id="UsersWsClient" serviceClass="com.armandorv.easytravel.usersws.UsersWebService"
+	<http-conf:conduit
+		name="{urn:ebay:apis:eBLBaseComponents}Shopping.http-conduit">
+		<http-conf:client AllowChunking="false" 
+		/>
+	</http-conf:conduit>
+
+	<jaxws:client id="UsersWsClient"
+		serviceClass="com.armandorv.easytravel.usersws.UsersWebService"
 		address="$uws{port.soap.address}">
+
+		<jaxws:properties>
+			<entry key="ws-security.username" value="$uws{easytravel.usersws.username}" />
+			<entry key="ws-security.password" value="$uws{easytravel.usersws.password}" />
+			<!-- <entry key="ws-security.signature.properties" value="client-crypto.properties" />
+			<entry key="ws-security.encryption.properties" value="client-crypto.properties" />
+			<entry key="ws-security.encryption.username" value="myservicekey" />
+			<entry key="ws-security.callback-handler"
+				value="com.armandorv.easytravel.userswsclient.security.KeystorePasswordCallback" /> -->
+		</jaxws:properties>
+		<jaxws:features>
+			<p:policies>
+				<!-- <wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy"
+					URI="classpath:/sing-encrypt-policy.xml" />-->
+				<wsp:PolicyReference xmlns:wsp="http://www.w3.org/ns/ws-policy" 
+					URI="classpath:/username-token-policy.xml" /> 
+			</p:policies>
+			<bean class="org.apache.cxf.feature.LoggingFeature">
+				<property name="prettyLogging" value="true" />
+			</bean>
+		</jaxws:features>
 	</jaxws:client>
 
 	<context:annotation-config />

@@ -13,6 +13,7 @@
 	<artifactId>easytravel-users-ws</artifactId>
 	<packaging>war</packaging>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>com.armandorv.easytravel</groupId>
@@ -47,17 +48,19 @@
 					<artifactId>bcprov-jdk15</artifactId>
 					<groupId>org.bouncycastle</groupId>
 				</exclusion>
-				<exclusion>
-					<artifactId>xmlsec</artifactId>
-					<groupId>org.apache.santuario</groupId>
-				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<version>1.46</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.cloudfoundry</groupId>
 			<artifactId>cloudfoundry-runtime</artifactId>
-			<version>0.8.1</version>
+			<version>0.8.4</version>
 		</dependency>
 
 	</dependencies>

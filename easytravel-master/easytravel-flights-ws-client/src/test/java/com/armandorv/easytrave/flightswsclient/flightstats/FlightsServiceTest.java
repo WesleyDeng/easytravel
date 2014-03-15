@@ -36,7 +36,6 @@ public class FlightsServiceTest {
 	public void testFindFlights() throws FlightsException {
 		List<Flight> flights = flightsService.findFlights(BARCELONA_ICAO);
 		Assert.assertNotNull(flights);
-		Assert.assertFalse(flights.isEmpty());
 
 		for (Flight flight : flights) {
 			printFlight(flight);

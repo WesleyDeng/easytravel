@@ -22,6 +22,60 @@
 			<version>${cxf.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-policy</artifactId>
+			<version>${cxf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>${cxf.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>bcprov-jdk15</artifactId>
+					<groupId>org.bouncycastle</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<version>1.46</version>
+		</dependency>
+
+		<!-- Spring 3.2 dependencies -->
+		<dependency>
+			<artifactId>spring-tx</artifactId>
+			<groupId>org.springframework</groupId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>spring-aop</artifactId>
+			<groupId>org.springframework</groupId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>spring-orm</artifactId>
+			<groupId>org.springframework</groupId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<artifactId>spring-context</artifactId>
+			<groupId>org.springframework</groupId>
+			<version>${spring.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -69,7 +123,8 @@
 									<sourceRoot>${basedir}/src/generated/java</sourceRoot>
 									<wsdlOptions>
 										<wsdlOption>
-											<wsdl>http://users.easytravel.cloudfoundry.com/services/UsersWebService?wsdl</wsdl>
+											<wsdl>http://userseasytravel.cfapps.io/services/UsersWebService?wsdl</wsdl>
+											<!-- <wsdl>http://localhost:90/services/UsersWebService?wsdl</wsdl> -->
 											<serviceName>UsersWebService</serviceName>
 										</wsdlOption>
 									</wsdlOptions>

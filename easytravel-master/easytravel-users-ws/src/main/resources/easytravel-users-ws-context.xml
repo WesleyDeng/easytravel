@@ -31,23 +31,31 @@
 	<jaxws:endpoint id="usersWsEndpoint"
 		implementor="com.armandorv.easytravel.usersws.UsersWebServiceImpl"
 		address="$usersws{easytravel.usersws.address}">
-		<jaxws:properties>
-			<entry key="mtom-enabled" value="true" />
-		</jaxws:properties>
 
-<!-- 		<jaxws:inInterceptors>
-			<bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
-				<constructor-arg>
-					<map>
-						<entry key="action" value="UsernameToken" />
-						<entry key="passwordType" value="PasswordText" />
-						<entry key="passwordCallbackRef">
-							<ref bean="altaExpC1NnPasswordCallback" />
-						</entry>
-					</map>
-				</constructor-arg>
+		<jaxws:properties>
+			<!-- Crypto -->
+			<!-- <entry key="ws-security.signature.properties" value="server-crypto.properties" 
+				/> <entry key="ws-security.encryption.properties" value="server-crypto.properties" 
+				/> <entry key="ws-security.callback-handler" value-ref="passwordCallback" 
+				/> <entry key="ws-security.encryption.username" value="useReqSigCert" /> -->
+
+			<entry key="ws-security.callback-handler"
+				value-ref="passwordCallback" />
+
+		</jaxws:properties>
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature">
+				<property name="prettyLogging" value="true" />
 			</bean>
-		</jaxws:inInterceptors> -->
+		</jaxws:features>
+
 	</jaxws:endpoint>
+
+
+	<bean id="passwordCallback"
+		class="com.armandorv.easytravel.usersws.security.PasswordCallbackHandler">
+		<property name="username" value="$usersws{easytravel.usersws.username}" />
+		<property name="password" value="$usersws{easytravel.usersws.password}" />
+	</bean>
 
 </beans>

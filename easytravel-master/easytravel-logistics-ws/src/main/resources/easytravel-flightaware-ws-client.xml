@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://cxf.apache.org/configuration/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://cxf.apache.org/configuration/beans http://cxf.apache.org/schemas/configuration/cxf-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+	<!-- Server use basic authentication so WSS4 is not required. -->
+
+	<bean id="flightawareConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:flightaware.properties</value>
+			</list>
+		</property>
+		<property name="placeholderPrefix" value="$fli{" />
+	</bean>
+
+	<jaxws:client id="flightXMLClient"
+		serviceClass="com.flightaware.flightxml.soap.flightxml2.FlightXML2Soap"
+		address="$fli{flightaware.port.soap.address}" username="$fli{flightaware.username}"
+		password="$fli{flightaware.password}">
+	</jaxws:client>
+
+	<context:annotation-config />
+	<context:component-scan
+		base-package="com.armandorv.easytravel.flightswsclient.fligthaware" />
+
+</beans>
