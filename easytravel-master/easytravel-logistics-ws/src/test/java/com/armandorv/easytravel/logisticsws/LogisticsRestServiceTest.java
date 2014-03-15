@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class LogisticsRestServiceTest {
 
 	
 	@Test
+	@Ignore
 	public void testGetHotels() throws BusinessException{
 		log.info("Context loaded");
 		Collection<HotelInfo> hotels =  service.getHotels(41.383366F, 41.383366F);

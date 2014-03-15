@@ -17,10 +17,10 @@ import com.armandorv.easytravel.userswsclient.model.UserDetails;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:easytravel-users-ws-client.xml")
-public class UsersWebServiceClientTest {
+public class UsersWebServiceClientTestIT {
 
 	private static Logger log = Logger
-			.getLogger(UsersWebServiceClientTest.class);
+			.getLogger(UsersWebServiceClientTestIT.class);
 
 	@Autowired
 	private UsersService usersService;
