@@ -1,4 +1,4 @@
-package com.armandorv.easytrave.flightswsclient.flightstats;
+package com.armandorv.easytrave.flightswsclient.flightware;
 
 import java.util.List;
 
@@ -16,12 +16,12 @@ import com.armandorv.easytravel.flightswsclient.exception.FlightsException;
 import com.armandorv.easytravel.flightswsclient.model.Flight;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:easytravel-flightstats-ws-client.xml")
-public class FlightsServiceTest {
+@ContextConfiguration("classpath:easytravel-flightaware-ws-client.xml")
+public class FlightsServiceTestIT {
 
 	private static final String BARCELONA_ICAO = "LEBL";
 
-	private static Logger log = Logger.getLogger(FlightsServiceTest.class);
+	private static Logger log = Logger.getLogger(FlightsServiceTestIT.class);
 
 	@Autowired
 	private FlightsService flightsService;
@@ -36,26 +36,8 @@ public class FlightsServiceTest {
 	public void testFindFlights() throws FlightsException {
 		List<Flight> flights = flightsService.findFlights(BARCELONA_ICAO);
 		Assert.assertNotNull(flights);
-
-		for (Flight flight : flights) {
-			printFlight(flight);
-		}
-	}
-
-	private void printFlight(Flight flight) {
-
-		System.out.println(" ********* Airport ************");
-		
-		System.out.println("ID: " + flight.getId());
-		
-		System.out.println("Destiny ICAO: " + flight.getDestinationAirportICAO());
-		System.out.println("Destiny Name: " + flight.getDestinationAirportName());
-		System.out.println("Destiny City: " + flight.getDestinationCity());
-
-		System.out.println("Origin ICAO: " + flight.getOriginAirportICAO());
-		System.out.println("Origin Name: " + flight.getOriginAirportName());
-		System.out.println("Origin City: " + flight.getOriginCity());
-
+		Assert.assertFalse(flights.isEmpty());
+		log.info(flights);
 	}
 
 }
