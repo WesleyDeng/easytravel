@@ -1,4 +1,9 @@
 language: java
 jdk:
   - oraclejdk7
-script: sh -e 'cd easytravel-master' && mvn clean install && sh -e 'cd ..' && sh -e 'cd easytravel-users-manager' && mvn clean install
+before_install:
+ - cd easytravel-master
+
+before_script:
+ - cd easytravel-master
+script: mvn clean install 
