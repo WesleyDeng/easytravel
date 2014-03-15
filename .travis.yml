@@ -4,6 +4,4 @@ jdk:
 before_install:
  - cd easytravel-master
 
-before_script:
- - cd easytravel-master
 script: mvn clean install 
